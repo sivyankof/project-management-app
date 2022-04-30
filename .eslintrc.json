@@ -1,0 +1,82 @@
+{
+    "root": true,
+    "ignorePatterns": [
+        "projects/**/*"
+    ],
+    "overrides": [
+        {
+            "files": [
+                "src/**/*.ts"
+            ],
+            "parserOptions": {
+                "project": [
+                    "tsconfig.json"
+                ],
+                "createDefaultProgram": true
+            },
+            "extends": [
+                "plugin:@angular-eslint/recommended",
+                "plugin:@angular-eslint/template/process-inline-templates",
+                "airbnb-typescript/base",
+                "plugin:prettier/recommended"
+            ],
+            "plugins": [
+                "import"
+            ],
+            "rules": {
+                "@angular-eslint/directive-selector": [
+                    "error",
+                    {
+                        "type": "attribute",
+                        "prefix": "app",
+                        "style": "camelCase"
+                    }
+                ],
+                "@angular-eslint/component-selector": [
+                    "error",
+                    {
+                        "type": "element",
+                        "prefix": "app",
+                        "style": "kebab-case"
+                    }
+                ],
+                "arrow-body-style": "off",
+                "prefer-arrow-callback": "off",
+                "space-before-blocks": "off",
+                "import/no-named-default": "off",
+                "import/no-unresolved": "off",
+                "class-methods-use-this": "off",
+                "lines-between-class-members": "off",
+                "no-restricted-syntax": "off",
+                "regenerator-runtime": "off",
+                "@typescript-eslint/dot-notation": ["off"],
+                "@typescript-eslint/no-unused-vars": ["error"],
+                "@typescript-eslint/unbound-method": [
+                    "error",
+                    {
+                        "ignoreStatic": true
+                    }
+                ]
+            }
+        },
+        {
+            "files": [
+                "*.html"
+            ],
+            "excludedFiles": [
+                "*inline-template-*.component.html"
+            ],
+            "extends": [
+                "plugin:@angular-eslint/template/recommended"
+            ],
+            "rules": {
+                "prettier/prettier": [
+                    "error",
+                    {
+                        "parser": "angular"
+                    }
+                ]
+            }
+        }
+    ]
+}
