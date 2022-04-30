@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HeaderComponent } from './core/header/header.component';
+import { AuthLayoutComponent } from './core/auth-layout/auth-layout.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: HeaderComponent,
-        //TODO need to add guard
+        component: AuthLayoutComponent,
     },
 ];
 
