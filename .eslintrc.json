@@ -40,11 +40,17 @@
                         "style": "kebab-case"
                     }
                 ],
+                "arrow-body-style": "off",
+                "prefer-arrow-callback": "off",
                 "space-before-blocks": "off",
+                "import/no-named-default": "off",
                 "import/no-unresolved": "off",
-                "import/prefer-default-export": "off",
                 "class-methods-use-this": "off",
                 "lines-between-class-members": "off",
+                "no-restricted-syntax": "off",
+                "regenerator-runtime": "off",
+                "@typescript-eslint/dot-notation": ["off"],
+                "@typescript-eslint/no-unused-vars": ["error"],
                 "@typescript-eslint/unbound-method": [
                     "error",
                     {
