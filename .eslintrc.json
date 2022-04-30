@@ -16,9 +16,10 @@
             },
             "extends": [
                 "plugin:@angular-eslint/recommended",
-                "plugin:@angular-eslint/template/process-inline-templates",
                 "airbnb-typescript/base",
-                "plugin:prettier/recommended"
+                "plugin:@typescript-eslint/recommended",
+                "plugin:prettier/recommended",
+                "prettier"
             ],
             "plugins": [
                 "import"
@@ -49,8 +50,12 @@
                 "lines-between-class-members": "off",
                 "no-restricted-syntax": "off",
                 "regenerator-runtime": "off",
-                "@typescript-eslint/dot-notation": ["off"],
-                "@typescript-eslint/no-unused-vars": ["error"],
+                "@typescript-eslint/dot-notation": [
+                    "off"
+                ],
+                "@typescript-eslint/no-unused-vars": [
+                    "error"
+                ],
                 "@typescript-eslint/unbound-method": [
                     "error",
                     {
@@ -61,19 +66,16 @@
         },
         {
             "files": [
-                "*.html"
-            ],
-            "excludedFiles": [
-                "*inline-template-*.component.html"
+                "*.component.html"
             ],
             "extends": [
                 "plugin:@angular-eslint/template/recommended"
             ],
             "rules": {
-                "prettier/prettier": [
+                "max-len": [
                     "error",
                     {
-                        "parser": "angular"
+                        "code": 140
                     }
                 ]
             }
