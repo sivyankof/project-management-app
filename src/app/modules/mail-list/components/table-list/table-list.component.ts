@@ -9,9 +9,9 @@ import { MatSort } from '@angular/material/sort';
     styleUrls: ['./table-list.component.scss'],
 })
 export class TableListComponent implements AfterViewInit {
-    @Input() list: IBoardList[];
-
     @ViewChild(MatSort) sort: MatSort;
+
+    @Input() list: IBoardList[];
 
     displayedColumns: string[] = ['position', 'title', 'description', 'author', 'date'];
 

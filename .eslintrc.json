@@ -47,17 +47,16 @@
                 "import/no-named-default": "off",
                 "import/no-unresolved": "off",
                 "class-methods-use-this": "off",
-                "lines-between-class-members": "off",
                 "@typescript-eslint/lines-between-class-members": [
                     "error"
                 ],
-                //                "lines-between-class-members": [
-                //                    "error",
-                //                    "never",
-                //                    {
-                //                        "exceptAfterSingleLine": true
-                //                    }
-                //                ],
+                "lines-between-class-members": [
+                    "error",
+                    "always",
+                    {
+                        "exceptAfterSingleLine": true
+                    }
+                ],
                 "no-restricted-syntax": "off",
                 "regenerator-runtime": "off",
                 "@typescript-eslint/no-unsafe-return": "error",
