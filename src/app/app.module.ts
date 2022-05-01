@@ -8,9 +8,18 @@ import { FooterComponent } from './core/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material/material.module';
 import { AuthLayoutComponent } from './core/auth-layout/auth-layout.component';
+import { EditProfileComponent } from './core/components/edit-profile/edit-profile.component';
+import { CreateNewBoardComponent } from './core/components/create-new-board/create-new-board.component';
 
 @NgModule({
-    declarations: [AppComponent, HeaderComponent, FooterComponent, AuthLayoutComponent],
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        AuthLayoutComponent,
+        EditProfileComponent,
+        CreateNewBoardComponent,
+    ],
     imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule],
     providers: [],
     bootstrap: [AppComponent],

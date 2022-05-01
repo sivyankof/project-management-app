@@ -1,5 +1,33 @@
 <mat-toolbar color='primary'>
-    <mat-toolbar-row>
-        <span>HEADER</span>
-    </mat-toolbar-row>
+
+    <mat-nav-list class='nav-list'>
+        <a
+            [routerLink]='link.route'
+            routerLinkActive='selected'
+            mat-list-item
+            *ngFor='let link of links'
+        >
+            <mat-icon>{{link.icon}}</mat-icon>
+            <span>{{ link.name }}</span>
+        </a>
+
+    </mat-nav-list>
+
+    <mat-action-list aria-label>
+        <button mat-list-item>
+            <mat-icon>translate</mat-icon>
+            RU/EN
+        </button>
+        <button mat-list-item>
+            <mat-icon>power_settings_new</mat-icon>
+            logout
+
+        </button>
+        <button mat-list-item>
+
+            <mat-icon>person_outline</mat-icon>
+            login
+        </button>
+    </mat-action-list>
+
 </mat-toolbar>
