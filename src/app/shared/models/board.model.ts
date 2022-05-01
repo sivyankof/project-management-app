@@ -1,4 +1,4 @@
-export interface BoardModel {
+export interface IBoard {
     id: string;
     title: string;
 }

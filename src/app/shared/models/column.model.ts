@@ -1,4 +1,4 @@
-export interface ColumnModel {
+export interface IColumn {
     id: string;
     title: string;
     order: string;

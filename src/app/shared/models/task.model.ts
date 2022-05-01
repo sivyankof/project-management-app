@@ -1,4 +1,4 @@
-export interface TaskModel {
+export interface ITask {
     id: string;
     title: string;
     order: number;
