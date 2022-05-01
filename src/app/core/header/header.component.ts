@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
     selector: 'app-header',
@@ -18,4 +19,10 @@ export class HeaderComponent {
             route: '/create-new-board',
         },
     ];
+
+    constructor(private authService: AuthService) {}
+
+    public goSignInPage(): void {
+        this.authService.goSignInPage();
+    }
 }

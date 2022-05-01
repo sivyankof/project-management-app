@@ -14,6 +14,10 @@ const routes: Routes = [
                 redirectTo: 'edit-profile',
                 pathMatch: 'full',
             },
+            {
+                path: 'auth',
+                loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+            },
             // {
             //TODO need crate main module
             // path: '',
