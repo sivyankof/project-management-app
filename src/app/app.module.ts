@@ -12,6 +12,7 @@ import { EditProfileComponent } from './core/components/edit-profile/edit-profil
 import { CreateNewBoardComponent } from './core/components/create-new-board/create-new-board.component';
 import { DataService } from './services/data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NotFoundComponent } from './core/not-found/not-found.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
         AuthLayoutComponent,
         EditProfileComponent,
         CreateNewBoardComponent,
+        NotFoundComponent,
     ],
     imports: [
         BrowserModule,
