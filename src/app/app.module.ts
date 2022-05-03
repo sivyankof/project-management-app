@@ -13,6 +13,7 @@ import { CreateNewBoardComponent } from './core/components/create-new-board/crea
 import { DataService } from '@service/data.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from '@service/auth.interceptor';
+import { WelcomePageComponent } from './core/welcome-page/welcome-page.component';
 
 @NgModule({
     declarations: [
