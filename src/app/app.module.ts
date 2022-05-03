@@ -11,8 +11,8 @@ import { AuthLayoutComponent } from './core/auth-layout/auth-layout.component';
 import { EditProfileComponent } from './core/components/edit-profile/edit-profile.component';
 import { CreateNewBoardComponent } from './core/components/create-new-board/create-new-board.component';
 import { DataService } from './services/data.service';
-import { HttpClientModule } from '@angular/common/http';
-import { WelcomePageComponent } from './core/welcome-page/welcome-page.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './services/auth.interceptor';
 
 @NgModule({
     declarations: [
@@ -31,7 +31,10 @@ import { WelcomePageComponent } from './core/welcome-page/welcome-page.component
         MaterialModule,
         HttpClientModule,
     ],
-    providers: [DataService],
+    providers: [
+        DataService,
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

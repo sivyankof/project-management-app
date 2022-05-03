@@ -18,16 +18,12 @@
             <mat-icon>translate</mat-icon>
             RU/EN
         </button>
-        <button mat-list-item>
+
+        <button mat-list-item (click)='logOut()'>
             <mat-icon>power_settings_new</mat-icon>
             logout
-
         </button>
-        <button mat-list-item (click)="goSignInPage()">
 
-            <mat-icon>person_outline</mat-icon>
-            login
-        </button>
     </mat-action-list>
 
 </mat-toolbar>

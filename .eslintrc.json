@@ -48,18 +48,10 @@
                 "import/no-unresolved": "off",
                 "class-methods-use-this": "off",
                 "@typescript-eslint/lines-between-class-members": [
-                    "error"
-                ],
-                "lines-between-class-members": [
-                    "error",
-                    "always",
-                    {
-                        "exceptAfterSingleLine": true
-                    }
+                    "off"
                 ],
                 "no-restricted-syntax": "off",
                 "regenerator-runtime": "off",
-                "@typescript-eslint/no-unsafe-return": "error",
                 "@typescript-eslint/explicit-module-boundary-types": [
                     "error"
                 ],
