@@ -20,6 +20,10 @@ const routes: Routes = [
                     import('@modules/mail-list/main-list.module').then((m) => m.MainListModule),
             },
             {
+                path: 'auth',
+                loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+            },
+            {
                 path: 'edit-profile',
                 component: EditProfileComponent,
             },
