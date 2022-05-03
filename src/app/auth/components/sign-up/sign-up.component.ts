@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { ISignUp } from '../../models/auth';
 
 @Component({
     selector: 'app-sign-up',
@@ -38,10 +39,10 @@ export class SignUpComponent implements OnInit, OnDestroy {
         });
     }
 
-    submit(): void {
+    registration(): void {
         this.regForm.markAsTouched();
         if (this.regForm.valid) {
-            const body = {
+            const body: ISignUp = {
                 name: this.regForm.value.name,
                 password: this.regForm.value.pass.password,
                 login: this.regForm.value.login,

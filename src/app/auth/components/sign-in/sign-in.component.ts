@@ -28,7 +28,7 @@ export class SignInComponent implements OnInit, OnDestroy {
         });
     }
 
-    submit(): void {
+    login(): void {
         this.loginForm.markAsTouched();
         if (this.loginForm.valid) {
             this.authService

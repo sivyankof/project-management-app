@@ -1,4 +1,4 @@
-<form class='container' [formGroup]='regForm' (submit)='submit()'>
+<form class='container' [formGroup]='regForm' (submit)='registration()'>
     <h2>Registration</h2>
 
     <mat-error *ngIf='regForm.hasError("conflict")'>
@@ -74,7 +74,7 @@
     </ng-container>
 
 
-    <button mat-raised-button color='warn' type='submit'>SingUp</button>
+    <button mat-raised-button color='warn' type='submit'>Registration</button>
 
     <a routerLink='../sign-in'>Back</a>
 </form>

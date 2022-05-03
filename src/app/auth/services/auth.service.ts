@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { ISignIn, ISignUp } from '../models/auth';
 
 @Injectable({
     providedIn: 'root',
@@ -11,26 +12,15 @@ export class AuthService {
 
     constructor(private http: HttpClient) {}
 
-    public singIn(form: {
-        login: string;
-        password: string;
-    }): Observable<{ login: string; password: string; token: string }> {
+    public singIn(form: ISignIn): Observable<ISignIn> {
         return this.http
             .post(`${this.URL}signin`, form, this.getDefaultRequestOptions())
             .pipe(catchError(this.handleError.bind(this)));
     }
 
-    public registration(form: {
-        name: string;
-        login: string;
-        password: string;
-    }): Observable<{ name: string; login: string; password: string }> {
+    public registration(form: ISignUp): Observable<ISignUp> {
         return this.http
-            .post<{ name: string; login: string; password: string }>(
-                `${this.URL}signup`,
-                form,
-                this.getDefaultRequestOptions(),
-            )
+            .post<ISignUp>(`${this.URL}signup`, form, this.getDefaultRequestOptions())
             .pipe(catchError(this.handleError.bind(this)));
     }
 
