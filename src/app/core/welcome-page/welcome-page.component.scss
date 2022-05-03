@@ -1,0 +1,26 @@
+.welcome-page {
+    max-width: 1460px;
+    margin: 0 auto;
+    padding-top: 20px;
+    &-title {
+        text-align: center;
+        text-transform: uppercase;
+    }
+    &-subtitle {
+        text-align: center;
+    }
+}
+.team-wrap {
+    display: flex;
+    justify-content: center;
+}
+.team-card {
+    margin: 0 30px;
+    &__img {
+        border-radius: 50%;
+    }
+    &__title {
+        margin-top: 20px;
+        text-align: center;
+    }
+}

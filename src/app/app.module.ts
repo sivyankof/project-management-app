@@ -22,6 +22,7 @@ import { AuthInterceptor } from '@service/auth.interceptor';
         AuthLayoutComponent,
         EditProfileComponent,
         CreateNewBoardComponent,
+        WelcomePageComponent,
     ],
     imports: [
         BrowserModule,
