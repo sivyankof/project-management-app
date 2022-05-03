@@ -23,13 +23,6 @@ const routes: Routes = [
                 path: 'auth',
                 loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
             },
-            // {
-            //TODO need crate main module
-            // path: '',
-
-            // loadChildren: () =>
-            //     import('@modules/dashboard/dashboard.module').then((m) => m.DashboardModule),
-            // },
             {
                 path: 'edit-profile',
                 component: EditProfileComponent,
