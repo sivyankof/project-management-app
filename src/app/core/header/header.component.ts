@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/auth/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-header',
@@ -9,20 +9,26 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 export class HeaderComponent {
     public links = [
         {
+            icon: 'home',
+            name: 'Home',
+            route: 'list',
+        },
+        {
             icon: 'edit',
             name: 'Edit profile',
-            route: '/edit-profile',
+            route: 'edit-profile',
         },
         {
             icon: 'add_box',
             name: 'Create new board',
-            route: '/create-new-board',
+            route: 'create-new-board',
         },
     ];
 
-    constructor(private authService: AuthService) {}
+    constructor(private router: Router) {}
 
-    public goSignInPage(): void {
-        this.authService.goSignInPage();
+    logOut(): void {
+        localStorage.clear();
+        this.router.navigate(['auth']);
     }
 }

@@ -1,1 +1,38 @@
-<p>sign-in works!</p>
+<form class='container' [formGroup]='loginForm' (submit)='login()'>
+    <h2>Login</h2>
+
+    <mat-error *ngIf="loginForm.hasError('loginErr')">
+        {{loginForm.getError('loginErr')}}
+    </mat-error>
+    <mat-form-field appearance='fill'>
+        <mat-label>Login</mat-label>
+        <input matInput type='text' formControlName='login'>
+
+        <mat-error *ngIf="loginForm.controls['login'].hasError('required')">
+            The login field is required
+        </mat-error>
+        <mat-error *ngIf="loginForm.controls['login'].hasError('minlength')">
+            Minimum length of 5 characters
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance='fill'>
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName='password'>
+        <button mat-icon-button matSuffix (click)='hide = !hide' [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]='hide'>
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+
+        <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+            The password field is required
+        </mat-error>
+        <mat-error *ngIf="loginForm.controls['password'].hasError('minlength')">
+            Minimum length of 5 characters
+        </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color='warn' type='submit'>Login</button>
+
+    <a routerLink='../registration'>Registration</a>
+</form>

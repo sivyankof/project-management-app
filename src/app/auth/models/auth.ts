@@ -1,6 +1,6 @@
 export interface ISignUp {
     name: string;
-    mail: string;
+    login: string;
     password: string;
 }
 
