@@ -3,12 +3,13 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ISignIn, ISignUp } from '../models/auth';
+import { API_URL } from '@shared/constants/path.constants';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
-    private readonly URL = 'http://localhost:4200/api/';
+    private readonly URL = API_URL;
 
     constructor(private http: HttpClient) {}
 

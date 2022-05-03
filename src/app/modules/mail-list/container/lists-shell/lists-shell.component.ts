@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../../../services/data.service';
-import { IBoardList } from '../../../../shared/models/board-list.interface';
+import { DataService } from '@service/data.service';
+import { IBoardList } from '@shared/models/board-list.interface';
 import { take } from 'rxjs/operators';
 
 @Component({

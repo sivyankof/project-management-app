@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthLayoutComponent } from './core/auth-layout/auth-layout.component';
 import { EditProfileComponent } from './core/components/edit-profile/edit-profile.component';
 import { CreateNewBoardComponent } from './core/components/create-new-board/create-new-board.component';
-import { AuthGuard } from './services/guards/auth.guard';
+import { AuthGuard } from '@service/guards/auth.guard';
 
 const routes: Routes = [
     {
