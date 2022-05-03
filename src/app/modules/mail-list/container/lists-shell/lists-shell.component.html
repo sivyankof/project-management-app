@@ -1,0 +1,10 @@
+<div *ngIf='data; else empty'>
+    <app-table-list [list]='data'></app-table-list>
+</div>
+
+<mat-spinner *ngIf='isLoading'></mat-spinner>
+
+<ng-template #empty>
+    <p *ngIf='!isLoading'>File not found</p>
+</ng-template>
+

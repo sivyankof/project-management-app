@@ -11,8 +11,13 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                redirectTo: 'edit-profile',
+                redirectTo: 'main-list',
                 pathMatch: 'full',
+            },
+            {
+                path: 'main-list',
+                loadChildren: () =>
+                    import('@modules/mail-list/main-list.module').then((m) => m.MainListModule),
             },
             {
                 path: 'auth',

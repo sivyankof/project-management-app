@@ -10,6 +10,8 @@ import { MaterialModule } from './shared/material/material.module';
 import { AuthLayoutComponent } from './core/auth-layout/auth-layout.component';
 import { EditProfileComponent } from './core/components/edit-profile/edit-profile.component';
 import { CreateNewBoardComponent } from './core/components/create-new-board/create-new-board.component';
+import { DataService } from './services/data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -20,8 +22,14 @@ import { CreateNewBoardComponent } from './core/components/create-new-board/crea
         EditProfileComponent,
         CreateNewBoardComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule],
-    providers: [],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        HttpClientModule,
+    ],
+    providers: [DataService],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
