@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
-import { IBoardList } from '../../../../shared/models/board-list.interface';
+import { IBoardList } from '@shared/models/board-list.interface';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 

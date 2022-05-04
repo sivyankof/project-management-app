@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthLayoutComponent } from './core/auth-layout/auth-layout.component';
 import { EditProfileComponent } from './core/components/edit-profile/edit-profile.component';
 import { CreateNewBoardComponent } from './core/components/create-new-board/create-new-board.component';
+import { AuthGuard } from '@service/guards/auth.guard';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 
 const routes: Routes = [
@@ -12,8 +13,13 @@ const routes: Routes = [
         pathMatch: 'full',
     },
     {
+        path: 'auth',
+        loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule),
+    },
+    {
         path: 'main',
         component: AuthLayoutComponent,
+        canActivateChild: [AuthGuard],
         children: [
             {
                 path: '',
@@ -25,6 +31,8 @@ const routes: Routes = [
                 loadChildren: () =>
                     import('@modules/mail-list/main-list.module').then((m) => m.MainListModule),
             },
+
+            //TODO: Возможно нужно будет сделать из edit и create модули
             {
                 path: 'edit-profile',
                 component: EditProfileComponent,

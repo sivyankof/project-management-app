@@ -23,6 +23,11 @@
         "paths": {
             "@modules/*": [
                 "src/app/modules/*"
+            ],
+            "@shared/*": [
+                "src/app/shared/*"
+            ],"@service/*": [
+                "src/app/services/*"
             ]
         }
     },
