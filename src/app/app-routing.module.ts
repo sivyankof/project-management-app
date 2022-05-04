@@ -41,11 +41,11 @@ const routes: Routes = [
                 path: 'create-new-board',
                 component: CreateNewBoardComponent,
             },
-            {
-                path: '**',
-                component: NotFoundComponent,
-            },
         ],
+    },
+    {
+        path: '**',
+        component: NotFoundComponent,
     },
 ];
 
