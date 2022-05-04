@@ -8,15 +8,20 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
 const routes: Routes = [
     {
         path: '',
+        redirectTo: 'auth',
+        pathMatch: 'full',
+    },
+    {
+        path: 'main',
         component: AuthLayoutComponent,
         children: [
             {
                 path: '',
-                redirectTo: 'main-list',
+                redirectTo: 'list',
                 pathMatch: 'full',
             },
             {
-                path: 'main-list',
+                path: 'list',
                 loadChildren: () =>
                     import('@modules/mail-list/main-list.module').then((m) => m.MainListModule),
             },
