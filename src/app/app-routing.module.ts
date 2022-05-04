@@ -4,6 +4,7 @@ import { AuthLayoutComponent } from './core/auth-layout/auth-layout.component';
 import { EditProfileComponent } from './core/components/edit-profile/edit-profile.component';
 import { CreateNewBoardComponent } from './core/components/create-new-board/create-new-board.component';
 import { AuthGuard } from '@service/guards/auth.guard';
+import { NotFoundComponent } from './core/not-found/not-found.component';
 
 const routes: Routes = [
     {
@@ -39,6 +40,10 @@ const routes: Routes = [
             {
                 path: 'create-new-board',
                 component: CreateNewBoardComponent,
+            },
+            {
+                path: '**',
+                component: NotFoundComponent,
             },
         ],
     },
