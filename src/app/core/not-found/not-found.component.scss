@@ -1,19 +1,10 @@
 :host {
-    margin-top: 200px;
     display: flex;
     justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    background-color: #f7f7f7;
 }
 
-.not-found-page {
-    width: 360px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.not-found-page__text {
-  margin: 0 0 0 30px;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 28px;
-}
