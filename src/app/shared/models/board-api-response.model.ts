@@ -8,7 +8,7 @@ export interface IColumnsApiResponse {
     id: string;
     title: string;
     order: number;
-    tasks: ITaskApiResponse[];
+    tasks?: ITaskApiResponse[];
 }
 
 export interface ITaskApiResponse {
@@ -19,7 +19,7 @@ export interface ITaskApiResponse {
     userId: string;
     boardId: string;
     columnId: string;
-    files: IFilesApiResponse[];
+    files?: IFilesApiResponse[];
 }
 
 export interface IFilesApiResponse {

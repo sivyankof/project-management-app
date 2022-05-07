@@ -1,0 +1,33 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 100px 50px 20px;
+    height: 80%;
+
+    .back-btn {
+        transform: scale(1.6);
+        width: 50px;
+        color: #e07a5f;
+    }
+
+    button {
+        margin-bottom: 20px;
+        min-width: 200px;
+        font-size: 20px;
+        height: inherit;
+        margin-right: 20px;
+    }
+
+    .column-wrap {
+        display: flex;
+        flex-direction: row;
+        height: 50%;
+
+    }
+
+    .empty {
+        margin: 150px auto 0 ;
+        width: 100px;
+    }
+}

@@ -1,0 +1,13 @@
+app-header, app-footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+app-header {
+    top: 0;
+}
+app-footer {
+    bottom: 0;
+}

@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { DataService } from '@service/data.service';
 import { IBoard } from '@shared/models/board-list.interface';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { MainService } from '@modules/mail-list/services/main.service';
 
 @Component({
     selector: 'app-lists-shell',
@@ -14,12 +14,12 @@ export class ListsShellComponent implements OnInit, OnDestroy {
     isLoading = false;
     private destroy$ = new Subject();
 
-    constructor(private dataService: DataService) {}
+    constructor(private mainService: MainService) {}
 
     ngOnInit(): void {
         this.isLoading = true;
 
-        this.dataService
+        this.mainService
             .getListItems()
             .pipe(takeUntil(this.destroy$))
             .subscribe((boards) => {
