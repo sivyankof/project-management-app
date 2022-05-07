@@ -1,5 +1,5 @@
-<div *ngIf='data; else empty'>
-    <app-table-list [list]='data'></app-table-list>
+<div *ngIf='boards; else empty'>
+    <app-table-list [boards]='boards'></app-table-list>
 </div>
 
 <mat-spinner *ngIf='isLoading'></mat-spinner>
