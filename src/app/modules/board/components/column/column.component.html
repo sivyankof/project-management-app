@@ -1,0 +1,7 @@
+<div class='column'>
+    <h4 [style.color]='"#14213d"'>Title: {{column.title}}</h4>
+
+    <div class='tasks'>
+        <p *ngIf='!column.tasks.length'>Task list is empty</p>
+    </div>
+</div>
