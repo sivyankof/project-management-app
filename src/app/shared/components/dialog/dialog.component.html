@@ -1,8 +1,20 @@
-<h1 mat-dialog-title>Hi</h1>
+<h1 mat-dialog-title>Hi!</h1>
 <div mat-dialog-content>
-    <p>Remove "<b>{{data.nameItem}}</b>" Item?</p>
+    <p *ngIf='data.nameItem'>Remove "<b>{{data.nameItem}}</b>" Item?</p>
+
+    <ng-container *ngIf='data.inputTitle'>
+        <mat-form-field class='example-full-width' appearance='fill'>
+            <mat-label>Add new column name</mat-label>
+            <input matInput placeholder='Title' value='title' [formControl]='newTitleFormControl'>
+
+            <mat-error *ngIf="newTitleFormControl.hasError('required')">
+                Please enter a name!
+            </mat-error>
+        </mat-form-field>
+    </ng-container>
+
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button mat-dialog-close='yes' cdkFocusInitial>Ok</button>
+    <button mat-button (click)='onNoClick()'>No Thanks</button>
+    <button mat-button [mat-dialog-close]='newTitleFormControl.value' cdkFocusInitial>Ok</button>
 </div>

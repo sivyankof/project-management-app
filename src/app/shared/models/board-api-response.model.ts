@@ -12,13 +12,13 @@ export interface IColumnsApiResponse {
 }
 
 export interface ITaskApiResponse {
-    id: string;
+    id?: string;
     title: string;
-    order: number;
+    order?: number;
     description: string;
-    userId: string;
-    boardId: string;
-    columnId: string;
+    userId?: string;
+    boardId?: string;
+    columnId?: string;
     files?: IFilesApiResponse[];
 }
 
