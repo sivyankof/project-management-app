@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { IBoardApiResponse } from '@shared/models/board-api-response.model';
+import { IBoardApiResponse, ITaskApiResponse } from '@shared/models/board-api-response.model';
 import { HttpService } from '@service/http.service';
 import { take, tap } from 'rxjs/operators';
 
@@ -36,9 +36,25 @@ export class BoardService implements OnDestroy {
             });
     }
 
+    public addTask(columnId: string, task: ITaskApiResponse): void {
+        this.http
+            .post(`boards/${this.boardsId}/columns/${columnId}/tasks`, task)
+            .pipe(take(1))
+            .subscribe(() => this.initBoards(this.boardsId));
+    }
+
     public deleteColumn(columnId: string): void {
         this.http
             .delete(`boards/${this.boardsId}/columns/${columnId}`)
+            .pipe(take(1))
+            .subscribe(() => {
+                this.initBoards(this.boardsId);
+            });
+    }
+
+    public deleteTask(taskId: string, columnId: string): void {
+        this.http
+            .delete(`boards/${this.boardsId}/columns/${columnId}/tasks/${taskId}`)
             .pipe(take(1))
             .subscribe(() => {
                 this.initBoards(this.boardsId);

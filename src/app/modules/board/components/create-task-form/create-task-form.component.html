@@ -1,0 +1,30 @@
+<form [formGroup]='formCreateTask' (submit)='formCreateTask.valid && formCreateTask.markAllAsTouched()'>
+    <mat-form-field appearance='fill'>
+        <mat-label>Title</mat-label>
+        <input matInput formControlName='title'>
+
+        <mat-error *ngIf='formCreateTask.get("title").hasError("required")'>
+            Fill box is required.
+        </mat-error>
+        <mat-error *ngIf='formCreateTask.get("title").hasError("minlength")'>
+           Min length 3.
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance='fill'>
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName='description'></textarea>
+
+        <mat-error *ngIf='formCreateTask.get("description").hasError("required")'>
+            Fill box is required.
+        </mat-error>
+        <mat-error *ngIf='formCreateTask.get("description").hasError("minlength")'>
+            Min length 3.
+        </mat-error>
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+        <button mat-button (click)='onNoClick()'>No Thanks</button>
+        <button mat-button type='submit' (click)='onSubmit()' cdkFocusInitial>Create</button>
+    </div>
+</form>

@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { BoardService } from '@modules/board/services/board.service';
-import { IBoardApiResponse, IColumnsApiResponse } from '@shared/models/board-api-response.model';
+import {
+    IBoardApiResponse,
+    IColumnsApiResponse,
+    ITaskApiResponse,
+} from '@shared/models/board-api-response.model';
 import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '@shared/components/dialog/dialog.component';
+import { take } from 'rxjs/operators';
 
 @Component({
     selector: 'app-board-shell',
@@ -22,7 +27,6 @@ export class BoardShellComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        // Получаем id из url и загружаем стейт
         this.route.queryParams.subscribe((params: Params) => {
             this.boardService.initBoards(params.id);
 
@@ -30,23 +34,64 @@ export class BoardShellComponent implements OnInit {
         });
     }
 
-    addColumn(): void {
-        //TODO нужно сделать попап
+    onAddTask(data: { task: ITaskApiResponse; columnId: string }): void {
+        const userId = JSON.parse(localStorage.getItem('login')).id;
+        const updateTask = { ...data.task, userId };
 
-        this.boardService.addColumn('qweqweqwe');
+        this.boardService.addTask(data.columnId, updateTask);
+    }
+
+    addColumn(): void {
+        const config = {
+            data: {
+                inputTitle: true,
+            },
+        };
+
+        this.openDialog(DialogComponent, config)
+            .pipe(take(1))
+            .subscribe((result) => {
+                if (result) {
+                    this.boardService.addColumn(result);
+                }
+            });
     }
 
     onDeleteColumn(column: IColumnsApiResponse): void {
-        const dialogRef = this.dialog.open(DialogComponent, {
+        const config = {
             data: {
                 nameItem: column.title,
             },
-        });
+        };
 
-        dialogRef.afterClosed().subscribe((result) => {
-            if (result) {
-                this.boardService.deleteColumn(column.id);
-            }
-        });
+        this.openDialog(DialogComponent, config)
+            .pipe(take(1))
+            .subscribe((result) => {
+                if (result) {
+                    this.boardService.deleteColumn(column.id);
+                }
+            });
+    }
+
+    onDeleteTask(data: { task: ITaskApiResponse; columnId: string }): void {
+        const config = {
+            data: {
+                nameItem: data.task.title,
+            },
+        };
+
+        this.openDialog(DialogComponent, config)
+            .pipe(take(1))
+            .subscribe((res) => {
+                if (res) {
+                    this.boardService.deleteTask(data.task.id, data.columnId);
+                }
+            });
+    }
+
+    private openDialog(component, config?): Observable<any> {
+        const dialogRef = this.dialog.open(component, config);
+
+        return dialogRef.afterClosed();
     }
 }
