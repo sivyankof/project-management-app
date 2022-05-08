@@ -33,6 +33,11 @@ const routes: Routes = [
                     import('@modules/mail-list/main-list.module').then((m) => m.MainListModule),
             },
 
+            {
+                path: 'board',
+                loadChildren: () =>
+                    import('@modules/board/board.module').then((m) => m.BoardModule),
+            },
             //TODO: Возможно нужно будет сделать из edit и create модули
             {
                 path: 'edit-profile',

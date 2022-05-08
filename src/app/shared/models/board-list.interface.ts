@@ -1,7 +1,4 @@
-export interface IBoardList {
-    position: number;
+export interface IBoard {
+    id: string;
     title: string;
-    description: string;
-    date: string;
-    author: string;
 }

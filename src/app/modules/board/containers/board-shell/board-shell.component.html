@@ -1,0 +1,48 @@
+<a [routerLink]='["../"]' class='back-btn'>
+    <mat-icon>arrow_back</mat-icon>
+</a>
+
+<ng-container *ngIf='this.boards$ | async; else spinner'>
+
+    <h3>{{(this.boards$ | async).title}}</h3>
+
+
+    <ng-container class='container' *ngIf='(this.boards$ | async).columns.length; else emptyColumn'>
+
+        <div class='column-wrap'>
+            <app-column *ngFor='let column of (this.boards$ | async).columns; let i = index'
+                        [column]='column'
+                        [index]='i'>
+
+            </app-column>
+
+            <button mat-raised-button color='warn'
+                    aria-label='Created column'
+                    type='button'
+                    (click)='addColumn()'>
+                + Add column
+            </button>
+        </div>
+
+    </ng-container>
+
+    <ng-template #emptyColumn>
+        <div class='empty'>
+            <button mat-raised-button color='warn'
+                    aria-label='Created column'
+                    type='button'
+                    (click)='addColumn()'>
+                + Add column
+            </button>
+
+            Non column
+
+        </div>
+
+    </ng-template>
+
+
+</ng-container>
+<ng-template #spinner>
+    <mat-spinner></mat-spinner>
+</ng-template>

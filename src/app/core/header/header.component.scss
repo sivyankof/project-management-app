@@ -1,5 +1,6 @@
 mat-toolbar {
     justify-content: space-between;
+    background-color: #81b29a !important;
 
     mat-nav-list {
         display: flex;
@@ -26,7 +27,7 @@ mat-toolbar {
         button {
             color: white;
 
-            mat-icon{
+            mat-icon {
                 margin-right: 10px;
             }
         }

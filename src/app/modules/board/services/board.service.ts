@@ -1,50 +1,63 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API_URL } from '@shared/constants/path.constants';
-import { IBoard } from '@shared/models/board.model';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { IBoardApiResponse } from '@shared/models/board-api-response.model';
+import { HttpService } from '@service/http.service';
+import { take, tap } from 'rxjs/operators';
+import { SnackBarService } from '@service/snack-bar.service';
 
 @Injectable()
 export class BoardService {
-    private readonly URL = API_URL;
-    constructor(private http: HttpClient) {}
+    private boardsId: string;
+    private boards$: BehaviorSubject<IBoardApiResponse> = new BehaviorSubject<IBoardApiResponse>(
+        null,
+    );
 
-    public createBoard(boardTitle: string): Observable<IBoard> {
-        console.log(boardTitle);
-        return this.http
-            .post(
-                `${this.URL}boards`,
-                {
-                    title: boardTitle,
-                },
-                this.getDefaultRequestOptions(),
-            )
-            .pipe(catchError(this.handleError.bind(this)));
-    }
+    constructor(private http: HttpService, private snackBarService: SnackBarService) {}
 
-    private getDefaultRequestOptions() {
-        const header = new HttpHeaders({
-            'Content-Type': 'application/json',
+    public addBoard(boardTitle: string): void {
+        const body = { title: boardTitle };
+        this.http.post(`boards`, body).subscribe((response) => {
+            if (response['id']) {
+                this.snackBarService.openSnackBar(`Board "${boardTitle}" was created`);
+            } else {
+                this.snackBarService.openSnackBar(`Board was not created!`);
+            }
         });
-        return { headers: header };
     }
 
-    private handleError(err: HttpErrorResponse | ErrorEvent | any): any {
-        let message: string;
-        let status: number;
-        if (err.error instanceof ErrorEvent) {
-            message = `An error occurred: ${err.error.message}`;
-            status = err.error.status;
-        } else {
-            message = `Backend returned code ${err.status}: ${err.message}`;
-            status = err.status;
-        }
+    // Получаем весь стейт в виде обзерва Один раз полдписывается и он автоматичеки обновляется
+    public getBoards(): Observable<IBoardApiResponse> {
+        return this.boards$.asObservable();
+    }
 
-        console.error(message);
+    // Инициализирует загрузку всей борды
+    public initBoards(id: string): void {
+        this.init(id);
+    }
 
-        const errorObj = { message, status };
+    // Добавляем новую доску и обновляем наш стейт
+    public addColumn(title: string): void {
+        const { id, columns } = this.boards$.getValue();
+        const body = { title: title, order: columns.length };
 
-        return throwError(errorObj);
+        this.http.post(`boards/${id}/columns`, body).subscribe(() => {
+            this.initBoards(this.boardsId);
+        });
+    }
+
+    // Очищает все данные по борде после выхода из компонента
+    public destroyBoard(): void {
+        this.boards$.next(null);
+        this.boards$.complete();
+    }
+
+    private init(id: string): void {
+        this.http
+            .get(`boards/${id}`)
+            .pipe(
+                take(1),
+                tap(() => (this.boardsId = id)),
+            )
+            .subscribe((boards) => this.boards$.next(boards));
     }
 }
