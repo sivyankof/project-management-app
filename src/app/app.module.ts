@@ -15,6 +15,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from '@service/auth.interceptor';
 import { WelcomePageComponent } from './core/welcome-page/welcome-page.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -33,6 +34,7 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
         BrowserAnimationsModule,
         MaterialModule,
         HttpClientModule,
+        ReactiveFormsModule,
     ],
     providers: [
         DataService,
