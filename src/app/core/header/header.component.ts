@@ -18,11 +18,6 @@ export class HeaderComponent {
             name: 'Edit profile',
             route: 'edit-profile',
         },
-        {
-            icon: 'add_box',
-            name: 'Create new board',
-            route: 'create-new-board',
-        },
     ];
 
     constructor(private router: Router) {}

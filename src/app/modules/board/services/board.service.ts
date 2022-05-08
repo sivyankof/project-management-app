@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { IBoardApiResponse, ITaskApiResponse } from '@shared/models/board-api-response.model';
 import { HttpService } from '@service/http.service';
 import { take, tap } from 'rxjs/operators';
+import { SnackBarService } from '@service/snack-bar.service';
 
 @Injectable()
 export class BoardService implements OnDestroy {
@@ -11,7 +12,21 @@ export class BoardService implements OnDestroy {
         null,
     );
 
-    constructor(private http: HttpService) {}
+    constructor(private http: HttpService, private snackBarService: SnackBarService) {}
+
+    public addBoard(boardTitle: string): void {
+        const body = { title: boardTitle };
+        this.http
+            .post(`boards`, body)
+            .pipe(take(1))
+            .subscribe((response) => {
+                if (response['id']) {
+                    this.snackBarService.openSnackBar(`Board "${boardTitle}" was created`);
+                } else {
+                    this.snackBarService.openSnackBar(`Board was not created!`);
+                }
+            });
+    }
 
     // Получаем весь стейт в виде обзерва Один раз полдписывается и он автоматичеки обновляется
     public getBoards(): Observable<IBoardApiResponse> {
