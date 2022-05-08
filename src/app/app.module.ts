@@ -16,6 +16,7 @@ import { WelcomePageComponent } from './core/welcome-page/welcome-page.component
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SnackBarService } from '@service/snack-bar.service';
+import { NewBoardPopupPageComponent } from './core/components/new-board-popup-page/new-board-popup-page.component';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { SnackBarService } from '@service/snack-bar.service';
         CreateNewBoardPopupComponent,
         WelcomePageComponent,
         NotFoundComponent,
+        NewBoardPopupPageComponent,
     ],
     imports: [
         BrowserModule,

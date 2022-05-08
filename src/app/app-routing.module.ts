@@ -5,7 +5,7 @@ import { EditProfileComponent } from './core/components/edit-profile/edit-profil
 
 import { AuthGuard } from '@service/guards/auth.guard';
 import { NotFoundComponent } from './core/not-found/not-found.component';
-import { CreateNewBoardPopupComponent } from './core/components/create-new-board-popup/create-new-board-popup.component';
+import { NewBoardPopupPageComponent } from './core/components/new-board-popup-page/new-board-popup-page.component';
 
 const routes: Routes = [
     {
@@ -45,7 +45,7 @@ const routes: Routes = [
             },
             {
                 path: 'create-new-board',
-                component: CreateNewBoardPopupComponent,
+                component: NewBoardPopupPageComponent,
             },
         ],
     },
