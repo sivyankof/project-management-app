@@ -1,0 +1,45 @@
+<a [routerLink]='["../"]' class='back-btn'>
+    <mat-icon>arrow_back</mat-icon>
+</a>
+
+<ng-container *ngIf='this.boards$ | async; else spinner'>
+
+    <h3>{{(this.boards$ | async).title}}</h3>
+
+    <div
+        [ngClass]='{"columnTrue": (boards$| async).columns.length > 0,
+        "columnFalse": (boards$| async).columns.length < 1}'>
+
+        <ng-container *ngIf='(this.boards$ | async).columns.length; else emptyColumn'>
+            <div class='column-wrap'>
+                <app-column *ngFor='let column of (this.boards$ | async).columns; let i = index'
+                            [column]='column'
+                            [index]='i'
+                            (deleteColumn)='onDeleteColumn($event)'
+                            (addTask)='onAddTask($event)'
+                            (deleteTask)='onDeleteTask($event)'
+                >
+                </app-column>
+            </div>
+        </ng-container>
+
+        <ng-template #emptyColumn>
+            <div class='empty'>
+                Non column
+            </div>
+        </ng-template>
+
+        <button mat-raised-button color='warn'
+                aria-label='Created column'
+                type='button'
+                [ngClass]='{"emptyBtn": (boards$| async).columns.length < 1,
+                        "fullBtn": (boards$| async).columns.length > 0}'
+                (click)='addColumn()'>
+            + Add column
+        </button>
+    </div>
+
+</ng-container>
+<ng-template #spinner>
+    <mat-spinner></mat-spinner>
+</ng-template>

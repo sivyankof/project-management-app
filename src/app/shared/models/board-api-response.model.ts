@@ -8,18 +8,18 @@ export interface IColumnsApiResponse {
     id: string;
     title: string;
     order: number;
-    tasks: ITaskApiResponse[];
+    tasks?: ITaskApiResponse[];
 }
 
 export interface ITaskApiResponse {
-    id: string;
+    id?: string;
     title: string;
-    order: number;
+    order?: number;
     description: string;
-    userId: string;
-    boardId: string;
-    columnId: string;
-    files: IFilesApiResponse[];
+    userId?: string;
+    boardId?: string;
+    columnId?: string;
+    files?: IFilesApiResponse[];
 }
 
 export interface IFilesApiResponse {

@@ -39,6 +39,8 @@ export class SignInComponent implements OnInit, OnDestroy {
                         if (data['token'] != null) {
                             localStorage.setItem('access-token', data['token']);
 
+                            this.authService.getUserId();
+
                             this.router.navigate(['../', 'main']);
                         } else {
                             console.log('check your credentials !!');
