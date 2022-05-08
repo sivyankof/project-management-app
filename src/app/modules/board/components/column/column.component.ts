@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IColumnsApiResponse } from '@shared/models/board-api-response.model';
 
 @Component({
@@ -9,4 +9,11 @@ import { IColumnsApiResponse } from '@shared/models/board-api-response.model';
 export class ColumnComponent {
     @Input() column: IColumnsApiResponse;
     @Input() index: number;
+
+    @Output() deleteColumn: EventEmitter<IColumnsApiResponse> =
+        new EventEmitter<IColumnsApiResponse>(null);
+
+    onDeleteColumn(column: IColumnsApiResponse): void {
+        this.deleteColumn.emit(column);
+    }
 }
