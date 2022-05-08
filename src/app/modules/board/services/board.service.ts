@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { IBoardApiResponse } from '@shared/models/board-api-response.model';
 import { HttpService } from '@service/http.service';
@@ -6,7 +6,7 @@ import { take, tap } from 'rxjs/operators';
 import { SnackBarService } from '@service/snack-bar.service';
 
 @Injectable()
-export class BoardService {
+export class BoardService implements OnDestroy {
     private boardsId: string;
     private boards$: BehaviorSubject<IBoardApiResponse> = new BehaviorSubject<IBoardApiResponse>(
         null,
@@ -40,13 +40,25 @@ export class BoardService {
         const { id, columns } = this.boards$.getValue();
         const body = { title: title, order: columns.length };
 
-        this.http.post(`boards/${id}/columns`, body).subscribe(() => {
-            this.initBoards(this.boardsId);
-        });
+        this.http
+            .post(`boards/${id}/columns`, body)
+            .pipe(take(1))
+            .subscribe(() => {
+                this.initBoards(this.boardsId);
+            });
+    }
+
+    public deleteColumn(columnId: string): void {
+        this.http
+            .delete(`boards/${this.boardsId}/columns/${columnId}`)
+            .pipe(take(1))
+            .subscribe(() => {
+                this.initBoards(this.boardsId);
+            });
     }
 
     // Очищает все данные по борде после выхода из компонента
-    public destroyBoard(): void {
+    ngOnDestroy(): void {
         this.boards$.next(null);
         this.boards$.complete();
     }

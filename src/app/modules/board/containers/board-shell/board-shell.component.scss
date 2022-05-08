@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 100px 50px 20px;
-    height: 80%;
+    padding: 50px 50px 20px;
+    height: 69%;
 
     .back-btn {
         transform: scale(1.6);
@@ -11,12 +11,34 @@
         color: #e07a5f;
     }
 
+    .columnTrue {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .columnFalse {
+        display: flex;
+        flex-direction: column;
+    }
+
     button {
+        margin-top: 60px;
         margin-bottom: 20px;
         min-width: 200px;
         font-size: 20px;
         height: inherit;
         margin-right: 20px;
+
+        &.emptyBtn {
+            margin: 20px auto 0;
+            height: 40px;
+            width: 20px;
+        }
+
+        &.fullBtn {
+            width: 200px;
+            height: 150px;
+        }
     }
 
     .column-wrap {
@@ -27,7 +49,7 @@
     }
 
     .empty {
-        margin: 150px auto 0 ;
+        margin: 150px auto 0;
         width: 100px;
     }
 }

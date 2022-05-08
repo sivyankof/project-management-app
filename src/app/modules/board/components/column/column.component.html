@@ -1,6 +1,13 @@
-<div class='column'>
+
+<div class='title-column'>
     <h4 [style.color]='"#14213d"'>Title: {{column.title}}</h4>
 
+    <button mat-mini-fab (click)='onDeleteColumn(column)'>
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div class='column'>
     <div class='tasks'>
         <p *ngIf='!column.tasks.length'>Task list is empty</p>
     </div>

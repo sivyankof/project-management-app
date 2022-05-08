@@ -1,8 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { BoardService } from '@modules/board/services/board.service';
-import { IBoardApiResponse } from '@shared/models/board-api-response.model';
+import { IBoardApiResponse, IColumnsApiResponse } from '@shared/models/board-api-response.model';
 import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '@shared/components/dialog/dialog.component';
 
 @Component({
     selector: 'app-board-shell',
@@ -10,10 +12,14 @@ import { Observable } from 'rxjs';
     styleUrls: ['./board-shell.component.scss'],
     providers: [BoardService],
 })
-export class BoardShellComponent implements OnInit, OnDestroy {
+export class BoardShellComponent implements OnInit {
     public boards$: Observable<IBoardApiResponse>;
 
-    constructor(private route: ActivatedRoute, private boardService: BoardService) {}
+    constructor(
+        private route: ActivatedRoute,
+        private boardService: BoardService,
+        private dialog: MatDialog,
+    ) {}
 
     ngOnInit(): void {
         // Получаем id из url и загружаем стейт
@@ -30,7 +36,17 @@ export class BoardShellComponent implements OnInit, OnDestroy {
         this.boardService.addColumn('qweqweqwe');
     }
 
-    ngOnDestroy(): void {
-        this.boardService.destroyBoard();
+    onDeleteColumn(column: IColumnsApiResponse): void {
+        const dialogRef = this.dialog.open(DialogComponent, {
+            data: {
+                nameItem: column.title,
+            },
+        });
+
+        dialogRef.afterClosed().subscribe((result) => {
+            if (result) {
+                this.boardService.deleteColumn(column.id);
+            }
+        });
     }
 }
