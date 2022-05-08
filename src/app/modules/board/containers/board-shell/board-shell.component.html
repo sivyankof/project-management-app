@@ -6,41 +6,36 @@
 
     <h3>{{(this.boards$ | async).title}}</h3>
 
+    <div
+        [ngClass]='{"columnTrue": (boards$| async).columns.length > 0,
+        "columnFalse": (boards$| async).columns.length < 1}'>
 
-    <ng-container class='container' *ngIf='(this.boards$ | async).columns.length; else emptyColumn'>
+        <ng-container *ngIf='(this.boards$ | async).columns.length; else emptyColumn'>
+            <div class='column-wrap'>
+                <app-column *ngFor='let column of (this.boards$ | async).columns; let i = index'
+                            [column]='column'
+                            [index]='i'
+                            (deleteColumn)='onDeleteColumn($event)'
+                >
+                </app-column>
+            </div>
+        </ng-container>
 
-        <div class='column-wrap'>
-            <app-column *ngFor='let column of (this.boards$ | async).columns; let i = index'
-                        [column]='column'
-                        [index]='i'>
+        <ng-template #emptyColumn>
+            <div class='empty'>
+                Non column
+            </div>
+        </ng-template>
 
-            </app-column>
-
-            <button mat-raised-button color='warn'
-                    aria-label='Created column'
-                    type='button'
-                    (click)='addColumn()'>
-                + Add column
-            </button>
-        </div>
-
-    </ng-container>
-
-    <ng-template #emptyColumn>
-        <div class='empty'>
-            <button mat-raised-button color='warn'
-                    aria-label='Created column'
-                    type='button'
-                    (click)='addColumn()'>
-                + Add column
-            </button>
-
-            Non column
-
-        </div>
-
-    </ng-template>
-
+        <button mat-raised-button color='warn'
+                aria-label='Created column'
+                type='button'
+                [ngClass]='{"emptyBtn": (boards$| async).columns.length < 1,
+                        "fullBtn": (boards$| async).columns.length > 0}'
+                (click)='addColumn()'>
+            + Add column
+        </button>
+    </div>
 
 </ng-container>
 <ng-template #spinner>

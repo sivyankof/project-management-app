@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IBoard } from '@shared/models/board-list.interface';
 
 @Component({
@@ -8,10 +8,15 @@ import { IBoard } from '@shared/models/board-list.interface';
 })
 export class TableListComponent {
     @Input() boards: IBoard[];
+    @Output() deleteBoard: EventEmitter<IBoard> = new EventEmitter<IBoard>();
 
     showInfo(id: string): void {
         //TODO need to do preview
 
         console.log(id);
+    }
+
+    onDeleteBoard(board: IBoard): void {
+        this.deleteBoard.emit(board);
     }
 }
