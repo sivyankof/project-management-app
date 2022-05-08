@@ -16,13 +16,16 @@ export class BoardService implements OnDestroy {
 
     public addBoard(boardTitle: string): void {
         const body = { title: boardTitle };
-        this.http.post(`boards`, body).subscribe((response) => {
-            if (response['id']) {
-                this.snackBarService.openSnackBar(`Board "${boardTitle}" was created`);
-            } else {
-                this.snackBarService.openSnackBar(`Board was not created!`);
-            }
-        });
+        this.http
+            .post(`boards`, body)
+            .pipe(take(1))
+            .subscribe((response) => {
+                if (response['id']) {
+                    this.snackBarService.openSnackBar(`Board "${boardTitle}" was created`);
+                } else {
+                    this.snackBarService.openSnackBar(`Board was not created!`);
+                }
+            });
     }
 
     // Получаем весь стейт в виде обзерва Один раз полдписывается и он автоматичеки обновляется

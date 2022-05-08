@@ -13,6 +13,6 @@ export class SnackBarService {
         this.config.verticalPosition = 'top';
         this.config.horizontalPosition = 'right';
         this.config.duration = 2000;
-        this.snackBar.open(message, 'x', this.config);
+        this.snackBar.open(message, null, this.config);
     }
 }

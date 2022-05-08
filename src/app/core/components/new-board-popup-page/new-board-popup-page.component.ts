@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { BoardService } from '@modules/board/services/board.service';
 import { CreateNewBoardPopupComponent } from '../create-new-board-popup/create-new-board-popup.component';
 
@@ -14,7 +14,6 @@ export class NewBoardPopupPageComponent {
     constructor(
         public dialog: MatDialog,
         private router: Router,
-        private route: ActivatedRoute,
         private boardService: BoardService,
     ) {
         this.openDialog();

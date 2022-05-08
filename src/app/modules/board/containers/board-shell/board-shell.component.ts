@@ -89,6 +89,7 @@ export class BoardShellComponent implements OnInit {
             });
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private openDialog(component, config?): Observable<any> {
         const dialogRef = this.dialog.open(component, config);
 
