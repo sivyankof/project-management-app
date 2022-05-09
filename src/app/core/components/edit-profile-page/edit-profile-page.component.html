@@ -1,0 +1,7 @@
+<app-edit-profile
+    *ngIf="user$ | async"
+    [user]="user$ | async"
+    (deleteUser)='onDeleteUser($event)'
+    (editUser)='onEditUser($event)'
+>
+</app-edit-profile>
