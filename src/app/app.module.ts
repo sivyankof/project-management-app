@@ -17,6 +17,7 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SnackBarService } from '@service/snack-bar.service';
 import { NewBoardPopupPageComponent } from './core/components/new-board-popup-page/new-board-popup-page.component';
+import { EditProfilePageComponent } from './core/components/edit-profile-page/edit-profile-page.component';
 
 @NgModule({
     declarations: [
@@ -29,6 +30,7 @@ import { NewBoardPopupPageComponent } from './core/components/new-board-popup-pa
         WelcomePageComponent,
         NotFoundComponent,
         NewBoardPopupPageComponent,
+        EditProfilePageComponent,
     ],
     imports: [
         BrowserModule,
