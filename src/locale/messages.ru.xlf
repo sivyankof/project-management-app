@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" target-language="ru" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="logMsg" datatype="html">
+        <source> logout </source>
+        <target>Выход</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+        <note priority="1" from="description">argument</note>
+      </trans-unit>
+      <trans-unit id="homeMsg" datatype="html">
+        <source>Home</source>
+        <target>На главную</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">nav link</note>
+      </trans-unit>
+      <trans-unit id="editMsg" datatype="html">
+        <source>Edit profile</source>
+        <target>Редактировать профиль</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">nav link</note>
+      </trans-unit>
+      <trans-unit id="createMsg" datatype="html">
+        <source>Create new board</source>
+        <target>Создать новую доску</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">nav link</note>
+      </trans-unit>
+      <trans-unit id="helloMsg" datatype="html">
+        <source>Welcome!</source>
+        <target>Добро пожаловать!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/welcome-page/welcome-page.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="meetMsg" datatype="html">
+        <source>Meet our team:</source>
+        <target>Знакомтесь с нашей командой:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/welcome-page/welcome-page.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="loginMsg" datatype="html">
+        <source>Login</source>
+        <target>Логин</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="loginBtnMsg" datatype="html">
+        <source>Login</source>
+        <target>Вход</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="loginErrReqMsg" datatype="html">
+        <sourсe> The login field is required </sourсe>
+        <target>Поле Логин обязательное</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">14,16</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="passMsg" datatype="html">
+        <source>Enter your password</source>
+        <target>Введите ваш пароль</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="passErrReqMsg" datatype="html">
+        <source> The password field is required </source>
+        <target>Поле Пароль обязательное</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">41,43</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="regMsg" datatype="html">
+        <source>Registration</source>
+        <target>Регистрация</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="regErrMsg" datatype="html">
+        <source> Such a user already exists </source>
+        <target>Пользователь с таким логином уже существует</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">4,6</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="regNameMsg" datatype="html">
+        <source>Name</source>
+        <target>Имя</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="regErrReqMsg" datatype="html">
+        <source> The name field is required </source>
+        <target>Поле Имя обязательное</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">15,17</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="errLenMsg" datatype="html">
+        <source> Minimum length of 5 characters </source>
+        <target>Минимальная длина 5 символов</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="loginErrReqMsg" datatype="html">
+        <source> The login field is required </source>
+        <target>Поле Логин обязательное</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">33,35</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="regConfPassMsg" datatype="html">
+        <source>Confirm your password</source>
+        <target>Подтвердите ваш пароль</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="regConfPassErrMsg" datatype="html">
+        <source> Confirm password wrong </source>
+        <target>Пароли не совпадают</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">101,103</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="backMsg" datatype="html">
+        <source>Back</source>
+        <target>Назад</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="mainTitleMsg" datatype="html">
+        <source> Title </source>
+        <target>Название</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/mail-list/components/table-list/table-list.component.html</context>
+          <context context-type="linenumber">29,31</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="mainDescrMsg" datatype="html">
+        <source> Description </source>
+        <target>Описание</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/mail-list/components/table-list/table-list.component.html</context>
+          <context context-type="linenumber">43,45</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="mainAutorMsg" datatype="html">
+        <source> Author </source>
+        <target>Автор</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/mail-list/components/table-list/table-list.component.html</context>
+          <context context-type="linenumber">57,59</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="mainDateMsg" datatype="html">
+        <source> Date </source>
+        <target>Дата</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/mail-list/components/table-list/table-list.component.html</context>
+          <context context-type="linenumber">70,72</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="fileNotFoundMsg" datatype="html">
+        <source>File not found</source>
+        <target>Файл не найден</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/mail-list/container/lists-shell/lists-shell.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

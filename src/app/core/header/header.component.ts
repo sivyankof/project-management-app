@@ -10,25 +10,33 @@ export class HeaderComponent {
     public links = [
         {
             icon: 'home',
-            name: 'Home',
+            name: $localize`:nav link@@homeMsg:Home`,
             route: 'list',
         },
         {
             icon: 'edit',
-            name: 'Edit profile',
+            name: $localize`:nav link@@editMsg:Edit profile`,
             route: 'edit-profile',
         },
         {
             icon: 'add_box',
-            name: 'Create new board',
+            name: $localize`:nav link@@createMsg:Create new board`,
             route: 'create-new-board',
         },
     ];
+
+    isEnActive: Boolean = true;
+    isRuActive: Boolean = false;
 
     constructor(private router: Router) {}
 
     logOut(): void {
         localStorage.clear();
         this.router.navigate(['auth']);
+    }
+
+    toggleClass(): void {
+        this.isEnActive = !this.isEnActive;
+        this.isRuActive = !this.isRuActive;
     }
 }

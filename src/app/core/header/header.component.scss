@@ -26,11 +26,31 @@ mat-toolbar {
         button {
             color: white;
 
-            mat-icon{
+            mat-icon {
                 margin-right: 10px;
             }
         }
+
+        a {
+            padding-bottom: 5px;
+            margin-left: 15px;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            animation: border-bottom 0.3s;
+            cursor: default;
+            &.active {
+                color: chocolate;
+            }
+            &:hover:not(.active) {
+                border-bottom: 3px solid white;
+                cursor: pointer;
+            }
+        }
+
+        .locale-wrap {
+            height: 100%;
+            margin-left: 15px;
+        }
     }
 }
-
-
