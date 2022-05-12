@@ -1,0 +1,23 @@
+<div class='title-column'>
+    <h4 [style.color]='"#14213d"'>Title: {{column.title}}</h4>
+
+    <button mat-mini-fab (click)='onDeleteColumn(column)'>
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div class='column'>
+    <button mat-mini-fab (click)='onAddTask(column)'>
+        <mat-icon>add</mat-icon>
+    </button>
+
+    <div class='tasks'>
+        <p *ngIf='!column.tasks.length; else tasks'>Task list is empty</p>
+    </div>
+
+    <ng-template #tasks>
+        <app-task *ngFor='let task of column.tasks'
+                  [task]='task'
+                  (deleteTask)='deleteTask.emit({task, columnId:column.id})'></app-task>
+    </ng-template>
+</div>

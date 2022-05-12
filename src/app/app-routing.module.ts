@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthLayoutComponent } from './core/auth-layout/auth-layout.component';
-import { EditProfileComponent } from './core/components/edit-profile/edit-profile.component';
-import { CreateNewBoardComponent } from './core/components/create-new-board/create-new-board.component';
 import { AuthGuard } from '@service/guards/auth.guard';
 import { NotFoundComponent } from './core/not-found/not-found.component';
+import { NewBoardPopupPageComponent } from './core/components/new-board-popup-page/new-board-popup-page.component';
+import { EditProfilePageComponent } from './core/components/edit-profile-page/edit-profile-page.component';
 
 const routes: Routes = [
     {
@@ -32,14 +32,19 @@ const routes: Routes = [
                     import('@modules/mail-list/main-list.module').then((m) => m.MainListModule),
             },
 
+            {
+                path: 'board',
+                loadChildren: () =>
+                    import('@modules/board/board.module').then((m) => m.BoardModule),
+            },
             //TODO: Возможно нужно будет сделать из edit и create модули
             {
                 path: 'edit-profile',
-                component: EditProfileComponent,
+                component: EditProfilePageComponent,
             },
             {
                 path: 'create-new-board',
-                component: CreateNewBoardComponent,
+                component: NewBoardPopupPageComponent,
             },
         ],
     },

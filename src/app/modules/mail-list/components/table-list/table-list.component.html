@@ -1,78 +1,17 @@
-<table
-    fxLayoutAlign="space-between center"
-    mat-table
-    matSort
-    [dataSource]="dataSource"
-    class="mat-elevation-z8"
->
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-        <th
-            mat-header-cell
-            *matHeaderCellDef
-            mat-sort-header
-            sortActionDescription="Sort by position"
-        >
-            No.
-        </th>
-        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
-    </ng-container>
+<h3>List boards:</h3>
+<mat-nav-list class='board-list'>
+    <mat-list-item *ngFor='let board of boards'>
+        <a matLine [routerLink]="['../','board']" [queryParams]='{id: board.id}'>{{ board.title }}</a>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="title">
-        <th
-            mat-header-cell
-            *matHeaderCellDef
-            mat-sort-header
-            sortActionDescription="Sort by title"
-            i18n="Simple message@@mainTitleMsg"
-        >
-            Title
-        </th>
-        <td mat-cell *matCellDef="let element">{{ element.title }}</td>
-    </ng-container>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="description">
-        <th
-            mat-header-cell
-            *matHeaderCellDef
-            mat-sort-header
-            sortActionDescription="Sort by description"
-            i18n="Simple message@@mainDescrMsg"
-        >
-            Description
-        </th>
-        <td mat-cell *matCellDef="let element">{{ element.description }}</td>
-    </ng-container>
+        <button mat-icon-button (click)='onDeleteBoard(board)'>
+            <mat-icon>delete_outline</mat-icon>
+        </button>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="author">
-        <th
-            mat-header-cell
-            *matHeaderCellDef
-            mat-sort-header
-            sortActionDescription="Sort by author"
-            i18n="Simple message@@mainAutorMsg"
-        >
-            Author
-        </th>
-        <td mat-cell *matCellDef="let element">{{ element.author }}</td>
-    </ng-container>
+        <button mat-icon-button (click)='showInfo(board.id)'>
+            <mat-icon>info</mat-icon>
+        </button>
+        <mat-divider></mat-divider>
+    </mat-list-item>
+</mat-nav-list>
 
-    <ng-container matColumnDef="date">
-        <th
-            mat-header-cell
-            *matHeaderCellDef
-            mat-sort-header
-            sortActionDescription="Sort by date"
-            i18n="Simple message@@mainDateMsg"
-        >
-            Date
-        </th>
-        <td mat-cell *matCellDef="let element">{{ element.date | date: 'dd MMM yy' }}</td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-</table>

@@ -1,54 +1,45 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { ISignIn, ISignUp } from '../models/auth';
-import { API_URL } from '@shared/constants/path.constants';
+import { HttpService } from '@service/http.service';
+import { map, take } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
-    private readonly URL = API_URL;
-
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpService) {}
 
     public singIn(form: ISignIn): Observable<ISignIn> {
-        return this.http
-            .post(`${this.URL}signin`, form, this.getDefaultRequestOptions())
-            .pipe(catchError(this.handleError.bind(this)));
+        localStorage.setItem('login', JSON.stringify({ login: form.login, id: '' }));
+
+        return this.http.post(`signin`, form);
     }
 
     public registration(form: ISignUp): Observable<ISignUp> {
-        return this.http
-            .post<ISignUp>(`${this.URL}signup`, form, this.getDefaultRequestOptions())
-            .pipe(catchError(this.handleError.bind(this)));
+        return this.http.post(`signup`, form);
     }
 
-    //--------------------------------OPTIONS AND ERRORS--------------------------------
+    public getUserId(): void {
+        this.http
+            .get('users')
+            .pipe(
+                take(1),
+                map((users) => {
+                    return users.filter((user) => {
+                        const localLogin = JSON.parse(localStorage.getItem('login'));
+                        if (localLogin.login === user.login) {
+                            console.log(user);
+                            return user.id;
+                        }
+                    });
+                }),
+            )
+            .subscribe((user) => {
+                const localLogin = JSON.parse(localStorage.getItem('login'));
+                localLogin.id = user[0].id;
 
-    private getDefaultRequestOptions() {
-        const header = new HttpHeaders({
-            'Content-Type': 'application/json',
-        });
-        return { headers: header };
-    }
-
-    private handleError(err: HttpErrorResponse | ErrorEvent | any): any {
-        let message: string;
-        let status: number;
-        if (err.error instanceof ErrorEvent) {
-            message = `An error occurred: ${err.error.message}`;
-            status = err.error.status;
-        } else {
-            message = `Backend returned code ${err.status}: ${err.message}`;
-            status = err.status;
-        }
-
-        console.error(message);
-
-        const errorObj = { message, status };
-
-        return throwError(errorObj);
+                localStorage.setItem('login', JSON.stringify(localLogin));
+            });
     }
 }

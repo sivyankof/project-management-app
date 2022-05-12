@@ -1,0 +1,27 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.task-item {
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: #81b29a;
+    width: 100%;
+    overflow: hidden;
+
+    p{
+        margin: 0;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}
+
+button {
+    margin-left: 10px;
+    background-color: inherit!important;
+}

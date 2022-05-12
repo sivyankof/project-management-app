@@ -1,6 +1,6 @@
-import { IBoardList } from '../models/board-list.interface';
+import { IBoard } from '../models/board-list.interface';
 
-export const dataList: IBoardList[] = [
+export const dataList: IBoard[] = [
     {
         position: 1,
         title: 'Text1',
