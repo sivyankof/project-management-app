@@ -34,6 +34,7 @@
             <span *ngIf="editProfileForm.controls['password'].errors?.['minlength']">Your password is too short</span>
         </mat-error>
         <button
+            type='button'
             mat-icon-button
             matSuffix
             (click)='hide = !hide'
