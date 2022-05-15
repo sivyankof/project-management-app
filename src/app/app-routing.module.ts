@@ -37,7 +37,6 @@ const routes: Routes = [
                 loadChildren: () =>
                     import('@modules/board/board.module').then((m) => m.BoardModule),
             },
-            //TODO: Возможно нужно будет сделать из edit и create модули
             {
                 path: 'edit-profile',
                 component: EditProfilePageComponent,

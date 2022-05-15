@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { IBoardApiResponse, ITaskApiResponse } from '@shared/models/board-api-response.model';
-import { HttpService } from '@service/http.service';
+import { HttpService } from '@service/http/http.service';
 import { take, tap } from 'rxjs/operators';
 import { SnackBarService } from '@service/snack-bar.service';
 

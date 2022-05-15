@@ -1,7 +1,12 @@
-<div class='task-item'>
-    <p>{{task.title}}</p>
-    <p>{{task.description}}</p>
-</div>
-<button mat-stroked-button (click)='deleteTask.emit(task)'>
-    <mat-icon>clear</mat-icon>
-</button>
+<mat-card>
+
+    <mat-card-header>
+        <mat-card-title>{{task.title}}</mat-card-title>
+        <mat-card-subtitle>{{task.description}}</mat-card-subtitle>
+    </mat-card-header>
+
+
+    <button mat-stroked-button (click)='deleteTask.emit(task)'>
+        <mat-icon>clear</mat-icon>
+    </button>
+</mat-card>
