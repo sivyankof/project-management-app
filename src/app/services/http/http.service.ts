@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { API_URL } from '@shared/constants/path.constants';
 import { catchError } from 'rxjs/operators';
-import { IHttpError } from '@service/http.model';
+import { IHttpError } from '@service/http/http.model';
 
 @Injectable()
 export class HttpService {

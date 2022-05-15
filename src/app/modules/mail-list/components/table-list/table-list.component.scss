@@ -1,5 +1,6 @@
 :host{
     margin: 0 auto;
+    width: 400px;
 }
 .board-list, h3{
     max-width: 400px;
@@ -8,5 +9,10 @@
 
 .board-list {
     min-height: 62%;
+    padding-bottom: 50px;
+}
+
+button {
+    margin-right: 5px;
 }
 
