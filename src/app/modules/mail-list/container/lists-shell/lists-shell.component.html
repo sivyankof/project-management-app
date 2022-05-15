@@ -7,6 +7,5 @@
 <mat-spinner *ngIf='(boards$ | async)?.length < 1'></mat-spinner>
 
 <ng-template #empty>
-    <p *ngIf='(boards$| async)?.length < 1'>File not found</p>
+    <p class='empty' *ngIf='(boards$| async)?.length < 1' i18n="Simple message@@fileNotFoundMsg">File not found</p>
 </ng-template>
-

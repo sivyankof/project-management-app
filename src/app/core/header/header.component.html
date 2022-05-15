@@ -1,5 +1,4 @@
 <mat-toolbar color='primary'>
-
     <mat-nav-list class='nav-list'>
         <a
             [routerLink]='link.route'
@@ -7,28 +6,24 @@
             mat-list-item
             *ngFor='let link of links'
         >
-            <mat-icon>{{link.icon}}</mat-icon>
+            <mat-icon>{{ link.icon }}</mat-icon>
             <span>{{ link.name }}</span>
         </a>
-
     </mat-nav-list>
 
     <mat-action-list aria-label>
-         <button mat-list-item routerLink='create-new-board'>
-            <mat-icon>add_box</mat-icon>
-            Create new board
-        </button>
+        <mat-icon>translate</mat-icon>
 
-        <button mat-list-item>
-            <mat-icon>translate</mat-icon>
-            RU/EN
-        </button>
+        <div class='locales-wrap'>
+            <a matLine title="Don't work :(" [class.active]='isEnActive' (click)='toggleClass()'>
+                EN </a>
+            <a matLine title="Don't work :(" [class.active]='isRuActive' (click)='toggleClass()'>
+                RU </a>
+        </div>
 
-        <button mat-list-item (click)='logOut()'>
+        <button mat-list-item (click)='logOut()' i18n='argument@@logMsg'>
             <mat-icon>power_settings_new</mat-icon>
             logout
         </button>
-
     </mat-action-list>
-
 </mat-toolbar>

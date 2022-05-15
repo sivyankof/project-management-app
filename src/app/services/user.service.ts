@@ -3,7 +3,7 @@ import { ISignUp } from '@modules/auth/models/auth';
 import { IUser, IUsersForm } from '@shared/models/user.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
-import { HttpService } from './http.service';
+import { HttpService } from './http/http.service';
 import { SnackBarService } from './snack-bar.service';
 
 @Injectable()
