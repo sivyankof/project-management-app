@@ -1,5 +1,5 @@
 <div class='title-column'>
-    <h4 [style.color]='"#14213d"'>Title: {{column.title}}</h4>
+    <h3 [style.color]='"#14213d"'>Title: {{column.title}}</h3>
 
     <button mat-mini-fab (click)='onDeleteColumn(column)'>
         <mat-icon>close</mat-icon>
@@ -18,6 +18,8 @@
     <ng-template #tasks>
         <app-task *ngFor='let task of column.tasks'
                   [task]='task'
-                  (deleteTask)='deleteTask.emit({task, columnId:column.id})'></app-task>
+                  (deleteTask)='deleteTask.emit({task, columnId:column.id})'
+                  (showTask)='onShowTask($event)'>
+        </app-task>
     </ng-template>
 </div>

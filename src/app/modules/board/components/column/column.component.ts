@@ -25,10 +25,16 @@ export class ColumnComponent {
     @Output() deleteTask: EventEmitter<{ task: ITaskApiResponse; columnId: string }> =
         new EventEmitter<{ task: ITaskApiResponse; columnId: string }>();
 
+    @Output() showTask: EventEmitter<ITaskApiResponse> = new EventEmitter<ITaskApiResponse>();
+
     constructor(private dialog: MatDialog) {}
 
     onDeleteColumn(column: IColumnsApiResponse): void {
         this.deleteColumn.emit(column);
+    }
+
+    onShowTask(task: ITaskApiResponse): void {
+        this.showTask.emit({ ...task, columnId: this.column.id });
     }
 
     onAddTask(column: IColumnsApiResponse): void {
@@ -40,9 +46,10 @@ export class ColumnComponent {
             .afterClosed()
             .pipe(take(1))
             .subscribe((result) => {
-                const task = { ...result, order };
-
-                this.addTask.emit({ task, columnId: this.column.id });
+                if (result) {
+                    const task = { ...result, order };
+                    this.addTask.emit({ task, columnId: this.column.id });
+                }
             });
     }
 }

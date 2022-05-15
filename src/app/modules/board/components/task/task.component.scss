@@ -1,27 +1,30 @@
-:host {
+.task-item {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
-}
-.task-item {
-    cursor: pointer;
     border-radius: 10px;
-    padding: 5px 10px;
-    background-color: #81b29a;
-    width: 100%;
+    background-color: #f7ede2;
+    max-width: 100%;
     overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 10px;
 
-    p{
-        margin: 0;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
+    button {
+        display: block;
     }
 }
 
-button {
-    margin-left: 10px;
-    background-color: inherit!important;
+.task-item-content{
+    max-width: 80%;
+    overflow: hidden;
+    padding-right: 10px ;
+    text-overflow: ellipsis;
+    white-space: normal;
+
+    p {
+        margin: 0;
+    }
+
 }
+

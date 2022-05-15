@@ -9,9 +9,16 @@ import { SharedModule } from '@shared/shared.module';
 import { CreateTaskFormComponent } from './components/create-task-form/create-task-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TaskComponent } from './components/task/task.component';
+import { TaskInfoFormComponent } from './components/task-info-form/task-info-form.component';
 
 @NgModule({
-    declarations: [BoardShellComponent, ColumnComponent, CreateTaskFormComponent, TaskComponent],
+    declarations: [
+        BoardShellComponent,
+        ColumnComponent,
+        CreateTaskFormComponent,
+        TaskComponent,
+        TaskInfoFormComponent,
+    ],
     imports: [CommonModule, BoardRoutingModule, MaterialModule, SharedModule, ReactiveFormsModule],
     providers: [BoardService],
 })

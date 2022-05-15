@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { ISignUp } from '@modules/auth/models/auth';
-import { IUser } from '@shared/models/user.model';
+import { IUser, IUsersForm } from '@shared/models/user.model';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 import { HttpService } from './http.service';
 import { SnackBarService } from './snack-bar.service';
 
 @Injectable()
 export class UserService {
     private user$: BehaviorSubject<IUser> = new BehaviorSubject<IUser>(null);
+    private users$: BehaviorSubject<IUsersForm[]> = new BehaviorSubject<IUsersForm[]>([]);
 
     constructor(private http: HttpService, private snackBarService: SnackBarService) {}
 
@@ -41,5 +42,25 @@ export class UserService {
 
     public deleteUser(id: string): void {
         this.http.delete(`users/${id}`).pipe(take(1)).subscribe();
+    }
+
+    public initUsers(): void {
+        this.http
+            .get(`users`)
+            .pipe(
+                take(1),
+                map((users: IUser[]) => {
+                    return users.map((user) => {
+                        return { value: user.id, viewValue: user.login };
+                    });
+                }),
+            )
+            .subscribe((results) => {
+                this.users$.next(results);
+            });
+    }
+
+    public getUsers(): Observable<IUsersForm[]> {
+        return this.users$.asObservable();
     }
 }

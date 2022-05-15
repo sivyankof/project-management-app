@@ -3,3 +3,8 @@ export interface IUser {
     name: string;
     login: string;
 }
+
+export interface IUsersForm {
+    value: string;
+    viewValue: string;
+}

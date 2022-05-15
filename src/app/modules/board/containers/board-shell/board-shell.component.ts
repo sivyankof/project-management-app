@@ -7,9 +7,10 @@ import {
     ITaskApiResponse,
 } from '@shared/models/board-api-response.model';
 import { Observable } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '@shared/components/dialog/dialog.component';
 import { take } from 'rxjs/operators';
+import { TaskInfoFormComponent } from '@modules/board/components/task-info-form/task-info-form.component';
 
 @Component({
     selector: 'app-board-shell',
@@ -94,5 +95,21 @@ export class BoardShellComponent implements OnInit {
         const dialogRef = this.dialog.open(component, config);
 
         return dialogRef.afterClosed();
+    }
+
+    onShowTaskDialog(task: ITaskApiResponse): void {
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+        dialogConfig.maxWidth = '500px';
+        dialogConfig.width = '100%';
+        dialogConfig.data = task;
+        const dialog = this.dialog.open(TaskInfoFormComponent, dialogConfig);
+        const order = task.order;
+        const columnId = task.columnId;
+        dialog.afterClosed().subscribe((response) => {
+            const editedTask = { ...response, order, columnId };
+            this.boardService.editTask(editedTask, task.id);
+        });
     }
 }
