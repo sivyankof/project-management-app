@@ -31,10 +31,14 @@ export class UserService {
             .pipe(take(1))
             .subscribe((response) => {
                 if (response['id']) {
-                    this.snackBarService.openSnackBar(`User was edited`);
+                    this.snackBarService.openSnackBar(
+                        $localize`:user edited msg@@userEditedMsg:User was edited`,
+                    );
                     this.user$.next(response);
                 } else {
-                    this.snackBarService.openSnackBar(`User was not edited!`);
+                    this.snackBarService.openSnackBar(
+                        $localize`:user edited msg@@userNotEditedMsg:User was not edited!`,
+                    );
                 }
             });
     }
