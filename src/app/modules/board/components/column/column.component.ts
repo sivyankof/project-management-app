@@ -3,6 +3,7 @@ import { IColumnsApiResponse, ITaskApiResponse } from '@shared/models/board-api-
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTaskFormComponent } from '@modules/board/components/create-task-form/create-task-form.component';
 import { take } from 'rxjs/operators';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
     selector: 'app-column',
@@ -44,5 +45,19 @@ export class ColumnComponent {
 
                 this.addTask.emit({ task, columnId: this.column.id });
             });
+    }
+
+    drop(event: CdkDragDrop<ITaskApiResponse[]>): void {
+        if (event.previousContainer === event.container) {
+            moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+            console.log(event, this.column.tasks);
+        } else {
+            transferArrayItem(
+                event.previousContainer.data,
+                event.container.data,
+                event.previousIndex,
+                event.currentIndex,
+            );
+        }
     }
 }
