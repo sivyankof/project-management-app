@@ -44,10 +44,10 @@
     </div>
 
     <ng-template #tasks>
-        <app-task
-            *ngFor="let task of column.tasks"
-            [task]="task"
-            (deleteTask)="deleteTask.emit({task, columnId:column.id})"
-        ></app-task>
+        <app-task *ngFor='let task of column.tasks'
+                  [task]='task'
+                  (deleteTask)='deleteTask.emit({task, columnId:column.id})'
+                  (showTask)='onShowTask($event)'>
+        </app-task>
     </ng-template>
 </div>

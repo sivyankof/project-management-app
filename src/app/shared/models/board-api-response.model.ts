@@ -1,6 +1,7 @@
 export interface IBoardApiResponse {
     id: string;
     title: string;
+    description: string;
     columns: IColumnsApiResponse[];
 }
 
@@ -14,6 +15,7 @@ export interface IColumnsApiResponse {
 export interface ITaskApiResponse {
     id?: string;
     title: string;
+    done?: boolean;
     order?: number;
     description: string;
     userId?: string;

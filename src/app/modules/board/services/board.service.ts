@@ -107,4 +107,13 @@ export class BoardService implements OnDestroy {
             )
             .subscribe((boards) => this.boards$.next(boards));
     }
+
+    public editTask(task: ITaskApiResponse, taskId: string): void {
+        const boardId = this.boardsId;
+        const updateTask = { ...task, boardId };
+        this.http
+            .put(`boards/${this.boardsId}/columns/${task.columnId}/tasks/${taskId}`, updateTask)
+            .pipe(take(1))
+            .subscribe(() => this.initBoards(this.boardsId));
+    }
 }

@@ -14,13 +14,12 @@
     border: solid 1px rgba(192, 192, 192, 0.27);
     border-radius: 6px !important;
     padding: 10px;
-    min-width: 355px;
-    max-width: 355px;
-    background-color: #f2cc8f;
+    min-width: 350px;
+    max-width: 350px;
+    background-color: #dbcfc1;
     margin-right: 16px;
-    min-height: 350px;
-    max-height: 350px;
-    overflow: scroll;
+    height: calc(100vh - 500px);
+    overflow: auto;
 
     button {
         margin-bottom: 10px;
@@ -41,4 +40,6 @@
     width: 100%;
     height: 24px;
     background-color: #efefef;
+    border: solid 1px #e07a5f;
+    border-radius: 5px;
 }

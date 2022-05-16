@@ -1,38 +1,30 @@
-:host {
+.task-item {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    border-radius: 10px;
+    background-color: #f7ede2;
+    max-width: 100%;
+    overflow: hidden;
+    cursor: pointer;
     margin-bottom: 10px;
+
+    button {
+        display: block;
+    }
 }
 
-mat-card {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    cursor: pointer;
-    border-radius: 10px;
-    padding: 5px 10px;
+.task-item-content{
+    max-width: 80%;
     overflow: hidden;
+    padding-right: 10px ;
+    text-overflow: ellipsis;
+    white-space: normal;
 
-    mat-card-header {
-        max-width: 90%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
-        mat-card-title {
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-            margin: 0 0 10px;
-
-        }
+    p {
+        margin: 0;
     }
 
 }
 
-button {
-    margin-left: 10px;
-    background-color: inherit !important;
-}

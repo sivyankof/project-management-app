@@ -29,6 +29,8 @@ export class ColumnComponent implements OnInit {
     @Output() deleteTask: EventEmitter<{ task: ITaskApiResponse; columnId: string }> =
         new EventEmitter<{ task: ITaskApiResponse; columnId: string }>();
 
+    @Output() showTask: EventEmitter<ITaskApiResponse> = new EventEmitter<ITaskApiResponse>();
+
     public columnForm!: FormGroup;
     public isEdit = false;
 
@@ -47,18 +49,23 @@ export class ColumnComponent implements OnInit {
         this.deleteColumn.emit(column);
     }
 
+    onShowTask(task: ITaskApiResponse): void {
+        this.showTask.emit({ ...task, columnId: this.column.id });
+    }
+
     onAddTask(column: IColumnsApiResponse): void {
         const dialogRef = this.dialog.open(CreateTaskFormComponent);
-
+        const done = false;
         const order = column.tasks.length;
 
         dialogRef
             .afterClosed()
             .pipe(take(1))
             .subscribe((result) => {
-                const task = { ...result, order };
-
-                this.addTask.emit({ task, columnId: this.column.id });
+                if (result) {
+                    const task = { ...result, order, done };
+                    this.addTask.emit({ task, columnId: this.column.id });
+                }
             });
     }
 

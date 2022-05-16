@@ -1,0 +1,7 @@
+<app-task-info-form
+    *ngIf="users && task"
+    [users]="users"
+    [task]="task"
+    (editUser)="onEditTask($event)"
+>
+</app-task-info-form>

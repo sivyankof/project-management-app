@@ -1,12 +1,9 @@
-<mat-card>
-
-    <mat-card-header>
-        <mat-card-title>{{task.title}}</mat-card-title>
-        <mat-card-subtitle>{{task.description}}</mat-card-subtitle>
-    </mat-card-header>
-
-
-    <button mat-stroked-button (click)='deleteTask.emit(task)'>
-        <mat-icon>clear</mat-icon>
+<mat-card class="task-item" (click)="onShowTask()" >
+    <mat-card-content class="task-item-content">
+        <h3 class="task-item-title" > {{ task.title }} </h3>
+        <p>{{ task.description | slice:0:50 }}</p>
+    </mat-card-content>
+    <button mat-mini-fab (click)="deleteTask.emit(task)">
+        <mat-icon>delete_outline</mat-icon>
     </button>
 </mat-card>

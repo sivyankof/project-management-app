@@ -3,8 +3,13 @@
     flex-direction: column;
     justify-content: flex-start;
     padding: 50px 50px 20px;
-    height: 100%;
-    overflow: scroll;
+    height: 69%;
+    overflow: auto;
+
+    .board-title-container {
+        display: flex;
+        align-items: center;
+    }
 
     .back-btn {
         transform: scale(1.6);
