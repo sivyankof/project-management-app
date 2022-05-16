@@ -1,23 +1,53 @@
-<div class='title-column'>
-    <h4 [style.color]='"#14213d"'>Title: {{column.title}}</h4>
-
-    <button mat-mini-fab (click)='onDeleteColumn(column)'>
+<div class="title-column">
+    <form [formGroup]="columnForm" *ngIf="isEdit && columnForm" name="columnForm">
+            <input class="column-form-input" formControlName="title" matInput />
+            <mat-error class="input-error" *ngIf="title.invalid && title.touched">
+                <span *ngIf="title.errors?.['required']">Please enter a title</span>
+                <span *ngIf="title.errors?.['minlength']"> The title is too short</span>
+                <span *ngIf="title.errors?.['maxlength']"> The title is too long</span>
+            </mat-error>
+    </form>
+    <button
+        class="btn-form-column"
+        *ngIf="isEdit"
+        color="warn"
+        mat-raised-button
+        (click)="onSubmit()"
+        (click)="onEditTitle()"
+    >
+        submit
+    </button>
+    <button
+        class="btn-form-column"
+        *ngIf="isEdit"
+        color="warn"
+        mat-raised-button
+        (click)="onEditTitle()"
+    >
+        cancel
+    </button>
+    <h4 *ngIf="!isEdit" [style.color]="'#14213d'" (click)="onEditTitle()">
+        Title: {{ column.title }}
+    </h4>
+    <button *ngIf="!isEdit" mat-mini-fab (click)="onDeleteColumn(column)">
         <mat-icon>close</mat-icon>
     </button>
 </div>
 
-<div class='column'>
-    <button mat-mini-fab (click)='onAddTask(column)'>
+<div class="column">
+    <button mat-mini-fab (click)="onAddTask(column)">
         <mat-icon>add</mat-icon>
     </button>
 
-    <div class='tasks'>
-        <p *ngIf='!column.tasks.length; else tasks'>Task list is empty</p>
+    <div class="tasks">
+        <p *ngIf="!column.tasks.length; else tasks">Task list is empty</p>
     </div>
 
     <ng-template #tasks>
-        <app-task *ngFor='let task of column.tasks'
-                  [task]='task'
-                  (deleteTask)='deleteTask.emit({task, columnId:column.id})'></app-task>
+        <app-task
+            *ngFor="let task of column.tasks"
+            [task]="task"
+            (deleteTask)="deleteTask.emit({task, columnId:column.id})"
+        ></app-task>
     </ng-template>
 </div>

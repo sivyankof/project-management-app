@@ -73,6 +73,10 @@ export class BoardShellComponent implements OnInit {
             });
     }
 
+    onEditColumn(column: IColumnsApiResponse): void {
+        this.boardService.editColumn(column);
+    }
+
     onDeleteTask(data: { task: ITaskApiResponse; columnId: string }): void {
         const config = {
             data: {

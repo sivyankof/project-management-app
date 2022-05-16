@@ -14,7 +14,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from '@service/interceptors/auth.interceptor';
 import { WelcomePageComponent } from './core/welcome-page/welcome-page.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SnackBarService } from '@service/snack-bar.service';
 import { NewBoardPopupPageComponent } from './core/components/new-board-popup-page/new-board-popup-page.component';
 import { EditProfilePageComponent } from './core/components/edit-profile-page/edit-profile-page.component';
@@ -39,6 +39,7 @@ import { EditProfilePageComponent } from './core/components/edit-profile-page/ed
         MaterialModule,
         HttpClientModule,
         ReactiveFormsModule,
+        FormsModule,
     ],
     providers: [
         SnackBarService,
