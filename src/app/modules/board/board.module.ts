@@ -9,8 +9,7 @@ import { SharedModule } from '@shared/shared.module';
 import { CreateTaskFormComponent } from './components/create-task-form/create-task-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TaskComponent } from './components/task/task.component';
-import { TaskInfoFormComponent } from './components/task-info-form/task-info-form.component';
-import { TaskInfoPopupPageComponent } from './containers/task-info-popup-page/task-info-popup-page.component';
+import { TaskInfoPopupShellComponent } from './containers/task-info-popup-shell/task-info-popup-shell.component';
 
 @NgModule({
     declarations: [
@@ -18,8 +17,7 @@ import { TaskInfoPopupPageComponent } from './containers/task-info-popup-page/ta
         ColumnComponent,
         CreateTaskFormComponent,
         TaskComponent,
-        TaskInfoFormComponent,
-        TaskInfoPopupPageComponent,
+        TaskInfoPopupShellComponent,
     ],
 
     imports: [

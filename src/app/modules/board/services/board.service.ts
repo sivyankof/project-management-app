@@ -19,18 +19,8 @@ export class BoardService implements OnDestroy {
 
     constructor(private http: HttpService, private snackBarService: SnackBarService) {}
 
-    public addBoard(newBoard: IBoard): void {
-        this.http
-            .post(`boards`, newBoard)
-            .pipe(take(1))
-            .subscribe(
-                (response) => {
-                    this.snackBarService.openSnackBar(`Board "${response.title}" was created`);
-                },
-                (error) => {
-                    this.snackBarService.openSnackBar(`${error}`);
-                },
-            );
+    public addBoard(newBoard: IBoard): Observable<IBoard> {
+        return this.http.post(`boards`, newBoard).pipe(take(1));
     }
 
     // Получаем весь стейт в виде обзерва Один раз полдписывается и он автоматичеки обновляется

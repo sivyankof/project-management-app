@@ -29,7 +29,8 @@ export class ColumnComponent implements OnInit {
     @Output() deleteTask: EventEmitter<{ task: ITaskApiResponse; columnId: string }> =
         new EventEmitter<{ task: ITaskApiResponse; columnId: string }>();
 
-    @Output() showTask: EventEmitter<ITaskApiResponse> = new EventEmitter<ITaskApiResponse>();
+    @Output() showTask: EventEmitter<{ task: ITaskApiResponse; columnId: string }> =
+        new EventEmitter<{ task: ITaskApiResponse; columnId: string }>();
 
     public columnForm!: FormGroup;
     public isEdit = false;
@@ -47,10 +48,6 @@ export class ColumnComponent implements OnInit {
 
     onDeleteColumn(column: IColumnsApiResponse): void {
         this.deleteColumn.emit(column);
-    }
-
-    onShowTask(task: ITaskApiResponse): void {
-        this.showTask.emit({ ...task, columnId: this.column.id });
     }
 
     onAddTask(column: IColumnsApiResponse): void {
@@ -74,6 +71,7 @@ export class ColumnComponent implements OnInit {
     }
 
     onSubmit(): void {
+        this.isEdit = !this.isEdit;
         this.editColumn.emit({
             id: this.column.id,
             ...this.columnForm.value,

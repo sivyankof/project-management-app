@@ -1,6 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IBoard } from '@shared/models/board.model';
 
 @Component({
     selector: 'app-create-new-board-popup',
@@ -8,7 +7,6 @@ import { IBoard } from '@shared/models/board.model';
     styleUrls: ['./create-new-board-popup.component.scss'],
 })
 export class CreateNewBoardPopupComponent implements OnInit {
-    @Output() createNewBoard: EventEmitter<IBoard> = new EventEmitter<IBoard>();
     public boardForm!: FormGroup;
 
     constructor(private formBuilder: FormBuilder) {}
@@ -29,12 +27,5 @@ export class CreateNewBoardPopupComponent implements OnInit {
 
     public get description(): AbstractControl {
         return <AbstractControl>this.boardForm.get('description');
-    }
-
-    public onCreate(): void {
-        this.boardForm.markAsTouched();
-        if (this.boardForm.valid) {
-            this.createNewBoard.emit(this.boardForm.value);
-        }
     }
 }
