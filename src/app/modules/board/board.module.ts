@@ -7,7 +7,7 @@ import { MaterialModule } from '@shared/material/material.module';
 import { ColumnComponent } from './components/column/column.component';
 import { SharedModule } from '@shared/shared.module';
 import { CreateTaskFormComponent } from './components/create-task-form/create-task-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TaskComponent } from './components/task/task.component';
 import { TaskInfoFormComponent } from './components/task-info-form/task-info-form.component';
 import { TaskInfoPopupPageComponent } from './containers/task-info-popup-page/task-info-popup-page.component';
@@ -21,7 +21,15 @@ import { TaskInfoPopupPageComponent } from './containers/task-info-popup-page/ta
         TaskInfoFormComponent,
         TaskInfoPopupPageComponent,
     ],
-    imports: [CommonModule, BoardRoutingModule, MaterialModule, SharedModule, ReactiveFormsModule],
+
+    imports: [
+        CommonModule,
+        BoardRoutingModule,
+        MaterialModule,
+        SharedModule,
+        ReactiveFormsModule,
+        FormsModule,
+    ],
     providers: [BoardService],
 })
 export class BoardModule {}

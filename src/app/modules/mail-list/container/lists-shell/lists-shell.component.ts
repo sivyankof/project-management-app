@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { IBoard } from '@shared/models/board-list.interface';
 import { Observable } from 'rxjs';
 import { MainService } from '@modules/mail-list/services/main.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '@shared/components/dialog/dialog.component';
+import { map, take } from 'rxjs/operators';
+import { IBoard } from '@shared/models/board.model';
 
 @Component({
     selector: 'app-lists-shell',
@@ -31,5 +32,18 @@ export class ListsShellComponent implements OnInit {
                 this.mainService.deleteBoard(board.id);
             }
         });
+    }
+
+    //TODO need make popup info description
+    onShowInfo(id: string): void {
+        this.boards$
+            .pipe(
+                take(1),
+                map((boards: IBoard[]) => {
+                    return boards.find((board: IBoard) => board.id === id);
+                }),
+                map((board: IBoard) => board.description),
+            )
+            .subscribe((x) => console.log(x));
     }
 }

@@ -1,8 +1,8 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { IBoard } from '@shared/models/board-list.interface';
 import { HttpService } from '@service/http/http.service';
 import { take } from 'rxjs/operators';
+import { IBoard } from '@shared/models/board.model';
 
 @Injectable()
 export class MainService implements OnDestroy {

@@ -1,9 +1,14 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { IBoardApiResponse, ITaskApiResponse } from '@shared/models/board-api-response.model';
+import {
+    IBoardApiResponse,
+    IColumnsApiResponse,
+    ITaskApiResponse,
+} from '@shared/models/board-api-response.model';
 import { HttpService } from '@service/http/http.service';
 import { take, tap } from 'rxjs/operators';
 import { SnackBarService } from '@service/snack-bar.service';
+import { IBoard } from '@shared/models/board.model';
 
 @Injectable()
 export class BoardService implements OnDestroy {
@@ -14,18 +19,18 @@ export class BoardService implements OnDestroy {
 
     constructor(private http: HttpService, private snackBarService: SnackBarService) {}
 
-    public addBoard(boardTitle: string): void {
-        const body = { title: boardTitle };
+    public addBoard(newBoard: IBoard): void {
         this.http
-            .post(`boards`, body)
+            .post(`boards`, newBoard)
             .pipe(take(1))
-            .subscribe((response) => {
-                if (response['id']) {
-                    this.snackBarService.openSnackBar(`Board "${boardTitle}" was created`);
-                } else {
-                    this.snackBarService.openSnackBar(`Board was not created!`);
-                }
-            });
+            .subscribe(
+                (response) => {
+                    this.snackBarService.openSnackBar(`Board "${response.title}" was created`);
+                },
+                (error) => {
+                    this.snackBarService.openSnackBar(`${error}`);
+                },
+            );
     }
 
     // Получаем весь стейт в виде обзерва Один раз полдписывается и он автоматичеки обновляется
@@ -67,6 +72,17 @@ export class BoardService implements OnDestroy {
             });
     }
 
+    public editColumn(column: IColumnsApiResponse): void {
+        const editedColumn = { title: column.title, order: column.order };
+
+        this.http
+            .put(`boards/${this.boardsId}/columns/${column.id}`, editedColumn)
+            .pipe(take(1))
+            .subscribe(() => {
+                this.initBoards(this.boardsId);
+            });
+    }
+
     public deleteTask(taskId: string, columnId: string): void {
         this.http
             .delete(`boards/${this.boardsId}/columns/${columnId}/tasks/${taskId}`)
@@ -95,7 +111,6 @@ export class BoardService implements OnDestroy {
     public editTask(task: ITaskApiResponse, taskId: string): void {
         const boardId = this.boardsId;
         const updateTask = { ...task, boardId };
-        console.log(updateTask);
         this.http
             .put(`boards/${this.boardsId}/columns/${task.columnId}/tasks/${taskId}`, updateTask)
             .pipe(take(1))

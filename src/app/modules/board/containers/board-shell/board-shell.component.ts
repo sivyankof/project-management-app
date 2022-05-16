@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '@shared/components/dialog/dialog.component';
 import { take } from 'rxjs/operators';
-import { TaskInfoFormComponent } from '@modules/board/components/task-info-form/task-info-form.component';
+import { TaskInfoPopupPageComponent } from '../task-info-popup-page/task-info-popup-page.component';
 
 @Component({
     selector: 'app-board-shell',
@@ -74,6 +74,10 @@ export class BoardShellComponent implements OnInit {
             });
     }
 
+    onEditColumn(column: IColumnsApiResponse): void {
+        this.boardService.editColumn(column);
+    }
+
     onDeleteTask(data: { task: ITaskApiResponse; columnId: string }): void {
         const config = {
             data: {
@@ -104,11 +108,12 @@ export class BoardShellComponent implements OnInit {
         dialogConfig.maxWidth = '500px';
         dialogConfig.width = '100%';
         dialogConfig.data = task;
-        const dialog = this.dialog.open(TaskInfoFormComponent, dialogConfig);
+        const dialog = this.dialog.open(TaskInfoPopupPageComponent, dialogConfig);
         const order = task.order;
+        const done = task.done;
         const columnId = task.columnId;
         dialog.afterClosed().subscribe((response) => {
-            const editedTask = { ...response, order, columnId };
+            const editedTask = { ...response, order, done, columnId };
             this.boardService.editTask(editedTask, task.id);
         });
     }
