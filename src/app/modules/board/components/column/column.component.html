@@ -1,14 +1,11 @@
 <div class="title-column">
     <form [formGroup]="columnForm" *ngIf="isEdit && columnForm" name="columnForm">
-        <mat-form-field class="column-form-field" floatLabel="never" appearance="outline">
-            <mat-label>Title</mat-label>
-            <input formControlName="title" matInput />
+            <input class="column-form-input" formControlName="title" matInput />
             <mat-error class="input-error" *ngIf="title.invalid && title.touched">
                 <span *ngIf="title.errors?.['required']">Please enter a title</span>
                 <span *ngIf="title.errors?.['minlength']"> The title is too short</span>
                 <span *ngIf="title.errors?.['maxlength']"> The title is too long</span>
             </mat-error>
-        </mat-form-field>
     </form>
     <button
         class="btn-form-column"

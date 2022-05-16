@@ -73,7 +73,7 @@ export class BoardService implements OnDestroy {
     }
 
     public editColumn(column: IColumnsApiResponse): void {
-        const editedColumn = { id: column.id, order: column.order };
+        const editedColumn = { title: column.title, order: column.order };
 
         this.http
             .put(`boards/${this.boardsId}/columns/${column.id}`, editedColumn)

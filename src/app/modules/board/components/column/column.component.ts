@@ -69,7 +69,7 @@ export class ColumnComponent implements OnInit {
     onSubmit(): void {
         this.editColumn.emit({
             id: this.column.id,
-            title: this.columnForm.value,
+            ...this.columnForm.value,
             order: this.column.order,
         });
     }
