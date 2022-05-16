@@ -1,1 +1,1 @@
-export const API_URL = 'https://cryptic-thicket-80144.herokuapp.com/';
+export const API_URL = 'https://peaceful-reef-42465.herokuapp.com/';

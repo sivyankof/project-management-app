@@ -4,6 +4,7 @@ import { IBoardApiResponse, ITaskApiResponse } from '@shared/models/board-api-re
 import { HttpService } from '@service/http/http.service';
 import { take, tap } from 'rxjs/operators';
 import { SnackBarService } from '@service/snack-bar.service';
+import { IBoard } from '@shared/models/board.model';
 
 @Injectable()
 export class BoardService implements OnDestroy {
@@ -14,18 +15,18 @@ export class BoardService implements OnDestroy {
 
     constructor(private http: HttpService, private snackBarService: SnackBarService) {}
 
-    public addBoard(boardTitle: string): void {
-        const body = { title: boardTitle };
+    public addBoard(newBoard: IBoard): void {
         this.http
-            .post(`boards`, body)
+            .post(`boards`, newBoard)
             .pipe(take(1))
-            .subscribe((response) => {
-                if (response['id']) {
-                    this.snackBarService.openSnackBar(`Board "${boardTitle}" was created`);
-                } else {
-                    this.snackBarService.openSnackBar(`Board was not created!`);
-                }
-            });
+            .subscribe(
+                (response) => {
+                    this.snackBarService.openSnackBar(`Board "${response.title}" was created`);
+                },
+                (error) => {
+                    this.snackBarService.openSnackBar(`${error}`);
+                },
+            );
     }
 
     // Получаем весь стейт в виде обзерва Один раз полдписывается и он автоматичеки обновляется

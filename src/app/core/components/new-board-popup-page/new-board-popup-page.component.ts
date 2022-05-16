@@ -26,8 +26,8 @@ export class NewBoardPopupPageComponent {
         dialogConfig.maxWidth = '450px';
         dialogConfig.width = '100%';
         const dialog = this.dialog.open(CreateNewBoardPopupComponent, dialogConfig);
-        dialog.afterClosed().subscribe((title) => {
-            this.boardService.addBoard(title);
+        dialog.afterClosed().subscribe((newBoard) => {
+            this.boardService.addBoard(newBoard);
             this.router.navigate(['main', 'list']);
         });
     }
