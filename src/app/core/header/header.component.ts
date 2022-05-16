@@ -25,8 +25,8 @@ export class HeaderComponent {
         },
     ];
 
-    isEnActive: boolean = true;
-    isRuActive: boolean = false;
+    isEnActive = true;
+    isRuActive = false;
 
     constructor(private router: Router) {}
 
