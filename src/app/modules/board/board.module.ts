@@ -10,6 +10,7 @@ import { CreateTaskFormComponent } from './components/create-task-form/create-ta
 import { ReactiveFormsModule } from '@angular/forms';
 import { TaskComponent } from './components/task/task.component';
 import { TaskInfoFormComponent } from './components/task-info-form/task-info-form.component';
+import { TaskInfoPopupPageComponent } from './containers/task-info-popup-page/task-info-popup-page.component';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,7 @@ import { TaskInfoFormComponent } from './components/task-info-form/task-info-for
         CreateTaskFormComponent,
         TaskComponent,
         TaskInfoFormComponent,
+        TaskInfoPopupPageComponent,
     ],
     imports: [CommonModule, BoardRoutingModule, MaterialModule, SharedModule, ReactiveFormsModule],
     providers: [BoardService],

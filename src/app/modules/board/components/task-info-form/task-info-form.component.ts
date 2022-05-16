@@ -1,7 +1,5 @@
-import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { UserService } from '@service/user.service';
 import { ITaskApiResponse } from '@shared/models/board-api-response.model';
 import { IUsersForm } from '@shared/models/user.model';
 
@@ -9,22 +7,16 @@ import { IUsersForm } from '@shared/models/user.model';
     selector: 'app-task-info-form',
     templateUrl: './task-info-form.component.html',
     styleUrls: ['./task-info-form.component.scss'],
-    providers: [UserService],
 })
 export class TaskInfoFormComponent implements OnInit {
-    public users: IUsersForm[] = [];
+    @Input() users: IUsersForm[];
+    @Input() task: ITaskApiResponse;
     @Output() editTask: EventEmitter<ITaskApiResponse> = new EventEmitter<ITaskApiResponse>();
     taskInfoForm: FormGroup;
 
-    constructor(
-        private fb: FormBuilder,
-        @Inject(MAT_DIALOG_DATA) public task: ITaskApiResponse,
-        private userService: UserService,
-    ) {}
+    constructor(private fb: FormBuilder) {}
 
     ngOnInit(): void {
-        this.userService.initUsers();
-        this.userService.getUsers().subscribe((users) => (this.users = users));
         this.taskInfoForm = this.fb.group({
             title: this.fb.control(this.task.title, [Validators.required, Validators.minLength(3)]),
             description: this.fb.control(this.task.description, [Validators.maxLength(250)]),
