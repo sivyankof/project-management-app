@@ -7,12 +7,19 @@ import { MaterialModule } from '@shared/material/material.module';
 import { ColumnComponent } from './components/column/column.component';
 import { SharedModule } from '@shared/shared.module';
 import { CreateTaskFormComponent } from './components/create-task-form/create-task-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TaskComponent } from './components/task/task.component';
 
 @NgModule({
     declarations: [BoardShellComponent, ColumnComponent, CreateTaskFormComponent, TaskComponent],
-    imports: [CommonModule, BoardRoutingModule, MaterialModule, SharedModule, ReactiveFormsModule],
+    imports: [
+        CommonModule,
+        BoardRoutingModule,
+        MaterialModule,
+        SharedModule,
+        ReactiveFormsModule,
+        FormsModule,
+    ],
     providers: [BoardService],
 })
 export class BoardModule {}
