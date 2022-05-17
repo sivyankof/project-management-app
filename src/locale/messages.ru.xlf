@@ -548,6 +548,64 @@
         </context-group>
         <note priority="1" from="description">Simple message</note>
       </trans-unit>
+      <trans-unit id="descrText" datatype="html">
+        <source>Description</source>
+        <target>Описание</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="errorDescr" datatype="html">
+        <source>Please enter a description</source>
+        <target>Пожалуйста введите описание</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Input message</note>
+      </trans-unit>
+      <trans-unit id="shortDescrErr" datatype="html">
+        <source> The description is too short</source>
+        <target>Описание слишком короткое</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="longDescrErr" datatype="html">
+        <source> The description is too long</source>
+        <target>Описание слишком длинное</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="colTitleText" datatype="html">
+        <source> Title: <x id="INTERPOLATION" equiv-text="{{ column.title }}"/> </source>
+        <target>Название: <x id="INTERPOLATION" equiv-text="{{ column.title }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/column/column.component.html</context>
+          <context context-type="linenumber">41,43</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="submitText" datatype="html">
+        <source> submit </source>
+        <target>Подтвердить</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/column/column.component.html</context>
+          <context context-type="linenumber">23,25</context>
+        </context-group>
+        <note priority="1" from="description">Button message</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
