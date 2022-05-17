@@ -1,3 +1,11 @@
+:host {
+    margin-right: 20px;
+    border-radius: 20px;
+    height: 85%;
+    box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px, rgb(0 0 0 / 22%) 0px 10px 10px;
+    overflow: hidden;
+}
+
 .title-column {
     display: flex;
     flex-direction: row;
@@ -5,8 +13,13 @@
     align-items: center;
     padding: 10px 20px;
 
-    h4 {
+    .column-title {
+        color: #14213d;
+        font-size: 22px;
         margin: 0;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
     }
 }
 
@@ -17,9 +30,9 @@
     min-width: 350px;
     max-width: 350px;
     background-color: #dbcfc1;
-    margin-right: 16px;
-    height: 70%;
+    height: 100%;
     overflow-y: scroll;
+    max-height: 85%;
 
     button {
         margin-bottom: 10px;

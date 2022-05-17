@@ -25,9 +25,12 @@
     >
         cancel
     </button>
-    <h4 *ngIf='!isEdit' [style.color]="'#14213d'" (click)='onEditTitle()'>
-        Title: {{ column.title }}
-    </h4>
+    <p *ngIf='!isEdit'
+       class='column-title'
+       (click)='onEditTitle()'
+    >
+        {{ column.title.slice(0, 1).toUpperCase() + column.title.slice(1) }}
+    </p>
     <button *ngIf='!isEdit' mat-mini-fab (click)='onDeleteColumn(column)'>
         <mat-icon>close</mat-icon>
     </button>

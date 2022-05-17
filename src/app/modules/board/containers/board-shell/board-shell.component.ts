@@ -130,7 +130,7 @@ export class BoardShellComponent implements OnInit {
                 columnId: data.column.id,
             };
 
-            this.boardService.updateTask(updateTask, task.id).pipe(take(1)).subscribe(console.log);
+            this.boardService.updateTask(updateTask, task.id).pipe(take(1)).subscribe();
         });
     }
 }
