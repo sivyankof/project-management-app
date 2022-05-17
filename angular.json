@@ -70,6 +70,9 @@
                         },
                         "en-US": {
                             "localize": ["en-US"]
+                        },
+                        "ru": {
+                            "localize": ["ru"]
                         }
                     },
                     "defaultConfiguration": "production"
@@ -86,6 +89,9 @@
                         },
                         "en-US": {
                             "browserTarget": "appName:build:en-US"
+                        },
+                        "ru": {
+                            "browserTarget": "appName:build:ru"
                         }
                     },
                     "defaultConfiguration": "development"

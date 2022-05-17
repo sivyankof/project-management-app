@@ -33,13 +33,15 @@
     </button>
 </div>
 
-<div class='column'>
-    <button mat-mini-fab (click)='onAddTask(column)'>
+<div class="column">
+    <button mat-mini-fab (click)="onAddTask(column)">
         <mat-icon>add</mat-icon>
     </button>
 
-    <div class='tasks'>
-        <p *ngIf='!column.tasks.length; else tasks'>Task list is empty</p>
+    <div class="tasks">
+        <p *ngIf="!column.tasks.length; else tasks" i18n="Simple message@@emptyList">
+            Task list is empty
+        </p>
     </div>
 
     <ng-template #tasks>
