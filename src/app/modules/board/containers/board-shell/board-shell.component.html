@@ -1,25 +1,24 @@
-<a [routerLink]="['../']" class="back-btn">
-    <mat-icon>arrow_back</mat-icon>
-</a>
-
-<ng-container *ngIf="this.boards$ | async; else spinner">
-    <h3>{{ (this.boards$ | async).title }}</h3>
-
+<ng-container *ngIf='this.boards$ | async; else spinner'>
+<div class="board-title-container">
+    <a [routerLink]='["../"]' class='back-btn'>
+        <mat-icon>arrow_back</mat-icon>
+    </a>
+    <h2>{{((this.boards$ | async)!).title}}</h2>
+</div>
     <div
-        [ngClass]="{
-            columnTrue: (boards$ | async).columns.length > 0,
-            columnFalse: (boards$ | async).columns.length < 1
-        }"
-    >
-        <ng-container *ngIf="(this.boards$ | async).columns.length; else emptyColumn">
-            <div class="column-wrap">
-                <app-column
-                    *ngFor="let column of (this.boards$ | async).columns; let i = index"
-                    [column]="column"
-                    [index]="i"
-                    (deleteColumn)="onDeleteColumn($event)"
-                    (addTask)="onAddTask($event)"
-                    (deleteTask)="onDeleteTask($event)"
+        [ngClass]='{"columnTrue": (boards$| async).columns.length > 0,
+        "columnFalse": (boards$| async).columns.length < 1}'>
+
+        <ng-container *ngIf='(this.boards$ | async).columns.length; else emptyColumn'>
+            <div class='column-wrap'>
+                <app-column *ngFor='let column of (this.boards$ | async).columns; let i = index'
+                            [column]='column'
+                            [index]='i'
+                            (deleteColumn)='onDeleteColumn($event)'
+                            (editColumn)='onEditColumn($event)'
+                            (addTask)='onAddTask($event)'
+                            (deleteTask)='onDeleteTask($event)'
+                            (showTask)='onShowTaskDialog($event)'
                 >
                 </app-column>
             </div>

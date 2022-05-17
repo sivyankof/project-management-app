@@ -26,6 +26,7 @@
         <mat-label i18n="Simple message@@passMsg">Enter your password</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
         <button
+            type='button'
             mat-icon-button
             matSuffix
             (click)="hide = !hide"

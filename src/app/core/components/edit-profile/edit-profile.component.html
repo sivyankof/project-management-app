@@ -1,9 +1,9 @@
 <form
-    class="edit-profile-form"
-    [formGroup]="editProfileForm"
-    *ngIf="editProfileForm"
-    name="edit-profile-form"
-    (ngSubmit)="onEditUser($event)"
+    *ngIf='editProfileForm'
+    class='edit-profile-form'
+    name='edit-profile-form'
+    [formGroup]='editProfileForm'
+    (ngSubmit)='onEditUser()'
 >
     <h2 i18n="Simple title@@editTitle">Edit profile</h2>
     <mat-form-field class="edit-profile-form-field" appearance="fill">
@@ -65,6 +65,7 @@
             >
         </mat-error>
         <button
+            type='button'
             mat-icon-button
             matSuffix
             (click)="hide = !hide"
@@ -88,7 +89,7 @@
             class="btn-form-profile"
             color="warn"
             mat-raised-button
-            (click)="onDeleteUser($event)"
+            (click)="onDeleteUser()"
             i18n="Delete btn message@@deleteBtnText"
         >
             Delete

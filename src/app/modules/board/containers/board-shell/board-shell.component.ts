@@ -7,9 +7,10 @@ import {
     ITaskApiResponse,
 } from '@shared/models/board-api-response.model';
 import { Observable } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '@shared/components/dialog/dialog.component';
 import { take } from 'rxjs/operators';
+import { TaskInfoPopupShellComponent } from '../task-info-popup-shell/task-info-popup-shell.component';
 
 @Component({
     selector: 'app-board-shell',
@@ -73,6 +74,10 @@ export class BoardShellComponent implements OnInit {
             });
     }
 
+    onEditColumn(column: IColumnsApiResponse): void {
+        this.boardService.editColumn(column);
+    }
+
     onDeleteTask(data: { task: ITaskApiResponse; columnId: string }): void {
         const config = {
             data: {
@@ -94,5 +99,24 @@ export class BoardShellComponent implements OnInit {
         const dialogRef = this.dialog.open(component, config);
 
         return dialogRef.afterClosed();
+    }
+
+    onShowTaskDialog({ task, columnId }: { task: ITaskApiResponse; columnId: string }): void {
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+        dialogConfig.maxWidth = '500px';
+        dialogConfig.width = '100%';
+        dialogConfig.data = task;
+        const dialog = this.dialog.open(TaskInfoPopupShellComponent, dialogConfig);
+        const order = task.order;
+        const done = task.done;
+
+        dialog.afterClosed().subscribe((response) => {
+            if (response) {
+                const editedTask = { ...response, order, done, columnId };
+                this.boardService.editTask(editedTask, task.id);
+            }
+        });
     }
 }

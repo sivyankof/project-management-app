@@ -1,0 +1,19 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+
+    app-header {
+        height: 10vh;
+    }
+
+    router-outlet {
+        //height: 90vh;
+
+    }
+
+    app-footer{
+        height: 10vh;
+    }
+}

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,13 +7,17 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
     styleUrls: ['./create-new-board-popup.component.scss'],
 })
 export class CreateNewBoardPopupComponent implements OnInit {
-    @Output() createNewBoard = new EventEmitter<string>();
     public boardForm!: FormGroup;
+
     constructor(private formBuilder: FormBuilder) {}
 
     ngOnInit(): void {
         this.boardForm = this.formBuilder.group({
-            title: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
+            title: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+            description: [
+                '',
+                [Validators.required, Validators.minLength(3), Validators.maxLength(255)],
+            ],
         });
     }
 
@@ -21,10 +25,7 @@ export class CreateNewBoardPopupComponent implements OnInit {
         return <AbstractControl>this.boardForm.get('title');
     }
 
-    public onCreate(): void {
-        this.boardForm.markAsTouched();
-        if (this.boardForm.valid) {
-            this.createNewBoard.emit(this.boardForm.value.title);
-        }
+    public get description(): AbstractControl {
+        return <AbstractControl>this.boardForm.get('description');
     }
 }

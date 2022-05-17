@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ISignIn, ISignUp } from '../models/auth';
-import { HttpService } from '@service/http.service';
+import { HttpService } from '@service/http/http.service';
 import { map, take } from 'rxjs/operators';
 
 @Injectable({
@@ -29,7 +29,6 @@ export class AuthService {
                     return users.filter((user) => {
                         const localLogin = JSON.parse(localStorage.getItem('login'));
                         if (localLogin.login === user.login) {
-                            console.log(user);
                             return user.id;
                         }
                     });

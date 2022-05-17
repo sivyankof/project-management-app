@@ -9,4 +9,5 @@ import { ITaskApiResponse } from '@shared/models/board-api-response.model';
 export class TaskComponent {
     @Input() task: ITaskApiResponse;
     @Output() deleteTask: EventEmitter<ITaskApiResponse> = new EventEmitter<ITaskApiResponse>();
+    @Output() showTaskInfo: EventEmitter<never> = new EventEmitter<never>();
 }

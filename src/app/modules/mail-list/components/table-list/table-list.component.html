@@ -5,11 +5,11 @@
             board.title
         }}</a>
 
-        <button mat-icon-button (click)="onDeleteBoard(board)">
+        <button mat-icon-button (click)='deleteBoard.emit(board)'>
             <mat-icon>delete_outline</mat-icon>
         </button>
 
-        <button mat-icon-button (click)="showInfo(board.id)">
+        <button mat-icon-button (click)='showInfo.emit(board.id)'>
             <mat-icon>info</mat-icon>
         </button>
         <mat-divider></mat-divider>

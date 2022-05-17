@@ -1,10 +1,10 @@
-<mat-toolbar color="primary">
-    <mat-nav-list class="nav-list">
+<mat-toolbar color='primary'>
+    <mat-nav-list class='nav-list'>
         <a
-            [routerLink]="link.route"
-            routerLinkActive="selected"
+            [routerLink]='link.route'
+            routerLinkActive='selected'
             mat-list-item
-            *ngFor="let link of links"
+            *ngFor='let link of links'
         >
             <mat-icon>{{ link.icon }}</mat-icon>
             <span>{{ link.name }}</span>
@@ -13,12 +13,15 @@
 
     <mat-action-list aria-label>
         <mat-icon>translate</mat-icon>
-        <div class="locales-wrap">
-            <a matLine href="/en/" [class.active]="isEnActive" (click)="toggleClass()"> EN </a>
-            <a matLine href="/ru/" [class.active]="isRuActive" (click)="toggleClass()"> RU </a>
+
+        <div class='locales-wrap'>
+            <a matLine title="Don't work :(" [class.active]='isEnActive' (click)='toggleClass()'>
+                EN </a>
+            <a matLine title="Don't work :(" [class.active]='isRuActive' (click)='toggleClass()'>
+                RU </a>
         </div>
 
-        <button mat-list-item (click)="logOut()" i18n="argument@@logMsg">
+        <button mat-list-item (click)='logOut()' i18n='argument@@logMsg'>
             <mat-icon>power_settings_new</mat-icon>
             logout
         </button>

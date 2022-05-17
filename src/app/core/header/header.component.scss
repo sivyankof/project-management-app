@@ -1,8 +1,8 @@
 
 mat-toolbar {
-    height: 10%;
     justify-content: space-between;
     background-color: #81b29a !important;
+    height: 100%;
 
     mat-nav-list {
         display: flex;
@@ -51,9 +51,11 @@ mat-toolbar {
             }
         }
 
-        .locale-wrap {
+        .locales-wrap {
             height: 100%;
             margin-left: 15px;
+            margin-right: 15px;
+            cursor: pointer;
         }
     }
 }

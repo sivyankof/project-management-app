@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { SnackBarService } from '@service/snack-bar.service';
 
 @Component({
     selector: 'app-header',
@@ -25,10 +26,10 @@ export class HeaderComponent {
         },
     ];
 
-    isEnActive = true;
-    isRuActive = false;
+    public isEnActive = true;
+    public isRuActive = false;
 
-    constructor(private router: Router) {}
+    constructor(private router: Router, private snackBar: SnackBarService) {}
 
     logOut(): void {
         localStorage.clear();
@@ -38,5 +39,7 @@ export class HeaderComponent {
     toggleClass(): void {
         this.isEnActive = !this.isEnActive;
         this.isRuActive = !this.isRuActive;
+
+        this.snackBar.openSnackBar(`Sorry, this isn’t working :(`);
     }
 }

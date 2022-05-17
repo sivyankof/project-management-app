@@ -1,7 +1,9 @@
-<div class='task-item'>
-    <p>{{task.title}}</p>
-    <p>{{task.description}}</p>
-</div>
-<button mat-stroked-button (click)='deleteTask.emit(task)'>
-    <mat-icon>clear</mat-icon>
-</button>
+<mat-card class='task-item'>
+    <mat-card-content class='task-item-content' (click)='showTaskInfo.emit()'>
+        <h3 class='task-item-title'> {{ task.title }} </h3>
+        <p>{{ task.description | slice:0:50 }}</p>
+    </mat-card-content>
+    <button mat-mini-fab (click)='deleteTask.emit(task)'>
+        <mat-icon>delete_outline</mat-icon>
+    </button>
+</mat-card>
