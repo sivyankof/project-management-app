@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IBoard } from '@shared/models/board.model';
+import { IBoard } from '@shared/models/board-api-response.model';
 
 @Component({
     selector: 'app-table-list',

@@ -44,7 +44,7 @@
 
     <ng-template #tasks>
         <div cdkDropList class='example-list' [cdkDropListData]='column.tasks' (cdkDropListDropped)='drop($event)'>
-            <app-task *ngFor='let task of column.tasks'
+            <app-task *ngFor='let task of column.tasks;'
                       cdkDrag
                       class='example-box'
                       [task]='task'

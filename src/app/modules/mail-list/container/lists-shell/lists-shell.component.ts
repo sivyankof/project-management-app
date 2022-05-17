@@ -4,7 +4,7 @@ import { MainService } from '@modules/mail-list/services/main.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '@shared/components/dialog/dialog.component';
 import { map, take } from 'rxjs/operators';
-import { IBoard } from '@shared/models/board.model';
+import { IBoard } from '@shared/models/board-api-response.model';
 
 @Component({
     selector: 'app-lists-shell',

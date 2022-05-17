@@ -16,9 +16,10 @@ mat-card {
     overflow: hidden;
 
     mat-card-header {
-        max-width: 90%;
+        width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
+
 
         mat-card-title {
             text-overflow: ellipsis;

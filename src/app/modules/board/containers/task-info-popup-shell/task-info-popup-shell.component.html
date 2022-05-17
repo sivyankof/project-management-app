@@ -31,11 +31,11 @@
 
 <mat-dialog-actions class='form-task-info-controls'>
     <button
-        mat-button
+        mat-raised-button
         [mat-dialog-close]='taskInfoForm.value'
         [disabled]='taskInfoForm.invalid'
     >
-        Edit
+        Change
     </button>
-    <button mat-button mat-dialog-close=''>Cancel</button>
+    <button class='btn-close' mat-raised-button mat-dialog-close=''>Cancel</button>
 </mat-dialog-actions>
