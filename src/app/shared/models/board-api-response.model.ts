@@ -1,18 +1,18 @@
-export interface IBoardApiResponse {
+export interface IBoard {
     id: string;
     title: string;
     description: string;
-    columns: IColumnsApiResponse[];
+    columns: IColumns[];
 }
 
-export interface IColumnsApiResponse {
+export interface IColumns {
     id: string;
     title: string;
     order: number;
-    tasks?: ITaskApiResponse[];
+    tasks?: ITask[];
 }
 
-export interface ITaskApiResponse {
+export interface ITask {
     id?: string;
     title: string;
     done?: boolean;
@@ -21,10 +21,10 @@ export interface ITaskApiResponse {
     userId?: string;
     boardId?: string;
     columnId?: string;
-    files?: IFilesApiResponse[];
+    files?: IFiles[];
 }
 
-export interface IFilesApiResponse {
+export interface IFiles {
     filename: string;
     fileSize: number;
 }

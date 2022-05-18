@@ -33,15 +33,14 @@
     >
         cancel
     </button>
-    <h4
-        *ngIf="!isEdit"
-        [style.color]="'#14213d'"
-        (click)="onEditTitle()"
-        i18n="Simple message@@colTitleText"
+    <p *ngIf='!isEdit'
+       class='column-title'
+       (click)='onEditTitle()'
+       i18n="Simple message@@colTitleText"
     >
-        Title: {{ column.title }}
-    </h4>
-    <button *ngIf="!isEdit" mat-mini-fab (click)="onDeleteColumn(column)">
+        {{ column.title.slice(0, 1).toUpperCase() + column.title.slice(1) }}
+    </p>
+    <button *ngIf='!isEdit' mat-mini-fab (click)='onDeleteColumn(column)'>
         <mat-icon>close</mat-icon>
     </button>
 </div>
@@ -58,12 +57,13 @@
     </div>
 
     <ng-template #tasks>
-        <app-task
-            *ngFor="let task of column.tasks"
-            [task]="task"
-            (deleteTask)="deleteTask.emit({task, columnId:column.id})"
-            (showTaskInfo)="showTask.emit({task, columnId:column.id})"
-        >
-        </app-task>
+        <div cdkDropList class='example-list' [cdkDropListData]='column.tasks' (cdkDropListDropped)='drop($event)'>
+            <app-task *ngFor='let task of column.tasks;'
+                      cdkDrag
+                      class='example-box'
+                      [task]='task'
+                      (deleteTask)='deleteTask.emit({task, columnId:column.id})'
+                      (showTaskInfo)='showTask.emit({task, columnId:column.id})'></app-task>
+        </div>
     </ng-template>
 </div>

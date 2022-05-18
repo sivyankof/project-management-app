@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IColumnsApiResponse, ITaskApiResponse } from '@shared/models/board-api-response.model';
+import { IColumns, ITask } from '@shared/models/board-api-response.model';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTaskFormComponent } from '@modules/board/components/create-task-form/create-task-form.component';
 import { take } from 'rxjs/operators';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ITaskOfColumn } from '@modules/board/model/column.interface';
 
 @Component({
     selector: 'app-column',
@@ -11,33 +13,29 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
     styleUrls: ['./column.component.scss'],
 })
 export class ColumnComponent implements OnInit {
-    @Input() column: IColumnsApiResponse;
+    @Input() column: IColumns;
     @Input() index: number;
+    @Input() columns: IColumns[];
 
-    @Output() deleteColumn: EventEmitter<IColumnsApiResponse> =
-        new EventEmitter<IColumnsApiResponse>(null);
-
-    @Output() editColumn: EventEmitter<IColumnsApiResponse> =
-        new EventEmitter<IColumnsApiResponse>();
-
-    @Output() addTask: EventEmitter<{ columnId: string; task: ITaskApiResponse }> =
-        new EventEmitter<{
-            columnId: string;
-            task: ITaskApiResponse;
-        }>();
-
-    @Output() deleteTask: EventEmitter<{ task: ITaskApiResponse; columnId: string }> =
-        new EventEmitter<{ task: ITaskApiResponse; columnId: string }>();
-
-    @Output() showTask: EventEmitter<{ task: ITaskApiResponse; columnId: string }> =
-        new EventEmitter<{ task: ITaskApiResponse; columnId: string }>();
+    @Output() deleteColumn: EventEmitter<IColumns> = new EventEmitter<IColumns>(null);
+    @Output() editColumn: EventEmitter<IColumns> = new EventEmitter<IColumns>();
+    @Output() addTask: EventEmitter<ITaskOfColumn> = new EventEmitter<ITaskOfColumn>();
+    @Output() deleteTask: EventEmitter<ITaskOfColumn> = new EventEmitter<ITaskOfColumn>();
+    @Output() showTask: EventEmitter<ITaskOfColumn> = new EventEmitter<ITaskOfColumn>();
+    @Output() movedTask: EventEmitter<{ tasks: ITask[]; column: IColumns }> = new EventEmitter<{
+        tasks: ITask[];
+        column: IColumns;
+    }>();
 
     public columnForm!: FormGroup;
     public isEdit = false;
 
     constructor(private dialog: MatDialog, private formBuilder: FormBuilder) {}
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
+        console.log(this.columns);
+        this.column.tasks.sort((a: ITask, b: ITask) => a.order - b.order);
+
         this.columnForm = this.formBuilder.group({
             title: [
                 this.column.title,
@@ -46,11 +44,11 @@ export class ColumnComponent implements OnInit {
         });
     }
 
-    onDeleteColumn(column: IColumnsApiResponse): void {
+    public onDeleteColumn(column: IColumns): void {
         this.deleteColumn.emit(column);
     }
 
-    onAddTask(column: IColumnsApiResponse): void {
+    public onAddTask(column: IColumns): void {
         const dialogRef = this.dialog.open(CreateTaskFormComponent);
         const done = false;
         const order = column.tasks.length;
@@ -66,11 +64,30 @@ export class ColumnComponent implements OnInit {
             });
     }
 
-    onEditTitle(): void {
+    public drop(event: CdkDragDrop<ITask[]>): void {
+        if (event.previousContainer === event.container) {
+            if (event.previousIndex !== event.currentIndex) {
+                moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+
+                const updatedTasks = this.updatedTasks();
+
+                this.movedTask.emit({ tasks: updatedTasks, column: this.column });
+            }
+        } else {
+            transferArrayItem(
+                event.previousContainer.data,
+                event.container.data,
+                event.previousIndex,
+                event.currentIndex,
+            );
+        }
+    }
+
+    public onEditTitle(): void {
         this.isEdit = !this.isEdit;
     }
 
-    onSubmit(): void {
+    public onSubmit(): void {
         this.isEdit = !this.isEdit;
         this.editColumn.emit({
             id: this.column.id,
@@ -81,5 +98,12 @@ export class ColumnComponent implements OnInit {
 
     public get title(): AbstractControl {
         return <AbstractControl>this.columnForm.get('title');
+    }
+
+    private updatedTasks(): ITask[] {
+        return this.column.tasks.map((task: ITask, i: number) => {
+            task.order = i;
+            return task;
+        });
     }
 }

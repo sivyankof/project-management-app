@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UserService } from '@service/user.service';
-import { ITaskApiResponse } from '@shared/models/board-api-response.model';
+import { ITask } from '@shared/models/board-api-response.model';
 import { IUsersForm } from '@shared/models/user.model';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -17,7 +17,7 @@ export class TaskInfoPopupShellComponent implements OnInit {
     taskInfoForm: FormGroup;
 
     constructor(
-        @Inject(MAT_DIALOG_DATA) public task: ITaskApiResponse,
+        @Inject(MAT_DIALOG_DATA) public task: ITask,
         private userService: UserService,
         private fb: FormBuilder,
     ) {}

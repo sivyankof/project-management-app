@@ -1,30 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { BoardService } from '@modules/board/services/board.service';
-import {
-    IBoardApiResponse,
-    IColumnsApiResponse,
-    ITaskApiResponse,
-} from '@shared/models/board-api-response.model';
+import { IBoard, IColumns, ITask } from '@shared/models/board-api-response.model';
 import { Observable } from 'rxjs';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '@shared/components/dialog/dialog.component';
 import { take } from 'rxjs/operators';
 import { TaskInfoPopupShellComponent } from '../task-info-popup-shell/task-info-popup-shell.component';
+import { AsyncPipe } from '@angular/common';
+import { ITaskOfColumn } from '@modules/board/model/column.interface';
 
 @Component({
     selector: 'app-board-shell',
     templateUrl: './board-shell.component.html',
     styleUrls: ['./board-shell.component.scss'],
-    providers: [BoardService],
+    providers: [BoardService, AsyncPipe],
 })
 export class BoardShellComponent implements OnInit {
-    public boards$: Observable<IBoardApiResponse>;
+    public boards$: Observable<IBoard>;
 
     constructor(
         private route: ActivatedRoute,
         private boardService: BoardService,
         private dialog: MatDialog,
+        private asyncPipe: AsyncPipe,
     ) {}
 
     ngOnInit(): void {
@@ -35,7 +34,7 @@ export class BoardShellComponent implements OnInit {
         });
     }
 
-    onAddTask(data: { task: ITaskApiResponse; columnId: string }): void {
+    onAddTask(data: ITaskOfColumn): void {
         const userId = JSON.parse(localStorage.getItem('login')).id;
         const updateTask = { ...data.task, userId };
 
@@ -58,7 +57,7 @@ export class BoardShellComponent implements OnInit {
             });
     }
 
-    onDeleteColumn(column: IColumnsApiResponse): void {
+    onDeleteColumn(column: IColumns): void {
         const config = {
             data: {
                 nameItem: column.title,
@@ -74,11 +73,11 @@ export class BoardShellComponent implements OnInit {
             });
     }
 
-    onEditColumn(column: IColumnsApiResponse): void {
+    onEditColumn(column: IColumns): void {
         this.boardService.editColumn(column);
     }
 
-    onDeleteTask(data: { task: ITaskApiResponse; columnId: string }): void {
+    onDeleteTask(data: ITaskOfColumn): void {
         const config = {
             data: {
                 nameItem: data.task.title,
@@ -101,7 +100,7 @@ export class BoardShellComponent implements OnInit {
         return dialogRef.afterClosed();
     }
 
-    onShowTaskDialog({ task, columnId }: { task: ITaskApiResponse; columnId: string }): void {
+    onShowTaskDialog({ task, columnId }: ITaskOfColumn): void {
         const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
@@ -117,6 +116,22 @@ export class BoardShellComponent implements OnInit {
                 const editedTask = { ...response, order, done, columnId };
                 this.boardService.editTask(editedTask, task.id);
             }
+        });
+    }
+
+    movedTask(data: { tasks: ITask[]; column: IColumns }): void {
+        data.tasks.forEach((task: ITask) => {
+            const updateTask = {
+                title: task.title,
+                done: task.done,
+                order: task.order,
+                description: task.description,
+                userId: JSON.parse(localStorage.getItem('login')).id,
+                boardId: this.asyncPipe.transform(this.boards$).id,
+                columnId: data.column.id,
+            };
+
+            this.boardService.updateTask(updateTask, task.id).pipe(take(1)).subscribe();
         });
     }
 }

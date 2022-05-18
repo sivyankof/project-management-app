@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ITaskApiResponse } from '@shared/models/board-api-response.model';
+import { ITask } from '@shared/models/board-api-response.model';
 
 @Component({
     selector: 'app-task',
@@ -7,7 +7,7 @@ import { ITaskApiResponse } from '@shared/models/board-api-response.model';
     styleUrls: ['./task.component.scss'],
 })
 export class TaskComponent {
-    @Input() task: ITaskApiResponse;
-    @Output() deleteTask: EventEmitter<ITaskApiResponse> = new EventEmitter<ITaskApiResponse>();
+    @Input() task: ITask;
+    @Output() deleteTask: EventEmitter<ITask> = new EventEmitter<ITask>();
     @Output() showTaskInfo: EventEmitter<never> = new EventEmitter<never>();
 }
