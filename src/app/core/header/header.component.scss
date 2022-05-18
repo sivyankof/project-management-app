@@ -58,3 +58,12 @@ mat-toolbar {
         }
     }
 }
+
+.sticky {
+    box-shadow: 0 3px 12px 0 rgba(0,0,0,.8);
+    position: fixed;
+    top: 0;
+    z-index: 90;
+    width: 100%;
+    transition: 0.5s linear;
+}
