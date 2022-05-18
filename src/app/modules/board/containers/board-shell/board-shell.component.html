@@ -21,6 +21,7 @@
                             (deleteTask)='onDeleteTask($event)'
                             (showTask)='onShowTaskDialog($event)'
                             (movedTask)='movedTask($event)'
+                            [columns]='(boards$| async).columns'
                 >
                 </app-column>
             </div>

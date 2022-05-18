@@ -5,6 +5,7 @@ import { CreateTaskFormComponent } from '@modules/board/components/create-task-f
 import { take } from 'rxjs/operators';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ITaskOfColumn } from '@modules/board/model/column.interface';
 
 @Component({
     selector: 'app-column',
@@ -14,26 +15,13 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 export class ColumnComponent implements OnInit {
     @Input() column: IColumns;
     @Input() index: number;
+    @Input() columns: IColumns[];
 
     @Output() deleteColumn: EventEmitter<IColumns> = new EventEmitter<IColumns>(null);
-
     @Output() editColumn: EventEmitter<IColumns> = new EventEmitter<IColumns>();
-
-    @Output() addTask: EventEmitter<{ columnId: string; task: ITask }> = new EventEmitter<{
-        columnId: string;
-        task: ITask;
-    }>();
-
-    @Output() deleteTask: EventEmitter<{ task: ITask; columnId: string }> = new EventEmitter<{
-        task: ITask;
-        columnId: string;
-    }>();
-
-    @Output() showTask: EventEmitter<{ task: ITask; columnId: string }> = new EventEmitter<{
-        task: ITask;
-        columnId: string;
-    }>();
-
+    @Output() addTask: EventEmitter<ITaskOfColumn> = new EventEmitter<ITaskOfColumn>();
+    @Output() deleteTask: EventEmitter<ITaskOfColumn> = new EventEmitter<ITaskOfColumn>();
+    @Output() showTask: EventEmitter<ITaskOfColumn> = new EventEmitter<ITaskOfColumn>();
     @Output() movedTask: EventEmitter<{ tasks: ITask[]; column: IColumns }> = new EventEmitter<{
         tasks: ITask[];
         column: IColumns;
@@ -45,6 +33,7 @@ export class ColumnComponent implements OnInit {
     constructor(private dialog: MatDialog, private formBuilder: FormBuilder) {}
 
     public ngOnInit(): void {
+        console.log(this.columns);
         this.column.tasks.sort((a: ITask, b: ITask) => a.order - b.order);
 
         this.columnForm = this.formBuilder.group({
@@ -80,12 +69,9 @@ export class ColumnComponent implements OnInit {
             if (event.previousIndex !== event.currentIndex) {
                 moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
 
-                const newArray = this.column.tasks.map((task, i) => {
-                    task.order = i;
-                    return task;
-                });
+                const updatedTasks = this.updatedTasks();
 
-                this.movedTask.emit({ tasks: newArray, column: this.column });
+                this.movedTask.emit({ tasks: updatedTasks, column: this.column });
             }
         } else {
             transferArrayItem(
@@ -112,5 +98,12 @@ export class ColumnComponent implements OnInit {
 
     public get title(): AbstractControl {
         return <AbstractControl>this.columnForm.get('title');
+    }
+
+    private updatedTasks(): ITask[] {
+        return this.column.tasks.map((task: ITask, i: number) => {
+            task.order = i;
+            return task;
+        });
     }
 }

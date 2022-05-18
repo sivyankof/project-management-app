@@ -8,6 +8,7 @@ import { DialogComponent } from '@shared/components/dialog/dialog.component';
 import { take } from 'rxjs/operators';
 import { TaskInfoPopupShellComponent } from '../task-info-popup-shell/task-info-popup-shell.component';
 import { AsyncPipe } from '@angular/common';
+import { ITaskOfColumn } from '@modules/board/model/column.interface';
 
 @Component({
     selector: 'app-board-shell',
@@ -33,7 +34,7 @@ export class BoardShellComponent implements OnInit {
         });
     }
 
-    onAddTask(data: { task: ITask; columnId: string }): void {
+    onAddTask(data: ITaskOfColumn): void {
         const userId = JSON.parse(localStorage.getItem('login')).id;
         const updateTask = { ...data.task, userId };
 
@@ -76,7 +77,7 @@ export class BoardShellComponent implements OnInit {
         this.boardService.editColumn(column);
     }
 
-    onDeleteTask(data: { task: ITask; columnId: string }): void {
+    onDeleteTask(data: ITaskOfColumn): void {
         const config = {
             data: {
                 nameItem: data.task.title,
@@ -99,7 +100,7 @@ export class BoardShellComponent implements OnInit {
         return dialogRef.afterClosed();
     }
 
-    onShowTaskDialog({ task, columnId }: { task: ITask; columnId: string }): void {
+    onShowTaskDialog({ task, columnId }: ITaskOfColumn): void {
         const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
