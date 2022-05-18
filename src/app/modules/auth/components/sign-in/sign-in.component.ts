@@ -47,7 +47,9 @@ export class SignInComponent implements OnInit, OnDestroy {
                         }
                     },
                     () => {
-                        this.loginForm.setErrors({ loginErr: 'User was not founded!' });
+                        this.loginForm.setErrors({
+                            loginErr: $localize`:user not found msg@@userErr: User was not founded!`,
+                        });
                     },
                 );
         }

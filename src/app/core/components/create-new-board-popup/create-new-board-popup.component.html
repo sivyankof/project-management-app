@@ -1,32 +1,49 @@
-<h2 mat-dialog-title>Title</h2>
+<h2 mat-dialog-title i18n="Simple title@@boardTitle">Title</h2>
 <div mat-dialog-content>
-
-    <form [formGroup]='boardForm' *ngIf='boardForm' name='boardForm'>
-        <mat-form-field class='create-board-form-field' appearance='fill'>
-            <mat-label>Title</mat-label>
-            <input formControlName='title' matInput />
-            <mat-error class='input-error' *ngIf='title.invalid && title.touched'>
-                <span *ngIf="title.errors?.['required']">Please enter a title</span>
-                <span *ngIf="title.errors?.['minlength']"> The title is too short</span>
-                <span *ngIf="title.errors?.['maxlength']"> The title is too long</span>
+    <form [formGroup]="boardForm" *ngIf="boardForm" name="boardForm">
+        <mat-form-field class="create-board-form-field" appearance="fill">
+            <mat-label i18n="Simple title@@boardTitle">Title</mat-label>
+            <input formControlName="title" matInput />
+            <mat-error class="input-error" *ngIf="title.invalid && title.touched">
+                <span *ngIf="title.errors?.['required']" i18n="Input message@@errorTitle"
+                    >Please enter a title</span
+                >
+                <span *ngIf="title.errors?.['minlength']" i18n="Error message@@shortTitleErr">
+                    The title is too short</span
+                >
+                <span *ngIf="title.errors?.['maxlength']" i18n="Error message@@longTitleErr">
+                    The title is too long</span
+                >
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field class='create-board-form-field' appearance='fill'>
-            <mat-label>Description</mat-label>
-            <input formControlName='description' matInput />
-            <mat-error class='input-error' *ngIf='description.invalid && description.touched'>
-                <span *ngIf="description.errors?.['required']">Please enter a description</span>
-                <span *ngIf="description.errors?.['minlength']"> The description is too short</span>
-                <span *ngIf="description.errors?.['maxlength']"> The description is too long</span>
+        <mat-form-field class="create-board-form-field" appearance="fill">
+            <mat-label i18n="Simple message@@descrText">Description</mat-label>
+            <input formControlName="description" matInput />
+            <mat-error class="input-error" *ngIf="description.invalid && description.touched">
+                <span *ngIf="description.errors?.['required']" i18n="Input message@@errorDescr"
+                    >Please enter a description</span
+                >
+                <span *ngIf="description.errors?.['minlength']" i18n="Error message@@shortDescrErr">
+                    The description is too short</span
+                >
+                <span *ngIf="description.errors?.['maxlength']" i18n="Error message@@longDescrErr">
+                    The description is too long</span
+                >
             </mat-error>
         </mat-form-field>
     </form>
 </div>
-
-<mat-dialog-actions class='create-board-controls'>
-    <button mat-button [mat-dialog-close]='boardForm.value' [disabled]='boardForm.invalid' (click)='onCreate()'>
+<mat-dialog-actions class="create-board-controls">
+    <button
+        mat-button
+        [mat-dialog-close]="boardForm.value"
+        [disabled]="boardForm.invalid"
+        i18n="Button message@@createText"
+    >
         Create
     </button>
-    <button mat-stroked-button class='btn-close' mat-dialog-close>Cancel</button>
+    <button at-stroked-button class="btn-close" mat-dialog-close i18n="Button message@@cancelText">
+        Cancel
+    </button>
 </mat-dialog-actions>

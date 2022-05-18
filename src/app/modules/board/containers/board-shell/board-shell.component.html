@@ -1,10 +1,11 @@
 <ng-container *ngIf='this.boards$ | async; else spinner'>
-<div class="board-title-container">
-    <a [routerLink]='["../"]' class='back-btn'>
-        <mat-icon>arrow_back</mat-icon>
-    </a>
-    <h2>{{((this.boards$ | async)!).title}}</h2>
-</div>
+    <div class='board-title-container'>
+        <a [routerLink]='["../"]' class='back-btn'>
+            <mat-icon>arrow_back</mat-icon>
+        </a>
+        <h2>{{((this.boards$ | async)!).title}}</h2>
+    </div>
+
     <div
         [ngClass]='{"columnTrue": (boards$| async).columns.length > 0,
         "columnFalse": (boards$| async).columns.length < 1}'>
@@ -19,28 +20,32 @@
                             (addTask)='onAddTask($event)'
                             (deleteTask)='onDeleteTask($event)'
                             (showTask)='onShowTaskDialog($event)'
-                            (editTask)='onEditTask($event)'
+                            (movedTask)='movedTask($event)'
+                            [columns]='(boards$| async).columns'
                 >
                 </app-column>
             </div>
         </ng-container>
 
         <ng-template #emptyColumn>
-            <div class='empty'>
-                Non column
-            </div>
+            <div class="empty" i18n="Simple message@@nonColumnText">Non column</div>
         </ng-template>
 
-        <button mat-raised-button color='warn'
-                aria-label='Created column'
-                type='button'
-                [ngClass]='{"emptyBtn": (boards$| async).columns.length < 1,
-                        "fullBtn": (boards$| async).columns.length > 0}'
-                (click)='addColumn()'>
+        <button
+            mat-raised-button
+            color="warn"
+            aria-label="Created column"
+            type="button"
+            [ngClass]="{
+                emptyBtn: (boards$ | async).columns.length < 1,
+                fullBtn: (boards$ | async).columns.length > 0
+            }"
+            (click)="addColumn()"
+            i18n="Simple message@@addColumnText"
+        >
             + Add column
         </button>
     </div>
-
 </ng-container>
 <ng-template #spinner>
     <mat-spinner></mat-spinner>

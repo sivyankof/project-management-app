@@ -1,40 +1,23 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import {
-    IBoardApiResponse,
-    IColumnsApiResponse,
-    ITaskApiResponse,
-} from '@shared/models/board-api-response.model';
+import { IBoard, IColumns, ITask } from '@shared/models/board-api-response.model';
 import { HttpService } from '@service/http/http.service';
 import { take, tap } from 'rxjs/operators';
 import { SnackBarService } from '@service/snack-bar.service';
-import { IBoard } from '@shared/models/board.model';
 
 @Injectable()
 export class BoardService implements OnDestroy {
     private boardsId: string;
-    private boards$: BehaviorSubject<IBoardApiResponse> = new BehaviorSubject<IBoardApiResponse>(
-        null,
-    );
+    private boards$: BehaviorSubject<IBoard> = new BehaviorSubject<IBoard>(null);
 
     constructor(private http: HttpService, private snackBarService: SnackBarService) {}
 
-    public addBoard(newBoard: IBoard): void {
-        this.http
-            .post(`boards`, newBoard)
-            .pipe(take(1))
-            .subscribe(
-                (response) => {
-                    this.snackBarService.openSnackBar(`Board "${response.title}" was created`);
-                },
-                (error) => {
-                    this.snackBarService.openSnackBar(`${error}`);
-                },
-            );
+    public addBoard(newBoard: IBoard): Observable<IBoard> {
+        return this.http.post(`boards`, newBoard).pipe(take(1));
     }
 
     // Получаем весь стейт в виде обзерва Один раз полдписывается и он автоматичеки обновляется
-    public getBoards(): Observable<IBoardApiResponse> {
+    public getBoards(): Observable<IBoard> {
         return this.boards$.asObservable();
     }
 
@@ -56,7 +39,7 @@ export class BoardService implements OnDestroy {
             });
     }
 
-    public addTask(columnId: string, task: ITaskApiResponse): void {
+    public addTask(columnId: string, task: ITask): void {
         this.http
             .post(`boards/${this.boardsId}/columns/${columnId}/tasks`, task)
             .pipe(take(1))
@@ -72,7 +55,7 @@ export class BoardService implements OnDestroy {
             });
     }
 
-    public editColumn(column: IColumnsApiResponse): void {
+    public editColumn(column: IColumns): void {
         const editedColumn = { title: column.title, order: column.order };
 
         this.http
@@ -98,6 +81,24 @@ export class BoardService implements OnDestroy {
         this.boards$.complete();
     }
 
+    public updateTask(
+        task: {
+            title: string;
+            done: boolean;
+            order: number;
+            description: string;
+            userId: string;
+            boardId: string;
+            columnId: string;
+        },
+        taskId: string,
+    ): Observable<ITask> {
+        return this.http.put(
+            `boards/${task.boardId}/columns/${task.columnId}/tasks/${taskId}`,
+            task,
+        );
+    }
+
     private init(id: string): void {
         this.http
             .get(`boards/${id}`)
@@ -108,7 +109,7 @@ export class BoardService implements OnDestroy {
             .subscribe((boards) => this.boards$.next(boards));
     }
 
-    public editTask(task: ITaskApiResponse, taskId: string): void {
+    public editTask(task: ITask, taskId: string): void {
         const boardId = this.boardsId;
         const updateTask = { ...task, boardId };
         this.http

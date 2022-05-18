@@ -44,7 +44,9 @@ export class EditProfilePageComponent implements OnInit {
                 this.userService.deleteUser(user.id);
                 localStorage.clear();
                 this.router.navigate(['auth']);
-                this.snackBarService.openSnackBar(`User "${user.login}" was deleted`);
+                this.snackBarService.openSnackBar(
+                    $localize`:snackBarMsg@@snackBarMsg: User "${user.login}" was deleted`,
+                );
             }
         });
     }
