@@ -28,21 +28,24 @@
         </ng-container>
 
         <ng-template #emptyColumn>
-            <div class='empty'>
-                Non column
-            </div>
+            <div class="empty" i18n="Simple message@@nonColumnText">Non column</div>
         </ng-template>
 
-        <button mat-raised-button color='warn'
-                aria-label='Created column'
-                type='button'
-                [ngClass]='{"emptyBtn": (boards$| async).columns.length < 1,
-                        "fullBtn": (boards$| async).columns.length > 0}'
-                (click)='addColumn()'>
+        <button
+            mat-raised-button
+            color="warn"
+            aria-label="Created column"
+            type="button"
+            [ngClass]="{
+                emptyBtn: (boards$ | async).columns.length < 1,
+                fullBtn: (boards$ | async).columns.length > 0
+            }"
+            (click)="addColumn()"
+            i18n="Simple message@@addColumnText"
+        >
             + Add column
         </button>
     </div>
-
 </ng-container>
 <ng-template #spinner>
     <mat-spinner></mat-spinner>
