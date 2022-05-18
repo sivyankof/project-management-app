@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SnackBarService } from '@service/snack-bar.service';
 import { NewBoardPopupPageComponent } from './core/components/new-board-popup-page/new-board-popup-page.component';
 import { EditProfilePageComponent } from './core/components/edit-profile-page/edit-profile-page.component';
+import { StickyHeaderDirective } from '@shared/directives/sticky-header.directive';
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { EditProfilePageComponent } from './core/components/edit-profile-page/ed
         NotFoundComponent,
         NewBoardPopupPageComponent,
         EditProfilePageComponent,
+        StickyHeaderDirective,
     ],
     imports: [
         BrowserModule,
