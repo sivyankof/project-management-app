@@ -14,17 +14,29 @@ import { ITaskOfColumn } from '@modules/board/model/column.interface';
 })
 export class ColumnComponent implements OnInit {
     @Input() column: IColumns;
-    @Input() index: number;
-    @Input() columns: IColumns[];
+    @Input() arrayColumnsId: string[];
 
     @Output() deleteColumn: EventEmitter<IColumns> = new EventEmitter<IColumns>(null);
     @Output() editColumn: EventEmitter<IColumns> = new EventEmitter<IColumns>();
     @Output() addTask: EventEmitter<ITaskOfColumn> = new EventEmitter<ITaskOfColumn>();
     @Output() deleteTask: EventEmitter<ITaskOfColumn> = new EventEmitter<ITaskOfColumn>();
     @Output() showTask: EventEmitter<ITaskOfColumn> = new EventEmitter<ITaskOfColumn>();
-    @Output() movedTask: EventEmitter<{ tasks: ITask[]; column: IColumns }> = new EventEmitter<{
+    @Output() movedTask: EventEmitter<{ tasks: ITask[]; columnId: string }> = new EventEmitter<{
         tasks: ITask[];
-        column: IColumns;
+        columnId: string;
+    }>();
+    @Output() movedTaskToNearColumn: EventEmitter<{
+        task: ITask;
+        columnId: string;
+        prevColumnId: string;
+        prevTaskId: string;
+        updatedTasks: ITask[];
+    }> = new EventEmitter<{
+        task: ITask;
+        columnId: string;
+        prevColumnId: string;
+        prevTaskId: string;
+        updatedTasks: ITask[];
     }>();
 
     public columnForm!: FormGroup;
@@ -33,8 +45,8 @@ export class ColumnComponent implements OnInit {
     constructor(private dialog: MatDialog, private formBuilder: FormBuilder) {}
 
     public ngOnInit(): void {
-        console.log(this.columns);
-        this.column.tasks.sort((a: ITask, b: ITask) => a.order - b.order);
+        // console.log(this)
+        // this.column.tasks.sort((a: ITask, b: ITask) => a.order - b.order);
 
         this.columnForm = this.formBuilder.group({
             title: [
@@ -68,10 +80,9 @@ export class ColumnComponent implements OnInit {
         if (event.previousContainer === event.container) {
             if (event.previousIndex !== event.currentIndex) {
                 moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-
                 const updatedTasks = this.updatedTasks();
 
-                this.movedTask.emit({ tasks: updatedTasks, column: this.column });
+                this.movedTask.emit({ tasks: updatedTasks, columnId: this.column.id });
             }
         } else {
             transferArrayItem(
@@ -80,6 +91,26 @@ export class ColumnComponent implements OnInit {
                 event.previousIndex,
                 event.currentIndex,
             );
+
+            const task = event.container.data[event.currentIndex];
+
+            const newTask = {
+                title: task.title,
+                done: task.done,
+                order: event.currentIndex,
+                description: task.description,
+                userId: JSON.parse(localStorage.getItem('login')).id,
+            };
+
+            const updatedTasks = this.updatedTasks();
+
+            this.movedTaskToNearColumn.emit({
+                task: newTask,
+                columnId: this.column.id,
+                prevColumnId: event.previousContainer.id,
+                prevTaskId: task.id,
+                updatedTasks: updatedTasks,
+            });
         }
     }
 

@@ -14,14 +14,14 @@
             <div class='column-wrap'>
                 <app-column *ngFor='let column of (this.boards$ | async).columns; let i = index'
                             [column]='column'
-                            [index]='i'
+                            [arrayColumnsId]='arrayColumnsId'
                             (deleteColumn)='onDeleteColumn($event)'
                             (editColumn)='onEditColumn($event)'
                             (addTask)='onAddTask($event)'
                             (deleteTask)='onDeleteTask($event)'
                             (showTask)='onShowTaskDialog($event)'
                             (movedTask)='movedTask($event)'
-                            [columns]='(boards$| async).columns'
+                            (movedTaskToNearColumn)='movedTaskToNearColumn($event)'
                 >
                 </app-column>
             </div>
