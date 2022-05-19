@@ -1,0 +1,89 @@
+{
+    "root": true,
+    "ignorePatterns": [
+        "projects/**/*"
+    ],
+    "overrides": [
+        {
+            "files": [
+                "src/**/*.ts"
+            ],
+            "parserOptions": {
+                "project": [
+                    "tsconfig.json"
+                ],
+                "createDefaultProgram": true
+            },
+            "extends": [
+                "plugin:@angular-eslint/recommended",
+                "airbnb-typescript/base",
+                "plugin:@typescript-eslint/recommended",
+                "plugin:prettier/recommended",
+                "prettier"
+            ],
+            "plugins": [
+                "import"
+            ],
+            "rules": {
+                "@angular-eslint/directive-selector": [
+                    "error",
+                    {
+                        "type": "attribute",
+                        "prefix": "app",
+                        "style": "camelCase"
+                    }
+                ],
+                "@angular-eslint/component-selector": [
+                    "error",
+                    {
+                        "type": "element",
+                        "prefix": "app",
+                        "style": "kebab-case"
+                    }
+                ],
+                "arrow-body-style": "off",
+                "prefer-arrow-callback": "off",
+                "space-before-blocks": "off",
+                "import/no-named-default": "off",
+                "import/no-unresolved": "off",
+                "class-methods-use-this": "off",
+                "@typescript-eslint/lines-between-class-members": [
+                    "off"
+                ],
+                "no-restricted-syntax": "off",
+                "regenerator-runtime": "off",
+                "@typescript-eslint/explicit-module-boundary-types": [
+                    "error"
+                ],
+                "@typescript-eslint/dot-notation": [
+                    "off"
+                ],
+                "@typescript-eslint/no-unused-vars": [
+                    "error"
+                ],
+                "@typescript-eslint/unbound-method": [
+                    "error",
+                    {
+                        "ignoreStatic": true
+                    }
+                ]
+            }
+        },
+        {
+            "files": [
+                "*.component.html"
+            ],
+            "extends": [
+                "plugin:@angular-eslint/template/recommended"
+            ],
+            "rules": {
+                "max-len": [
+                    "error",
+                    {
+                        "code": 140
+                    }
+                ]
+            }
+        }
+    ]
+}

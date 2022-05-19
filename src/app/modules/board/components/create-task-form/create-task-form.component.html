@@ -1,0 +1,55 @@
+<form
+    [formGroup]="formCreateTask"
+    (submit)="formCreateTask.valid && formCreateTask.markAllAsTouched()"
+>
+    <mat-form-field appearance="fill">
+        <mat-label i18n="Simple message@@titleText">Title</mat-label>
+        <input matInput formControlName="title" />
+
+        <mat-error
+            *ngIf="formCreateTask.get('title').hasError('required')"
+            i18n="Simple message@@taskErrReqText"
+        >
+            Fill box is required.
+        </mat-error>
+        <mat-error
+            *ngIf="formCreateTask.get('title').hasError('minlength')"
+            i18n="Simple message@@taskErrLenText"
+        >
+            Min length 3.
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label i18n="Simple message@@descrText">Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+
+        <mat-error
+            *ngIf="formCreateTask.get('description').hasError('required')"
+            i18n="Simple message@@taskErrReqText"
+        >
+            Fill box is required.
+        </mat-error>
+        <mat-error
+            *ngIf="formCreateTask.get('description').hasError('minlength')"
+            i18n="Simple message@@taskErrLenText"
+        >
+            Min length 3.
+        </mat-error>
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()" i18n="Simple message@@taskCancelText">
+            No Thanks
+        </button>
+        <button
+            mat-button
+            type="submit"
+            (click)="onSubmit()"
+            cdkFocusInitial
+            i18n="Simple message@@taskCreatText"
+        >
+            Create
+        </button>
+    </div>
+</form>

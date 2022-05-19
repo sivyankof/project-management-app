@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="boardTitle" datatype="html">
+        <source>Title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Simple title</note>
+      </trans-unit>
+      <trans-unit id="errorTitle" datatype="html">
+        <source>Please enter a title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/column/column.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">Input message</note>
+      </trans-unit>
+      <trans-unit id="shortTitleErr" datatype="html">
+        <source> The title is too short</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/column/column.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="longTitleErr" datatype="html">
+        <source> The title is too long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/column/column.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="descrText" datatype="html">
+        <source>Description</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="errorDescr" datatype="html">
+        <source>Please enter a description</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Input message</note>
+      </trans-unit>
+      <trans-unit id="shortDescrErr" datatype="html">
+        <source> The description is too short</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="longDescrErr" datatype="html">
+        <source> The description is too long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="createText" datatype="html">
+        <source> Create </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">43,45</context>
+        </context-group>
+        <note priority="1" from="description">Button message</note>
+      </trans-unit>
+      <trans-unit id="cancelText" datatype="html">
+        <source> Cancel </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">46,48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/column/column.component.html</context>
+          <context context-type="linenumber">33,35</context>
+        </context-group>
+        <note priority="1" from="description">Button message</note>
+      </trans-unit>
+      <trans-unit id="editTitle" datatype="html">
+        <source>Edit profile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Simple title</note>
+      </trans-unit>
+      <trans-unit id="nameMsg" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="errorName" datatype="html">
+        <source>Please enter your name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="shortNameErr" datatype="html">
+        <source> The name is too short</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="longNameErr" datatype="html">
+        <source> The name is too long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="loginMsg" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="longLoginErr" datatype="html">
+        <source> The login is too long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="passMsg" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="passErrMsg" datatype="html">
+        <source> Please enter a password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">58,59</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="shortPassErr" datatype="html">
+        <source>Your password is too short</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="editBtnText" datatype="html">
+        <source> Edit </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">85,87</context>
+        </context-group>
+        <note priority="1" from="description">Edit btn message</note>
+      </trans-unit>
+      <trans-unit id="deleteBtnText" datatype="html">
+        <source> Delete </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">94,96</context>
+        </context-group>
+        <note priority="1" from="description">Delete btn message</note>
+      </trans-unit>
+      <trans-unit id="backMsg" datatype="html">
+        <source> Back </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">103,105</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="logMsg" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon&gt;"/>power_settings_new<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/> logout </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.html</context>
+          <context context-type="linenumber">25,27</context>
+        </context-group>
+        <note priority="1" from="description">argument</note>
+      </trans-unit>
+      <trans-unit id="homeMsg" datatype="html">
+        <source>Home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">nav link</note>
+      </trans-unit>
+      <trans-unit id="editMsg" datatype="html">
+        <source>Edit profile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">nav link</note>
+      </trans-unit>
+      <trans-unit id="createMsg" datatype="html">
+        <source>Create new board</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="description">nav link</note>
+      </trans-unit>
+      <trans-unit id="helloMsg" datatype="html">
+        <source>Welcome!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/welcome-page/welcome-page.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="meetMsg" datatype="html">
+        <source>Meet our team:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/welcome-page/welcome-page.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="loginErrReqMsg" datatype="html">
+        <source> The login field is required </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">14,16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">33,35</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="errLenMsg" datatype="html">
+        <source> Minimum length of 5 characters </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">20,22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">48,50</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">39,41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">67,69</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">94,96</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="passErrReqMsg" datatype="html">
+        <source> The password field is required </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">42,44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">61,63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">88,90</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="loginBtnMsg" datatype="html">
+        <source> Login </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">53,55</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="regMsg" datatype="html">
+        <source>Registration</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">106,108</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="userErr" datatype="html">
+        <source> User was not founded!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <note priority="1" from="description">user not found msg</note>
+      </trans-unit>
+      <trans-unit id="regErrMsg" datatype="html">
+        <source> Such a user already exists </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">4,6</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="regErrReqMsg" datatype="html">
+        <source> The name field is required </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">15,17</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="regConfPassMsg" datatype="html">
+        <source>Confirm your password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="regConfPassErrMsg" datatype="html">
+        <source> Confirm password wrong </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">101,103</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="submitText" datatype="html">
+        <source> submit </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/column/column.component.html</context>
+          <context context-type="linenumber">23,25</context>
+        </context-group>
+        <note priority="1" from="description">Button message</note>
+      </trans-unit>
+      <trans-unit id="colTitleText" datatype="html">
+        <source> Title: <x id="INTERPOLATION" equiv-text="{{ column.title }}"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/column/column.component.html</context>
+          <context context-type="linenumber">41,43</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="emptyList" datatype="html">
+        <source> Task list is empty </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/column/column.component.html</context>
+          <context context-type="linenumber">55,57</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="titleText" datatype="html">
+        <source>Title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="taskErrReqText" datatype="html">
+        <source> Fill box is required. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">12,14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">30,32</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="taskErrLenText" datatype="html">
+        <source> Min length 3. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">18,20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">36,38</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="taskCancelText" datatype="html">
+        <source> No Thanks </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">42,44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/dialog/dialog.component.html</context>
+          <context context-type="linenumber">23,25</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="taskCreatText" datatype="html">
+        <source> Create </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">51,53</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="bordsListText" datatype="html">
+        <source>List boards:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/mail-list/components/table-list/table-list.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="userEditedMsg" datatype="html">
+        <source>User was edited</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/user.service.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <note priority="1" from="description">user edited msg</note>
+      </trans-unit>
+      <trans-unit id="userNotEditedMsg" datatype="html">
+        <source>User was not edited!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/user.service.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <note priority="1" from="description">user edited msg</note>
+      </trans-unit>
+      <trans-unit id="hiText" datatype="html">
+        <source>Hi!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/dialog/dialog.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="removeItemText" datatype="html">
+        <source> Remove &quot;<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/><x id="INTERPOLATION" equiv-text="{{ data.nameItem }}"/><x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b
+        &gt;"/>&quot; Item? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/dialog/dialog.component.html</context>
+          <context context-type="linenumber">3,6</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="addNewColText" datatype="html">
+        <source>Add new column name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/dialog/dialog.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="enterNameText" datatype="html">
+        <source> Please enter a name! </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/dialog/dialog.component.html</context>
+          <context context-type="linenumber">16,18</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="snackBarMsg" datatype="html">
+        <source> User &quot;<x id="PH" equiv-text="user.login"/>&quot; was deleted</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile-page/edit-profile-page.component.ts</context>
+          <context context-type="linenumber">48,47</context>
+        </context-group>
+        <note priority="1" from="description">snackBarMsg</note>
+      </trans-unit>
+      <trans-unit id="nonColumnText" datatype="html">
+        <source>Non column</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/containers/board-shell/board-shell.component.html</context>
+          <context context-type="linenumber">28,31</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="addColumnText" datatype="html">
+        <source> + Add column </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/containers/board-shell/board-shell.component.html</context>
+          <context context-type="linenumber">43,46</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="fileNotFoundMsg" datatype="html">
+        <source>File not found</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/mail-list/container/lists-shell/lists-shell.component.html</context>
+          <context context-type="linenumber">9,11</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

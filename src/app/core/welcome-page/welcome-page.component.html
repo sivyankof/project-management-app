@@ -1,0 +1,17 @@
+<app-header></app-header>
+<div class="welcome-page">
+    <h2 class="welcome-page-title" i18n="Simple message@@helloMsg">Welcome!</h2>
+    <h3 class="welcome-page-subtitle" i18n="Simple message@@meetMsg">Meet our team:</h3>
+    <div class="team-wrap">
+        <mat-card class="team-card" *ngFor="let member of teamInfo">
+            <img
+                mat-card-lg-image
+                class="team-card__img"
+                [src]="member.avatar"
+                alt="Member avatar"
+            />
+            <mat-card-title class="team-card__title">{{ member.name }}</mat-card-title>
+        </mat-card>
+    </div>
+</div>
+<app-footer></app-footer>

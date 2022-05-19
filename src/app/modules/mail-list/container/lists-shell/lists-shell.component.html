@@ -1,0 +1,10 @@
+<ng-container *ngIf='(boards$ | async)?.length; else empty'>
+    <app-table-list [boards]='boards$ | async '
+                    (deleteBoard)='onDeleteBoard($event)'
+                    (showInfo)='onShowInfo($event)'>
+    </app-table-list>
+</ng-container>
+
+<ng-template #empty>
+    <p class='empty' i18n='Simple message@@fileNotFoundMsg'>File not found</p>
+</ng-template>

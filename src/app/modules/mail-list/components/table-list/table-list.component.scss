@@ -1,0 +1,19 @@
+:host{
+    margin: 0 auto;
+    width: 400px;
+    height: 100%;
+}
+.board-list, h3{
+    max-width: 400px;
+    margin: 50px auto 0 ;
+}
+
+.board-list {
+    min-height: 62%;
+    padding-bottom: 50px;
+}
+
+button {
+    margin-right: 5px;
+}
+

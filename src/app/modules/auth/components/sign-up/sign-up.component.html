@@ -1,0 +1,111 @@
+<form class="container" [formGroup]="regForm" (submit)="registration()">
+    <h2 i18n="Simple message@@regMsg">Registration</h2>
+
+    <mat-error *ngIf="regForm.hasError('conflict')" i18n="Simple message@@regErrMsg">
+        Such a user already exists
+    </mat-error>
+
+    <mat-form-field appearance="fill">
+        <mat-label i18n="Simple message@@nameMsg">Name</mat-label>
+        <input matInput type="text" formControlName="name" />
+
+        <mat-error
+            *ngIf="regForm.controls['name'].hasError('required')"
+            i18n="Simple message@@regErrReqMsg"
+        >
+            The name field is required
+        </mat-error>
+        <mat-error
+            *ngIf="regForm.controls['name'].hasError('minlength')"
+            i18n="Simple message@@errLenMsg"
+        >
+            Minimum length of 5 characters
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label i18n="Simple message@@loginMsg">Login</mat-label>
+        <input matInput type="text" formControlName="login" />
+
+        <mat-error
+            *ngIf="regForm.controls['login'].hasError('required')"
+            i18n="Simple message@@loginErrReqMsg"
+        >
+            The login field is required
+        </mat-error>
+        <mat-error
+            *ngIf="regForm.controls['login'].hasError('minlength')"
+            i18n="Simple message@@errLenMsg"
+        >
+            Minimum length of 5 characters
+        </mat-error>
+    </mat-form-field>
+
+    <ng-container formGroupName="pass">
+        <mat-form-field appearance="fill">
+            <mat-label i18n="Simple message@@passMsg">Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
+            <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+            >
+                <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+
+            <mat-error
+                *ngIf="regForm.get('pass').get('password').hasError('required')"
+                i18n="Simple message@@passErrReqMsg"
+            >
+                The password field is required
+            </mat-error>
+            <mat-error
+                *ngIf="regForm.get('pass').get('password').hasError('minlength')"
+                i18n="Simple message@@errLenMsg"
+            >
+                Minimum length of 5 characters
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label i18n="Simple message@@regConfPassMsg">Confirm your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmPassword" />
+            <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+            >
+                <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+
+            <mat-error
+                *ngIf="regForm.get('pass').get('confirmPassword').hasError('required')"
+                i18n="Simple message@@passErrReqMsg"
+            >
+                The password field is required
+            </mat-error>
+            <mat-error
+                *ngIf="regForm.get('pass').get('confirmPassword').hasError('minlength')"
+                i18n="Simple message@@errLenMsg"
+            >
+                Minimum length of 5 characters
+            </mat-error>
+        </mat-form-field>
+        <mat-error
+            *ngIf="regForm.get('pass').hasError('confirmInvalid')"
+            i18n="Simple message@@regConfPassErrMsg"
+        >
+            Confirm password wrong
+        </mat-error>
+    </ng-container>
+
+    <button mat-raised-button color="warn" type="submit" i18n="Simple message@@regMsg">
+        Registration
+    </button>
+
+    <a routerLink="../sign-in" i18n="Simple message@@backMsg">Back</a>
+</form>

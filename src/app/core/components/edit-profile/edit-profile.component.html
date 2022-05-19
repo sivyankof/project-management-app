@@ -1,0 +1,107 @@
+<form
+    *ngIf='editProfileForm'
+    class='edit-profile-form'
+    name='edit-profile-form'
+    [formGroup]='editProfileForm'
+    (ngSubmit)='onEditUser()'
+>
+    <h2 i18n="Simple title@@editTitle">Edit profile</h2>
+    <mat-form-field class="edit-profile-form-field" appearance="fill">
+        <mat-label i18n="Simple message@@nameMsg">Name</mat-label>
+        <input formControlName="name" type="text" name="name" autocomplete="off" matInput />
+        <mat-error class="input-error" *ngIf="editProfileForm.controls['name'].invalid">
+            <span
+                *ngIf="editProfileForm.controls['name'].errors?.['required']"
+                i18n="Error message@@errorName"
+                >Please enter your name</span
+            >
+            <span
+                *ngIf="editProfileForm.controls['name'].errors?.['minlength']"
+                i18n="Error message@@shortNameErr"
+            >
+                The name is too short</span
+            >
+            <span
+                *ngIf="editProfileForm.controls['name'].errors?.['maxlength']"
+                i18n="Error message@@longNameErr"
+            >
+                The name is too long</span
+            >
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="edit-profile-form-field" appearance="fill">
+        <mat-label i18n="Simple message@@loginMsg">Login</mat-label>
+        <input formControlName="login" type="text" name="login" autocomplete="off" matInput />
+        <mat-error class="input-error" *ngIf="editProfileForm.controls['login'].invalid">
+            <span
+                *ngIf="editProfileForm.controls['login'].errors?.['maxlength']"
+                i18n="Error message@@longLoginErr"
+            >
+                The login is too long</span
+            >
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="edit-profile-form-field" appearance="fill">
+        <mat-label i18n="Simple message@@passMsg">Password</mat-label>
+        <input
+            formControlName="password"
+            matInput
+            name="password"
+            [type]="hide ? 'password' : 'text'"
+            autocomplete="off"
+            name="password"
+        />
+        <mat-error class="input-error" *ngIf="editProfileForm.controls['password'].invalid">
+            <span
+                *ngIf="editProfileForm.controls['password'].errors?.['required']"
+                i18n="Error message@@passErrMsg"
+            >
+                Please enter a password</span
+            >
+            <span
+                *ngIf="editProfileForm.controls['password'].errors?.['minlength']"
+                i18n="Error message@@shortPassErr"
+                >Your password is too short</span
+            >
+        </mat-error>
+        <button
+            type='button'
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+        >
+            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+    </mat-form-field>
+    <div class="form-controls">
+        <button
+            class="btn-form-profile"
+            type="submit"
+            color="warn"
+            mat-raised-button
+            i18n="Edit btn message@@editBtnText"
+        >
+            Edit
+        </button>
+        <button
+            class="btn-form-profile"
+            color="warn"
+            mat-raised-button
+            (click)="onDeleteUser()"
+            i18n="Delete btn message@@deleteBtnText"
+        >
+            Delete
+        </button>
+        <button
+            class="btn-form-profile"
+            color="warn"
+            (click)="goBack()"
+            mat-raised-button
+            i18n="Simple message@@backMsg"
+        >
+            Back
+        </button>
+    </div>
+</form>

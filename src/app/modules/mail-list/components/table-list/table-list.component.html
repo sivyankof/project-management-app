@@ -1,0 +1,17 @@
+<h3 i18n="Simple message@@bordsListText">List boards:</h3>
+<mat-nav-list class="board-list">
+    <mat-list-item *ngFor="let board of boards">
+        <a matLine [routerLink]="['../', 'board']" [queryParams]="{ id: board.id }">{{
+            board.title
+        }}</a>
+
+        <button mat-icon-button (click)='deleteBoard.emit(board)'>
+            <mat-icon>delete_outline</mat-icon>
+        </button>
+
+        <button mat-icon-button (click)='showInfo.emit(board.id)'>
+            <mat-icon>info</mat-icon>
+        </button>
+        <mat-divider></mat-divider>
+    </mat-list-item>
+</mat-nav-list>

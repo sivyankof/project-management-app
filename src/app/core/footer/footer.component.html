@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <mat-list>
+        <mat-list-item *ngFor="let user of info; let i = index">
+            <a matLine [href]="user.linkGit" target="_blank">
+                <img matListAvatar [src]="user.avatar" alt="User avatar" />
+                {{ user.name }}
+            </a>
+        </mat-list-item>
+    </mat-list>
+
+    <span>(C) 2022</span>
+</mat-toolbar>

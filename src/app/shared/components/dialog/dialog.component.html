@@ -1,0 +1,31 @@
+<h1 mat-dialog-title i18n='Simple message@@hiText'>Hi!</h1>
+<div mat-dialog-content>
+    <p *ngIf='data.nameItem' i18n='Simple message@@removeItemText'>
+        Remove "<b>{{ data.nameItem }}</b
+    >" Item?
+    </p>
+
+    <ng-container *ngIf='data.inputTitle'>
+        <mat-form-field class='example-full-width' appearance='fill'>
+            <mat-label i18n='Simple message@@addNewColText'>Add new column name</mat-label>
+            <input matInput placeholder='Title' value='title' [formControl]='newTitleFormControl' />
+
+            <mat-error
+                *ngIf="newTitleFormControl.hasError('required')"
+                i18n='Simple message@@enterNameText'
+            >
+                Please enter a name!
+            </mat-error>
+        </mat-form-field>
+    </ng-container>
+
+    <ng-container *ngIf='data.info'>
+        <mat-dialog-content>{{data.info}}</mat-dialog-content>
+    </ng-container>
+</div>
+<div mat-dialog-actions>
+    <button *ngIf='!data.info' mat-button (click)='onNoClick()' i18n='Simple message@@taskCancelText'>
+        No Thanks
+    </button>
+    <button mat-button [mat-dialog-close]='newTitleFormControl.value' cdkFocusInitial>Ok</button>
+</div>

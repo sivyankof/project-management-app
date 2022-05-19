@@ -1,0 +1,58 @@
+<form class="container" [formGroup]="loginForm" (submit)="login()">
+    <h2 i18n="Simple message@@loginMsg">Login</h2>
+
+    <mat-error *ngIf="loginForm.hasError('loginErr')">
+        {{ loginForm.getError('loginErr') }}
+    </mat-error>
+    <mat-form-field appearance="fill">
+        <mat-label i18n="Simple message@@loginMsg">Login</mat-label>
+        <input matInput type="text" formControlName="login" />
+
+        <mat-error
+            *ngIf="loginForm.controls['login'].hasError('required')"
+            i18n="Simple message@@loginErrReqMsg"
+        >
+            The login field is required
+        </mat-error>
+        <mat-error
+            *ngIf="loginForm.controls['login'].hasError('minlength')"
+            i18n="Simple message@@errLenMsg"
+        >
+            Minimum length of 5 characters
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label i18n="Simple message@@passMsg">Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
+        <button
+            type='button'
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+        >
+            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+
+        <mat-error
+            *ngIf="loginForm.controls['password'].hasError('required')"
+            i18n="Simple message@@passErrReqMsg"
+        >
+            The password field is required
+        </mat-error>
+        <mat-error
+            *ngIf="loginForm.controls['password'].hasError('minlength')"
+            i18n="Simple message@@errLenMsg"
+        >
+            Minimum length of 5 characters
+        </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="warn" type="submit" i18n="Simple message@@loginBtnMsg">
+        Login
+    </button>
+
+    <a routerLink="../registration" i18n="Simple message@@regMsg">Registration</a>
+</form>

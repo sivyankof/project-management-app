@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" target-language="ru" datatype="plaintext" original="ng2.template">
+    <body>
+        <trans-unit id="boardTitle" datatype="html">
+        <source>Title</source>
+        <target>Название</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Simple title</note>
+      </trans-unit>
+      <trans-unit id="errorTitle" datatype="html">
+        <source>Please enter a title</source>
+        <target>Пожалуйста введите название</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Input message</note>
+      </trans-unit>
+      <trans-unit id="shortTitleErr" datatype="html">
+        <source> The title is too short</source>
+        <target>Название слишком короткое</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="longTitleErr" datatype="html">
+        <source> The title is too long</source>
+        <target>Название слишком длинное</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="createText" datatype="html">
+        <source> Create </source>
+        <target>Создать</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">28,30</context>
+        </context-group>
+        <note priority="1" from="description">Button message</note>
+      </trans-unit>
+      <trans-unit id="cancelText" datatype="html">
+        <source>Cancel</source>
+        <target>Отмена</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">Button message</note>
+      </trans-unit>
+      <trans-unit id="editTitle" datatype="html">
+        <source>Edit profile</source>
+        <target>Редактировать профиль</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Simple title</note>
+      </trans-unit>
+      <trans-unit id="errorName" datatype="html">
+        <source>Please enter your name</source>
+        <target>Пожалуйста введите ваше имя</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="shortNameErr" datatype="html">
+        <source> The name is too short</source>
+        <target>Имя слишком короткое</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="longNameErr" datatype="html">
+        <source> The name is too long</source>
+        <target>Имя слишком длинное</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="loginMsg" datatype="html">
+        <source>Login</source>
+        <target>Логин</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="longLoginErr" datatype="html">
+        <source> The login is too long</source>
+        <target>Логин слишком длинный</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="passMsg" datatype="html">
+        <source>Password</source>
+        <target>Пароль</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="passErrMsg" datatype="html">
+        <source> Please enter a password</source>
+        <target>Пожалуйста введите пароль</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">58,59</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="shortPassErr" datatype="html">
+        <source>Your password is too short</source>
+        <target>Ваш пароль слишком короткий</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="editBtnText" datatype="html">
+        <source> Edit </source>
+        <target>Редактировать</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">84,86</context>
+        </context-group>
+        <note priority="1" from="description">Edit btn message</note>
+      </trans-unit>
+      <trans-unit id="deleteBtnText" datatype="html">
+        <source> Delete </source>
+        <target>Удалить</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">93,95</context>
+        </context-group>
+        <note priority="1" from="description">Delete btn message</note>
+      </trans-unit>
+      <trans-unit id="backMsg" datatype="html">
+        <source> Back </source>
+        <target>Назад</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile/edit-profile.component.html</context>
+          <context context-type="linenumber">102,104</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="logMsg" datatype="html">
+        <source> logout </source>
+        <target>Выход</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+        <note priority="1" from="description">argument</note>
+      </trans-unit>
+      <trans-unit id="homeMsg" datatype="html">
+        <source>Home</source>
+        <target>На главную</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">nav link</note>
+      </trans-unit>
+      <trans-unit id="editMsg" datatype="html">
+        <source>Edit profile</source>
+        <target>Редактировать профиль</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">nav link</note>
+      </trans-unit>
+      <trans-unit id="createMsg" datatype="html">
+        <source>Create new board</source>
+        <target>Создать новую доску</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">nav link</note>
+      </trans-unit>
+      <trans-unit id="helloMsg" datatype="html">
+        <source>Welcome!</source>
+        <target>Добро пожаловать!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/welcome-page/welcome-page.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="meetMsg" datatype="html">
+        <source>Meet our team:</source>
+        <target>Знакомтесь с нашей командой:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/welcome-page/welcome-page.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="loginBtnMsg" datatype="html">
+        <source>Login</source>
+        <target>Вход</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="loginErrReqMsg" datatype="html">
+        <sourсe> The login field is required </sourсe>
+        <target>Поле Логин обязательное</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">14,16</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="passMsg" datatype="html">
+        <source>Enter your password</source>
+        <target>Введите ваш пароль</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="passErrReqMsg" datatype="html">
+        <source> The password field is required </source>
+        <target>Поле Пароль обязательное</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">41,43</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="regMsg" datatype="html">
+        <source>Registration</source>
+        <target>Регистрация</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="userErr" datatype="html">
+        <source> User was not founded!</source>
+        <target>Пользователь не найден!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-in/sign-in.component.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <note priority="1" from="description">user not found msg</note>
+      </trans-unit>
+      <trans-unit id="regErrMsg" datatype="html">
+        <source> Such a user already exists </source>
+        <target>Пользователь с таким логином уже существует</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">4,6</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="nameMsg" datatype="html">
+        <source>Name</source>
+        <target>Имя</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="regErrReqMsg" datatype="html">
+        <source> The name field is required </source>
+        <target>Поле Имя обязательное</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">15,17</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="errLenMsg" datatype="html">
+        <source> Minimum length of 5 characters </source>
+        <target>Минимальная длина 5 символов</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="loginErrReqMsg" datatype="html">
+        <source> The login field is required </source>
+        <target>Поле Логин обязательное</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">33,35</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="regConfPassMsg" datatype="html">
+        <source>Confirm your password</source>
+        <target>Подтвердите ваш пароль</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="regConfPassErrMsg" datatype="html">
+        <source> Confirm password wrong </source>
+        <target>Пароли не совпадают</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/components/sign-up/sign-up.component.html</context>
+          <context context-type="linenumber">101,103</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="columnTitle" datatype="html">
+        <source>Title: <x id="INTERPOLATION" equiv-text="{{ column.title }}"/></source>
+        <source>Название: <x id="INTERPOLATION" equiv-text="{{ column.title }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/column/column.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="emptyList" datatype="html">
+        <source> Task list is empty </source>
+        <source> Список задач пуст </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/column/column.component.html</context>
+          <context context-type="linenumber">15,17</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="titleText" datatype="html">
+        <source>Title</source>
+        <target> Название </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="taskErrReqText" datatype="html">
+        <source> Fill box is required. </source>
+        <target> Фил бокс обязательный </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">12,14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">30,32</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="taskErrLenText" datatype="html">
+        <source> Min length 3. </source>
+        <target> Минимальная длина 3 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">18,20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">36,38</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="descrText" datatype="html">
+        <source>Description</source>
+        <target> Описание </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="taskCancelText" datatype="html">
+        <source> No Thanks </source>
+        <target> Нет спасибо </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">42,44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/dialog/dialog.component.html</context>
+          <context context-type="linenumber">23,25</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="taskCreatText" datatype="html">
+        <source> Create </source>
+        <target> СОздать </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">51,53</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="bordsListText" datatype="html">
+        <source>List boards:</source>
+        <target> Список бордов </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/mail-list/components/table-list/table-list.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="userEditedMsg" datatype="html">
+        <source>User was edited</source>
+        <target> Пользователь отредактирован </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/user.service.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <note priority="1" from="description">user edited msg</note>
+      </trans-unit>
+      <trans-unit id="userNotEditedMsg" datatype="html">
+        <source>User was not edited!</source>
+        <target> Пользователь не отредактирован! </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/user.service.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <note priority="1" from="description">user edited msg</note>
+      </trans-unit>
+      <trans-unit id="hiText" datatype="html">
+        <source>Hi!</source>
+        <target> Привет! </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/dialog/dialog.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="removeItemText" datatype="html">
+        <source> Remove &quot;<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/><x id="INTERPOLATION" equiv-text="{{ data.nameItem }}"/><x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b
+        &gt;"/>&quot; Item? </source>
+        <target> Удалить &quot;<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/><x id="INTERPOLATION" equiv-text="{{ data.nameItem }}"/><x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b
+        &gt;"/>&quot;?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/dialog/dialog.component.html</context>
+          <context context-type="linenumber">3,6</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="addNewColText" datatype="html">
+        <source>Add new column name</source>
+        <target> Добавить новую колонку </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/dialog/dialog.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="enterNameText" datatype="html">
+        <source> Please enter a name! </source>
+        <target> Пожалуйста введите имя! </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/dialog/dialog.component.html</context>
+          <context context-type="linenumber">16,18</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="snackBarMsg" datatype="html">
+        <source> User &quot;<x id="PH" equiv-text="user.login"/>&quot; was deleted</source>
+        <target> Пользователь &quot;<x id="PH" equiv-text="user.login"/>&quot; удален</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/edit-profile-page/edit-profile-page.component.ts</context>
+          <context context-type="linenumber">48,47</context>
+        </context-group>
+        <note priority="1" from="description">snackBarMsg</note>
+      </trans-unit>
+      <trans-unit id="nonColumnText" datatype="html">
+        <source>Non column</source>
+        <target> Колонок нет </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/containers/board-shell/board-shell.component.html</context>
+          <context context-type="linenumber">29,32</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="addColumnText" datatype="html">
+        <source> + Add column </source>
+        <target> + Добавить колонку </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/containers/board-shell/board-shell.component.html</context>
+          <context context-type="linenumber">44,47</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="fileNotFoundMsg" datatype="html">
+        <source>File not found</source>
+        <target> Файл не найден </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/mail-list/container/lists-shell/lists-shell.component.html</context>
+          <context context-type="linenumber">10,12</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="descrText" datatype="html">
+        <source>Description</source>
+        <target>Описание</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/create-task-form/create-task-form.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="errorDescr" datatype="html">
+        <source>Please enter a description</source>
+        <target>Пожалуйста введите описание</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Input message</note>
+      </trans-unit>
+      <trans-unit id="shortDescrErr" datatype="html">
+        <source> The description is too short</source>
+        <target>Описание слишком короткое</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="longDescrErr" datatype="html">
+        <source> The description is too long</source>
+        <target>Описание слишком длинное</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/create-new-board-popup/create-new-board-popup.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+        <note priority="1" from="description">Error message</note>
+      </trans-unit>
+      <trans-unit id="colTitleText" datatype="html">
+        <source> Title: <x id="INTERPOLATION" equiv-text="{{ column.title }}"/> </source>
+        <target>Название: <x id="INTERPOLATION" equiv-text="{{ column.title }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/column/column.component.html</context>
+          <context context-type="linenumber">41,43</context>
+        </context-group>
+        <note priority="1" from="description">Simple message</note>
+      </trans-unit>
+      <trans-unit id="submitText" datatype="html">
+        <source> submit </source>
+        <target>Подтвердить</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/column/column.component.html</context>
+          <context context-type="linenumber">23,25</context>
+        </context-group>
+        <note priority="1" from="description">Button message</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

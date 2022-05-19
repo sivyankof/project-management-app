@@ -1,0 +1,41 @@
+<div mat-dialog-content *ngIf='(users$ | async) && task'>
+    <form [formGroup]='taskInfoForm' *ngIf='taskInfoForm'>
+        <mat-form-field class='task-info-form-field' appearance='fill'>
+            <mat-label>Title</mat-label>
+            <input matInput formControlName='title' />
+            <mat-error *ngIf="taskInfoForm.controls['title'].invalid && taskInfoForm.controls['title'].touched">
+                <span *ngIf="taskInfoForm.controls['title'].errors?.['required']">Please enter a title</span>
+                <span *ngIf="taskInfoForm.controls['title'].errors?.['minlength']"> The title is too short</span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class='task-info-form-field' appearance='fill'>
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName='description'></textarea>
+            <mat-error
+                *ngIf="taskInfoForm.controls['description'].invalid && taskInfoForm.controls['description'].touched">
+                <span
+                    *ngIf="taskInfoForm.controls['description'].errors?.['maxlength']"> The description is too long</span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance='fill'>
+            <mat-label>User</mat-label>
+            <mat-select formControlName='userId'>
+                <mat-option *ngFor='let user of users$ | async' [value]='user.value'> {{user.viewValue}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="taskInfoForm.controls['userId'].invalid && taskInfoForm.controls['userId'].touched">
+                <span *ngIf="taskInfoForm.controls['userId'].errors?.['required']">Please select a user</span>
+            </mat-error>
+        </mat-form-field>
+    </form>
+</div>
+
+<mat-dialog-actions class='form-task-info-controls'>
+    <button
+        mat-raised-button
+        [mat-dialog-close]='taskInfoForm.value'
+        [disabled]='taskInfoForm.invalid'
+    >
+        Change
+    </button>
+    <button class='btn-close' mat-raised-button mat-dialog-close=''>Cancel</button>
+</mat-dialog-actions>

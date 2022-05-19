@@ -1,0 +1,10 @@
+<mat-card class='task-item'>
+    <mat-card-header class='task-item-content' (click)='showTaskInfo.emit()'>
+        <mat-card-title class='task-item-title'> {{ task.title }} </mat-card-title>
+        <mat-card-subtitle>{{ task.description | slice:0:50 }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <button mat-stroked-button (click)='deleteTask.emit(task)'>
+        <mat-icon>clear</mat-icon>
+    </button>
+</mat-card>
