@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { BoardService } from '@modules/board/services/board.service';
 import { IBoard, IColumns, ITask } from '@shared/models/board-api-response.model';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable, Subject } from 'rxjs';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '@shared/components/dialog/dialog.component';
-import { take } from 'rxjs/operators';
+import { take, tap } from 'rxjs/operators';
 import { TaskInfoPopupShellComponent } from '../task-info-popup-shell/task-info-popup-shell.component';
 import { AsyncPipe } from '@angular/common';
 import { ITaskOfColumn } from '@modules/board/model/column.interface';
@@ -16,8 +16,11 @@ import { ITaskOfColumn } from '@modules/board/model/column.interface';
     styleUrls: ['./board-shell.component.scss'],
     providers: [BoardService, AsyncPipe],
 })
-export class BoardShellComponent implements OnInit {
+export class BoardShellComponent implements OnInit, OnDestroy {
     public boards$: Observable<IBoard>;
+    public arrayColumnsId: string[];
+    private destroy$ = new Subject();
+    private paramId: string;
 
     constructor(
         private route: ActivatedRoute,
@@ -28,9 +31,14 @@ export class BoardShellComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.queryParams.subscribe((params: Params) => {
+            this.paramId = params.id;
             this.boardService.initBoards(params.id);
 
-            this.boards$ = this.boardService.getBoards();
+            this.boards$ = this.boardService.getBoards().pipe(
+                tap((board) => {
+                    this.arrayColumnsId = board?.columns.map((column) => column.id);
+                }),
+            );
         });
     }
 
@@ -38,7 +46,7 @@ export class BoardShellComponent implements OnInit {
         const userId = JSON.parse(localStorage.getItem('login')).id;
         const updateTask = { ...data.task, userId };
 
-        this.boardService.addTask(data.columnId, updateTask);
+        this.boardService.addTask(data.columnId, updateTask).pipe(take(1)).subscribe();
     }
 
     addColumn(): void {
@@ -88,7 +96,10 @@ export class BoardShellComponent implements OnInit {
             .pipe(take(1))
             .subscribe((res) => {
                 if (res) {
-                    this.boardService.deleteTask(data.task.id, data.columnId);
+                    this.boardService
+                        .deleteTask(data.task.id, data.columnId)
+                        .pipe(take(1))
+                        .subscribe();
                 }
             });
     }
@@ -107,6 +118,7 @@ export class BoardShellComponent implements OnInit {
         dialogConfig.maxWidth = '500px';
         dialogConfig.width = '100%';
         dialogConfig.data = task;
+
         const dialog = this.dialog.open(TaskInfoPopupShellComponent, dialogConfig);
         const order = task.order;
         const done = task.done;
@@ -119,19 +131,41 @@ export class BoardShellComponent implements OnInit {
         });
     }
 
-    movedTask(data: { tasks: ITask[]; column: IColumns }): void {
+    movedTask(data: { tasks: ITask[]; columnId: string }): void {
         data.tasks.forEach((task: ITask) => {
-            const updateTask = {
-                title: task.title,
-                done: task.done,
-                order: task.order,
-                description: task.description,
-                userId: JSON.parse(localStorage.getItem('login')).id,
-                boardId: this.asyncPipe.transform(this.boards$).id,
-                columnId: data.column.id,
-            };
+            const updateTask = this.updateTask(task, data.columnId);
 
             this.boardService.updateTask(updateTask, task.id).pipe(take(1)).subscribe();
         });
+    }
+
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
+    }
+
+    movedTaskToNearColumn(data: {
+        task: ITask;
+        columnId: string;
+        prevColumnId: string;
+        prevTaskId: string;
+        updatedTasks: ITask[];
+    }): void {
+        forkJoin({
+            task: this.boardService.addTask(data.columnId, data.task),
+            deleted: this.boardService.deleteTask(data.prevTaskId, data.prevColumnId),
+        }).subscribe();
+    }
+
+    private updateTask(task, columnId): ITask {
+        return {
+            title: task.title,
+            done: task.done,
+            order: task.order,
+            description: task.description,
+            userId: JSON.parse(localStorage.getItem('login')).id,
+            boardId: this.asyncPipe.transform(this.boards$).id,
+            columnId: columnId,
+        };
     }
 }

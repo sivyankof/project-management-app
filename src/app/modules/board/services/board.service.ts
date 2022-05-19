@@ -39,11 +39,11 @@ export class BoardService implements OnDestroy {
             });
     }
 
-    public addTask(columnId: string, task: ITask): void {
-        this.http
-            .post(`boards/${this.boardsId}/columns/${columnId}/tasks`, task)
-            .pipe(take(1))
-            .subscribe(() => this.initBoards(this.boardsId));
+    public addTask(columnId: string, task: ITask): Observable<ITask> {
+        return this.http.post(`boards/${this.boardsId}/columns/${columnId}/tasks`, task).pipe(
+            take(1),
+            tap(() => this.initBoards(this.boardsId)),
+        );
     }
 
     public deleteColumn(columnId: string): void {
@@ -66,13 +66,11 @@ export class BoardService implements OnDestroy {
             });
     }
 
-    public deleteTask(taskId: string, columnId: string): void {
-        this.http
-            .delete(`boards/${this.boardsId}/columns/${columnId}/tasks/${taskId}`)
-            .pipe(take(1))
-            .subscribe(() => {
-                this.initBoards(this.boardsId);
-            });
+    public deleteTask(taskId: string, columnId: string): Observable<any> {
+        return this.http.delete(`boards/${this.boardsId}/columns/${columnId}/tasks/${taskId}`).pipe(
+            take(1),
+            tap(() => this.initBoards(this.boardsId)),
+        );
     }
 
     // Очищает все данные по борде после выхода из компонента
@@ -81,18 +79,7 @@ export class BoardService implements OnDestroy {
         this.boards$.complete();
     }
 
-    public updateTask(
-        task: {
-            title: string;
-            done: boolean;
-            order: number;
-            description: string;
-            userId: string;
-            boardId: string;
-            columnId: string;
-        },
-        taskId: string,
-    ): Observable<ITask> {
+    public updateTask(task: ITask, taskId: string): Observable<ITask> {
         return this.http.put(
             `boards/${task.boardId}/columns/${task.columnId}/tasks/${taskId}`,
             task,

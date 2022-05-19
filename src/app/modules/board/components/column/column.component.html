@@ -1,42 +1,42 @@
-<div class="title-column">
-    <form [formGroup]="columnForm" *ngIf="isEdit && columnForm" name="columnForm">
-        <input class="column-form-input" formControlName="title" matInput />
-        <mat-error class="input-error" *ngIf="title.invalid && title.touched">
-            <span *ngIf="title.errors?.['required']" i18n="Input message@@errorTitle"
-                >Please enter a title</span
+<div class='title-column'>
+    <form [formGroup]='columnForm' *ngIf='isEdit && columnForm' name='columnForm'>
+        <input class='column-form-input' formControlName='title' matInput />
+        <mat-error class='input-error' *ngIf='title.invalid && title.touched'>
+            <span *ngIf="title.errors?.['required']" i18n='Input message@@errorTitle'
+            >Please enter a title</span
             >
-            <span *ngIf="title.errors?.['minlength']" i18n="Error message@@shortTitleErr">
+            <span *ngIf="title.errors?.['minlength']" i18n='Error message@@shortTitleErr'>
                 The title is too short</span
             >
-            <span *ngIf="title.errors?.['maxlength']" i18n="Error message@@longTitleErr">
+            <span *ngIf="title.errors?.['maxlength']" i18n='Error message@@longTitleErr'>
                 The title is too long</span
             >
         </mat-error>
     </form>
     <button
-        class="btn-form-column"
-        *ngIf="isEdit"
-        color="warn"
+        class='btn-form-column'
+        *ngIf='isEdit'
+        color='warn'
         mat-raised-button
-        (click)="onSubmit()"
-        i18n="Button message@@submitText"
+        (click)='onSubmit()'
+        i18n='Button message@@submitText'
     >
         submit
     </button>
     <button
-        class="btn-form-column"
-        *ngIf="isEdit"
-        color="warn"
+        class='btn-form-column'
+        *ngIf='isEdit'
+        color='warn'
         mat-raised-button
-        (click)="onEditTitle()"
-        i18n="Button message@@cancelText"
+        (click)='onEditTitle()'
+        i18n='Button message@@cancelText'
     >
         cancel
     </button>
     <p *ngIf='!isEdit'
        class='column-title'
        (click)='onEditTitle()'
-       i18n="Simple message@@colTitleText"
+       i18n='Simple message@@colTitleText'
     >
         {{ column.title.slice(0, 1).toUpperCase() + column.title.slice(1) }}
     </p>
@@ -45,25 +45,23 @@
     </button>
 </div>
 
-<div class="column">
-    <button mat-mini-fab (click)="onAddTask(column)">
+<div class='column'>
+    <button mat-mini-fab (click)='onAddTask(column)'>
         <mat-icon>add</mat-icon>
     </button>
 
-    <div class="tasks">
-        <p *ngIf="!column.tasks.length; else tasks" i18n="Simple message@@emptyList">
-            Task list is empty
-        </p>
-    </div>
-
-    <ng-template #tasks>
-        <div cdkDropList class='example-list' [cdkDropListData]='column.tasks' (cdkDropListDropped)='drop($event)'>
+    <ng-container>
+        <div cdkDropList class='column-list'
+             [id]='column.id'
+             [cdkDropListData]='column.tasks'
+             [cdkDropListConnectedTo]='arrayColumnsId'
+             (cdkDropListDropped)='drop($event)'>
             <app-task *ngFor='let task of column.tasks;'
                       cdkDrag
-                      class='example-box'
+                      class='task-box'
                       [task]='task'
                       (deleteTask)='deleteTask.emit({task, columnId:column.id})'
                       (showTaskInfo)='showTask.emit({task, columnId:column.id})'></app-task>
         </div>
-    </ng-template>
+    </ng-container>
 </div>
