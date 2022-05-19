@@ -34,7 +34,6 @@ export class ListsShellComponent implements OnInit {
         });
     }
 
-    //TODO need make popup info description
     onShowInfo(id: string): void {
         this.boards$
             .pipe(
@@ -44,6 +43,12 @@ export class ListsShellComponent implements OnInit {
                 }),
                 map((board: IBoard) => board.description),
             )
-            .subscribe((x) => console.log(x));
+            .subscribe((value) => {
+                this.dialog.open(DialogComponent, {
+                    data: {
+                        info: value,
+                    },
+                });
+            });
     }
 }

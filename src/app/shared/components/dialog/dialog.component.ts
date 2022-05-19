@@ -12,7 +12,8 @@ export class DialogComponent implements OnInit {
 
     constructor(
         public dialogRef: MatDialogRef<DialogComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: { nameItem: string; inputTitle?: boolean },
+        @Inject(MAT_DIALOG_DATA)
+        public data: { nameItem: string; inputTitle?: boolean; info: string },
         private fb: FormBuilder,
     ) {}
 

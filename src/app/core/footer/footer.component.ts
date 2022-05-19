@@ -15,12 +15,12 @@ export class FooterComponent {
         {
             name: 'Анна',
             linkGit: 'https://github.com/AnnaRabychina',
-            avatar: 'https://avatars.githubusercontent.com/u/86958881?v=4',
+            avatar: 'https://annarabychina.github.io/rsschool-cv/img/avatar.jpg',
         },
         {
             name: 'Денис',
             linkGit: 'https://github.com/hokmyn',
-            avatar: 'https://avatars.githubusercontent.com/u/13340739?v=4',
+            avatar: 'https://github.com/hokmyn/rsschool-cv/blob/rsschool-cv-html/img/photo.jpg?raw=true',
         },
         {
             name: 'Rs school',
