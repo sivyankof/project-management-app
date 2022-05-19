@@ -31,7 +31,7 @@
     max-width: 350px;
     background-color: #dbcfc1;
     height: 100%;
-    overflow-y: scroll;
+    overflow: auto;
     max-height: 85%;
 
     .tasks {
@@ -58,8 +58,6 @@
     border-radius: 4px;
     overflow: hidden;
     display: block;
-    height: 100%;
-
 }
 
 .task-box {

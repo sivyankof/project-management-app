@@ -37,6 +37,7 @@
 <mat-dialog-actions class='create-board-controls'>
     <button
         mat-button
+        [routerLink]="['main', 'list']"
         [mat-dialog-close]='boardForm.value'
         [disabled]='boardForm.invalid'
         i18n='Button message@@createText'
