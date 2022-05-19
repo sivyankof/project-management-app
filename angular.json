@@ -16,9 +16,6 @@
             "root": "",
             "sourceRoot": "src",
             "prefix": "app",
-            "i18n": {
-                "sourceLocale": "en-US"
-            },
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
@@ -29,13 +26,20 @@
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "tsconfig.app.json",
                         "inlineStyleLanguage": "scss",
-                        "assets": ["src/favicon.ico", "src/assets"],
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets",
+                            {
+                              "glob": "_redirects",
+                              "input": "src",
+                              "output": "/"
+                            }
+                          ],
                         "styles": [
                             "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
                             "src/styles.scss"
                         ],
                         "scripts": [],
-                        "localize": true,
                         "aot": true
                     },
                     "configurations": {
@@ -44,7 +48,7 @@
                                 {
                                     "type": "initial",
                                     "maximumWarning": "500kb",
-                                    "maximumError": "1mb"
+                                    "maximumError": "3mb"
                                 },
                                 {
                                     "type": "anyComponentStyle",
@@ -67,12 +71,6 @@
                             "extractLicenses": false,
                             "sourceMap": true,
                             "namedChunks": true
-                        },
-                        "en-US": {
-                            "localize": ["en-US"]
-                        },
-                        "ru": {
-                            "localize": ["ru"]
                         }
                     },
                     "defaultConfiguration": "production"
@@ -86,12 +84,6 @@
                         },
                         "development": {
                             "browserTarget": "appName:build:development"
-                        },
-                        "en-US": {
-                            "browserTarget": "appName:build:en-US"
-                        },
-                        "ru": {
-                            "browserTarget": "appName:build:ru"
                         }
                     },
                     "defaultConfiguration": "development"
